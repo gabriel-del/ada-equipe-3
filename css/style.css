@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Open+Sans:wght@400;600;700&display=swap');
+
+:root {
+  --white: rgb(255, 255, 255);
+  --black: rgb(0, 0, 0);
+  --primary-color: rgb(255, 190, 51);
+  --secondary-color: rgb(34, 40, 49);
+  --text-color: rgb(31, 31, 31);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  color: #0c0c0c;
+  background-color: var(--white);
+  overflow-x: hidden;
+}
+
+a {
+  color: var(--white) !important;
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--primary-color) !important;
+}
+
+button:hover {
+  opacity: 70%;
+}
+
+svg {
+  overflow: hidden;
+  vertical-align: middle;
+}
+
+svg:hover {
+  fill: var(--primary-color) !important;
+}
+
+.bg-primary-color {
+  background-color: var(--primary-color);
+}
+
+.navbar-brand span {
+  font-family: 'Dancing Script', cursive;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.navbar-nav {
+  padding-left: 15%;
+}
+
+.nav-link {
+  padding: 5px 20px !important;
+  text-align: center;
+  transition: all 0.3s;
+}
+
+.user-option {
+  display: flex;
+  align-items: center;
+  gap: 1.3rem;
+}
+
+.user-option .cart-link svg {
+  width: 1rem;
+  height: auto;
+}
