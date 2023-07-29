@@ -95,9 +95,21 @@ svg:hover {
   height: auto;
 }
 
+.carousel {
+  padding: 45px 0 75px 0;
+}
+
+.carousel-item p {
+  font-size: 0.875rem;
+}
+
+.carousel-item .info-box {
+  margin-bottom: 9.063rem;
+}
+
 .carousel-indicators button {
-  width: 12px;
-  height: 12px;
+  width: 12px !important;
+  height: 12px !important;
   background-color: #cccccc; /* Cor da bolinha inativa */
   border-radius: 100%; /* Forma da bolinha */
 }
