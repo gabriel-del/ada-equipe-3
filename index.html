@@ -34,7 +34,7 @@
                 <span>Feane</span>
               </a>
               <button
-                class="navbar-toggler"
+                class="navbar-toggler border-0"
                 type="button"
                 data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent"
@@ -42,29 +42,31 @@
                 aria-expanded="false"
                 aria-label="Toggle navigation"
               >
-                <span class="navbar-toggler-icon"></span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="#ffffff" class="bi bi-list" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+                </svg>
               </button>
               <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mx-auto text-uppercase">
+                <ul class="navbar-nav mx-auto text-uppercase px-0">
                   <li class="nav-item">
                     <a
-                      class="nav-link active text-warning"
+                      class="nav-link active text-primary-color my-2"
                       aria-current="page"
-                      href="#"
+                      href="#hero"
                       >Home</a
                     >
                   </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">Menu</a>
+                  <li class="nav-item my-2">
+                    <a class="nav-link" href="#menu">Menu</a>
                   </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">About</a>
+                  <li class="nav-item my-2">
+                    <a class="nav-link" href="#about">About</a>
                   </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">Book Table</a>
+                  <li class="nav-item my-2">
+                    <a class="nav-link" href="#book-table">Book Table</a>
                   </li>
                 </ul>
-                <div class="user-option">
+                <div class="user-option justify-content-center my-2">
                   <a href="#" class="user-link">
                     <i class="fa fa-user" aria-hidden="true"></i>
                   </a>
@@ -142,68 +144,70 @@
       </header>
 
       <!-- carousel section -->
-      <div id="carouselExampleIndicators" class="carousel slide align-items-center position-relative h-100">
-        <div class="carousel-inner text-white">
-          <div class="carousel-item active h-100">
-            <div class="container">
-              <div class="row">
-                <div class="col-md-7 col-lg-6">
-                  <div class="info-box">
-                    <h1 class="mb-3">Fast Food Restaurant</h1>
-                    <p class="mb-4">
-                      Doloremque, itaque aperiam facilis rerum, commodi, temporibus sapiente ad mollitia laborum quam quisquam esse error unde. Tempora ex doloremque, labore, sunt repellat dolore, iste magni quos nihil ducimus libero ipsam.
-                    </p>
-                    <button class="px-4 py-2 rounded-5 border-0 bg-primary-color">
-                      Order Online
-                    </button>
+      <div id="hero" class="container carousel-section d-flex align-items-center h-100">
+        <div id="carouselExampleIndicators" class="carousel slide">
+          <div class="carousel-inner text-white">
+            <div class="carousel-item active">
+              <div class="container">
+                <div class="row">
+                  <div class="col-md-7 col-lg-6">
+                    <div class="info-box">
+                      <h1 class="mt-2 mb-3">Fast Food Restaurant</h1>
+                      <p class="mb-4">
+                        Doloremque, itaque aperiam facilis rerum, commodi, temporibus sapiente ad mollitia laborum quam quisquam esse error unde. Tempora ex doloremque, labore, sunt repellat dolore, iste magni quos nihil ducimus libero ipsam.
+                      </p>
+                      <button class="px-4 py-2 rounded-5 border-0 bg-primary-color">
+                        Order Online
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+  
+            <div class="carousel-item h-100">
+              <div class="container">
+                <div class="row">
+                  <div class="col-md-7 col-lg-6">
+                    <div class="info-box">
+                      <h1 class="mt-2 mb-3">Fast Food Restaurant</h1>
+                      <p class="mb-4">
+                        Doloremque, itaque aperiam facilis rerum, commodi, temporibus sapiente ad mollitia laborum quam quisquam esse error unde. Tempora ex doloremque, labore, sunt repellat dolore, iste magni quos nihil ducimus libero ipsam.
+                      </p>
+                      <button class="px-4 py-2 rounded-5 border-0 bg-primary-color">
+                        Order Online
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+  
+            <div class="carousel-item h-100">
+              <div class="container">
+                <div class="row">
+                  <div class="col-md-7 col-lg-6">
+                    <div class="info-box">
+                      <h1 class="mt-2 mb-3">Fast Food Restaurant</h1>
+                      <p class="mb-4">
+                        Doloremque, itaque aperiam facilis rerum, commodi, temporibus sapiente ad mollitia laborum quam quisquam esse error unde. Tempora ex doloremque, labore, sunt repellat dolore, iste magni quos nihil ducimus libero ipsam.
+                      </p>
+                      <button class="px-4 py-2 rounded-5 border-0 bg-primary-color">
+                        Order Online
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-
-          <div class="carousel-item h-100">
-            <div class="container">
-              <div class="row">
-                <div class="col-md-7 col-lg-6">
-                  <div class="info-box">
-                    <h1 class="mb-3">Fast Food Restaurant</h1>
-                    <p class="mb-4">
-                      Doloremque, itaque aperiam facilis rerum, commodi, temporibus sapiente ad mollitia laborum quam quisquam esse error unde. Tempora ex doloremque, labore, sunt repellat dolore, iste magni quos nihil ducimus libero ipsam.
-                    </p>
-                    <button class="px-4 py-2 rounded-5 border-0 bg-primary-color">
-                      Order Online
-                    </button>
-                  </div>
-                </div>
-              </div>
+          
+          <div class="container">
+            <div class="carousel-indicators align-items-center position-relative justify-content-start m-0">
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active opacity-100" aria-current="true" aria-label="Slide 1"></button>
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" class="opacity-100" aria-label="Slide 2"></button>
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" class="opacity-100" aria-label="Slide 3"></button>
             </div>
-          </div>
-
-          <div class="carousel-item h-100">
-            <div class="container">
-              <div class="row">
-                <div class="col-md-7 col-lg-6">
-                  <div class="info-box">
-                    <h1 class="mb-3">Fast Food Restaurant</h1>
-                    <p class="mb-4">
-                      Doloremque, itaque aperiam facilis rerum, commodi, temporibus sapiente ad mollitia laborum quam quisquam esse error unde. Tempora ex doloremque, labore, sunt repellat dolore, iste magni quos nihil ducimus libero ipsam.
-                    </p>
-                    <button class="px-4 py-2 rounded-5 border-0 bg-primary-color">
-                      Order Online
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <div class="container">
-          <div class="carousel-indicators align-items-center position-relative justify-content-start m-0">
-            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
           </div>
         </div>
       </div>

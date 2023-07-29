@@ -12,6 +12,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -65,7 +66,11 @@ svg:hover {
 }
 
 .bg-primary-color {
-  background-color: var(--primary-color);
+  background-color: var(--primary-color) !important;
+}
+
+.text-primary-color {
+  color: var(--primary-color) !important;
 }
 
 .navbar-brand span {
@@ -95,7 +100,7 @@ svg:hover {
   height: auto;
 }
 
-.carousel {
+.carousel-section {
   padding: 2.813rem 0 4.688rem 0;
 }
 
