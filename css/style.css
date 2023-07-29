@@ -80,7 +80,7 @@ svg:hover {
 }
 
 .navbar-nav {
-  padding-left: 15%;
+  padding-left: 18%;
 }
 
 .nav-link {
@@ -168,4 +168,10 @@ footer h4 {
   font-family: 'Dancing Script', cursive;
   font-weight: bold;
   font-size: 38px;
+}
+
+@media (max-width: 992px) {
+  .navbar-nav {
+    padding-left: 0;
+  }
 }
