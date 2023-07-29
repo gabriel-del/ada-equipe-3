@@ -18,7 +18,6 @@ body {
   font-family: 'Open Sans', sans-serif;
   color: #0c0c0c;
   background-color: var(--white);
-  overflow-x: hidden;
 }
 
 a {
@@ -41,6 +40,16 @@ svg {
 
 svg:hover {
   fill: var(--primary-color) !important;
+}
+
+.hero {
+  height: 100vh;
+  width: 100%;
+}
+
+.bg-box {
+  height: 100vh;
+  width: 100%;
 }
 
 .bg-primary-color {
