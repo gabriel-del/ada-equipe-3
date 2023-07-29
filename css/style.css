@@ -20,6 +20,13 @@ body {
   background-color: var(--white);
 }
 
+h1,
+h2,
+h3,
+h4 {
+  font-family: 'Dancing Script', cursive;
+}
+
 a {
   color: var(--white) !important;
   text-decoration: none;
@@ -83,25 +90,36 @@ svg:hover {
   height: auto;
 }
 
-
-footer {
-background-color: var(--secondary-color);
-color: var(--white);
-display: grid;
-/* grid-template-columns: 1fr 1fr 1fr; */
-/* grid-gap: 5px ; */
-grid-template-areas: 
-'contact feane opening'
-'rights rights rights';
-grid-gap: 10px;
-grid-template-columns: 1fr 1fr 1fr;
-padding: 75px 0 40px 0;
+.comentario {
+  background-color: #222831;
 }
 
-#footer-feane { grid-area: feane }
-#footer-contact { grid-area: contact }
-#footer-opening { grid-area: opening }
-#footer-rights { grid-area: rights }
+footer {
+  background-color: var(--secondary-color);
+  color: var(--white);
+  display: grid;
+  /* grid-template-columns: 1fr 1fr 1fr; */
+  /* grid-gap: 5px ; */
+  grid-template-areas:
+    'contact feane opening'
+    'rights rights rights';
+  grid-gap: 10px;
+  grid-template-columns: 1fr 1fr 1fr;
+  padding: 75px 0 40px 0;
+}
+
+#footer-feane {
+  grid-area: feane;
+}
+#footer-contact {
+  grid-area: contact;
+}
+#footer-opening {
+  grid-area: opening;
+}
+#footer-rights {
+  grid-area: rights;
+}
 
 footer div {
   /* background: #990000; */
@@ -109,13 +127,10 @@ footer div {
   /* justify-content: center; */
   /* align-content: center; */
   text-align: center;
-
-
 }
 
 footer h4 {
   font-family: 'Dancing Script', cursive;
   font-weight: bold;
   font-size: 38px;
-
 }
