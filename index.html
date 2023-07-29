@@ -1,225 +1,194 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="shortcut icon" href="./assets/favicon.png" type="image/x-icon" />
-    <title>Document</title>
 
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
-      crossorigin="anonymous"
-    />
-    <link rel="stylesheet" href="./css/font.awesome.min.css" />
-    <link rel="stylesheet" href="./css/./style.css" />
-    <link rel="stylesheet" href="./css/./responsive.css" />
-  </head>
-  <body class="overflow-x-hidden bg-light">
-    <div class="hero position-relative vw-100 d-flex flex-column">
-      <div class="bg-box position-absolute w-100 h-100 top-0">
-        <img
-          class="w-100 object-fit-contain align-middle border-0"
-          src="./assets/hero-bg.jpg"
-          alt=""
-        />
-      </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="shortcut icon" href="./assets/favicon.png" type="image/x-icon" />
+  <title>Document</title>
 
-      <header class="py-2">
-        <div class="container">
-          <nav class="navbar navbar-expand-lg bg-transparent">
-              <a class="navbar-brand text-white" href="#">
-                <span>Feane</span>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous" />
+  <link rel="stylesheet" href="./css/font.awesome.min.css" />
+  <link rel="stylesheet" href="./css/./style.css" />
+  <link rel="stylesheet" href="./css/./responsive.css" />
+</head>
+
+<body class="overflow-x-hidden bg-light">
+  <div class="hero position-relative vw-100 d-flex flex-column">
+    <div class="bg-box position-absolute w-100 h-100 top-0">
+      <img class="w-100 object-fit-contain align-middle border-0" src="./assets/hero-bg.jpg" alt="" />
+    </div>
+
+    <header class="py-2">
+      <div class="container">
+        <nav class="navbar navbar-expand-lg bg-transparent">
+          <a class="navbar-brand text-white" href="#">
+            <span>Feane</span>
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mx-auto text-uppercase">
+              <li class="nav-item">
+                <a class="nav-link active text-warning" aria-current="page" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Menu</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Book Table</a>
+              </li>
+            </ul>
+            <div class="user-option">
+              <a href="#" class="user-link">
+                <i class="fa fa-user" aria-hidden="true"></i>
               </a>
-              <button
-                class="navbar-toggler"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent"
-                aria-expanded="false"
-                aria-label="Toggle navigation"
-              >
-                <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mx-auto text-uppercase">
-                  <li class="nav-item">
-                    <a
-                      class="nav-link active text-warning"
-                      aria-current="page"
-                      href="#"
-                      >Home</a
-                    >
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">Menu</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">About</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">Book Table</a>
-                  </li>
-                </ul>
-                <div class="user-option">
-                  <a href="#" class="user-link">
-                    <i class="fa fa-user" aria-hidden="true"></i>
-                  </a>
-                  <a href="#" class="cart-link">
-                    <svg
-                      fill="#ffffff"
-                      version="1.1"
-                      id="Capa_1"
-                      xmlns="http://www.w3.org/2000/svg"
-                      xmlns:xlink="http://www.w3.org/1999/xlink"
-                      x="0px"
-                      y="0px"
-                      viewBox="0 0 456.029 456.029"
-                      xml:space="preserve"
-                      width="456.029"
-                      height="456.029"
-                    >
-                      <g>
-                        <g>
-                          <path
-                            d="M345.6,338.862c-29.184,0-53.248,23.552-53.248,53.248c0,29.184,23.552,53.248,53.248,53.248
-                       c29.184,0,53.248-23.552,53.248-53.248C398.336,362.926,374.784,338.862,345.6,338.862z"
-                          ></path>
-                        </g>
-                      </g>
-                      <g>
-                        <g>
-                          <path
-                            d="M439.296,84.91c-1.024,0-2.56-0.512-4.096-0.512H112.64l-5.12-34.304C104.448,27.566,84.992,10.67,61.952,10.67H20.48
+              <a href="#" class="cart-link">
+                <svg fill="#ffffff" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029"
+                  xml:space="preserve" width="456.029" height="456.029">
+                  <g>
+                    <g>
+                      <path d="M345.6,338.862c-29.184,0-53.248,23.552-53.248,53.248c0,29.184,23.552,53.248,53.248,53.248
+                       c29.184,0,53.248-23.552,53.248-53.248C398.336,362.926,374.784,338.862,345.6,338.862z"></path>
+                    </g>
+                  </g>
+                  <g>
+                    <g>
+                      <path d="M439.296,84.91c-1.024,0-2.56-0.512-4.096-0.512H112.64l-5.12-34.304C104.448,27.566,84.992,10.67,61.952,10.67H20.48
                        C9.216,10.67,0,19.886,0,31.15c0,11.264,9.216,20.48,20.48,20.48h41.472c2.56,0,4.608,2.048,5.12,4.608l31.744,216.064
                        c4.096,27.136,27.648,47.616,55.296,47.616h212.992c26.624,0,49.664-18.944,55.296-45.056l33.28-166.4
-                       C457.728,97.71,450.56,86.958,439.296,84.91z"
-                          ></path>
-                        </g>
-                      </g>
-                      <g>
-                        <g>
-                          <path
-                            d="M215.04,389.55c-1.024-28.16-24.576-50.688-52.736-50.688c-29.696,1.536-52.224,26.112-51.2,55.296
-                       c1.024,28.16,24.064,50.688,52.224,50.688h1.024C193.536,443.31,216.576,418.734,215.04,389.55z"
-                          ></path>
-                        </g>
-                      </g>
-                      <g></g>
-                      <g></g>
-                      <g></g>
-                      <g></g>
-                      <g></g>
-                      <g></g>
-                      <g></g>
-                      <g></g>
-                      <g></g>
-                      <g></g>
-                      <g></g>
-                      <g></g>
-                      <g></g>
-                      <g></g>
-                      <g></g>
-                    </svg>
-                  </a>
-                  <a href="#" class="search-btn">
-                    <i class="fa fa-search" aria-hidden="true"></i>
-                  </a>
-                  <form class="form-inline">
-                    <button
-                      class="px-4 py-2 rounded-5 border-0 bg-primary-color"
-                    >
-                      Order Online
+                       C457.728,97.71,450.56,86.958,439.296,84.91z"></path>
+                    </g>
+                  </g>
+                  <g>
+                    <g>
+                      <path d="M215.04,389.55c-1.024-28.16-24.576-50.688-52.736-50.688c-29.696,1.536-52.224,26.112-51.2,55.296
+                       c1.024,28.16,24.064,50.688,52.224,50.688h1.024C193.536,443.31,216.576,418.734,215.04,389.55z">
+                      </path>
+                    </g>
+                  </g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                </svg>
+              </a>
+              <a href="#" class="search-btn">
+                <i class="fa fa-search" aria-hidden="true"></i>
+              </a>
+              <form class="form-inline">
+                <button class="px-4 py-2 rounded-5 border-0 bg-primary-color">
+                  Order Online
+                </button>
+              </form>
+            </div>
+          </div>
+      </div>
+      </nav>
+    </header>
+
+    <section class="slider-section">
+      <div class="carousel slide">
+        <div class="carousel-inner">
+
+          <div class="carousel-item">
+            <div class="container">
+              <div class="row">
+                <div class="col-md-7 col-lg-6">
+                  <div class="detail-box">
+                    <h1>Fast Food Restaurant</h1>
+                    <p>Doloremque, itaque aperiam facilis rerum, commodi, temporibus sapiente ad mollitia laborum quam
+                      quisquam esse error unde. Tempora ex doloremque, labore, sunt repellat dolore, iste magni quos
+                      nihil ducimus libero ipsam.</p>
+                    <button class="px-4 py-2 rounded-5 border-0 bg-primary-color">
+                      Order Now
                     </button>
-                  </form>
+                  </div>
                 </div>
               </div>
             </div>
-          </nav>
-      </header>
+          </div>
+          <div class="carousel-item">
+            <div class="container">
+              <div class="row">
+                <div class="col-md-7 col-lg-6">
+                  <div class="detail-box">
+                    <h1>Fast Food Restaurant</h1>
+                    <p>Doloremque, itaque aperiam facilis rerum, commodi, temporibus sapiente ad mollitia laborum quam
+                      quisquam esse error unde. Tempora ex doloremque, labore, sunt repellat dolore, iste magni quos
+                      nihil ducimus libero ipsam.</p>
+                    <button class="px-4 py-2 rounded-5 border-0 bg-primary-color">
+                      Order Now
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="container">
+              <div class="row">
+                <div class="col-md-7 col-lg-6">
+                  <div class="detail-box">
+                    <h1>Fast Food Restaurant</h1>
+                    <p>Doloremque, itaque aperiam facilis rerum, commodi, temporibus sapiente ad mollitia laborum quam
+                      quisquam esse error unde. Tempora ex doloremque, labore, sunt repellat dolore, iste magni quos
+                      nihil ducimus libero ipsam.</p>
+                    <button class="px-4 py-2 rounded-5 border-0 bg-primary-color">
+                      Order Now
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
 
-      <section class="slider-section">
-        <div class="carousel slide">
+        </div>
+        <div class="container">
+          <ol class="carousel-indicators">
+            <li></li>
+            <li></li>
+            <li></li>
+          </ol>
+        </div>
+
+
+        <div id="carouselExampleIndicators" class="carousel slide">
+          <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+              aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+              aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+              aria-label="Slide 3"></button>
+          </div>
           <div class="carousel-inner">
-
-            <div class="carousel-item">
-              <div class="container">
-                <div class="row">
-                  <div class="col-md-7 col-lg-6">
-                    <div class="detail-box">
-                      <h1>Fast Food Restaurant</h1>
-                      <p>Doloremque, itaque aperiam facilis rerum, commodi, temporibus sapiente ad mollitia laborum quam quisquam esse error unde. Tempora ex doloremque, labore, sunt repellat dolore, iste magni quos nihil ducimus libero ipsam.</p>
-                      <button
-                      class="px-4 py-2 rounded-5 border-0 bg-primary-color"
-                    >
-                      Order Now
-                    </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="carousel-item">
-              <div class="container">
-                <div class="row">
-                  <div class="col-md-7 col-lg-6">
-                    <div class="detail-box">
-                      <h1>Fast Food Restaurant</h1>
-                      <p>Doloremque, itaque aperiam facilis rerum, commodi, temporibus sapiente ad mollitia laborum quam quisquam esse error unde. Tempora ex doloremque, labore, sunt repellat dolore, iste magni quos nihil ducimus libero ipsam.</p>
-                      <button
-                      class="px-4 py-2 rounded-5 border-0 bg-primary-color"
-                    >
-                      Order Now
-                    </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="carousel-item">
-              <div class="container">
-                <div class="row">
-                  <div class="col-md-7 col-lg-6">
-                    <div class="detail-box">
-                      <h1>Fast Food Restaurant</h1>
-                      <p>Doloremque, itaque aperiam facilis rerum, commodi, temporibus sapiente ad mollitia laborum quam quisquam esse error unde. Tempora ex doloremque, labore, sunt repellat dolore, iste magni quos nihil ducimus libero ipsam.</p>
-                      <button
-                      class="px-4 py-2 rounded-5 border-0 bg-primary-color"
-                    >
-                      Order Now
-                    </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-          </div>
-          <div class="container">
-            <ol class="carousel-indicators">
-              <li></li>
-              <li></li>
-              <li></li>
-            </ol>
-          </div>
-
-
-          <div id="carouselExampleIndicators" class="carousel slide">
-            <div class="carousel-indicators">
-              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-            </div>
-            <div class="carousel-inner">
-              <div class="carousel-item active">
-                <div class="detail-box">
-                  <h1>Fast Food Restaurant</h1>
-                  <p>Doloremque, itaque aperiam facilis rerum, commodi, temporibus sapiente ad mollitia laborum quam quisquam esse error unde. Tempora ex doloremque, labore, sunt repellat dolore, iste magni quos nihil ducimus libero ipsam.</p>
-                  <button
-                  class="px-4 py-2 rounded-5 border-0 bg-primary-color"
-                >
+            <div class="carousel-item active">
+              <div class="detail-box">
+                <h1>Fast Food Restaurant</h1>
+                <p>Doloremque, itaque aperiam facilis rerum, commodi, temporibus sapiente ad mollitia laborum quam
+                  quisquam esse error unde. Tempora ex doloremque, labore, sunt repellat dolore, iste magni quos nihil
+                  ducimus libero ipsam.</p>
+                <button class="px-4 py-2 rounded-5 border-0 bg-primary-color">
                   Order Now
                 </button>
               </div>
@@ -230,11 +199,13 @@
                 <img src="..." class="d-block w-100" alt="...">
               </div>
             </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+              data-bs-slide="prev">
               <span class="carousel-control-prev-icon" aria-hidden="true"></span>
               <span class="visually-hidden">Previous</span>
             </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+              data-bs-slide="next">
               <span class="carousel-control-next-icon" aria-hidden="true"></span>
               <span class="visually-hidden">Next</span>
             </button>
@@ -245,39 +216,40 @@
 
 
 
-      </section>
+    </section>
+  </div>
+  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+  <footer>
+    <div id="footer-contact">
+      <h4>Contact US</h4>
+      <p>Location</p>
+      <p>Call +01 1234567890</p>
+      <p>demo@gmail.com</p>
     </div>
-    <footer>
+    <div id="footer-feane">
+      <h4>Feane</h4>
+      <p>Necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words,
+        combined with</p>
       <div>
-        <h4>Contact US</h4>
-        <p>Location</p>
-        <p>Call +01 1234567890</p>
-        <p>demo@gmail.com</p>
+        <a href="a">1</a>
+        <a href="a">2</a>
+        <a href="a">3</a>
       </div>
-      <div>
-        <h4>Feane</h4>
-        <p>Necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with</p>
-        <div>
-          <a href="a">1</a>
-          <a href="a">2</a>
-          <a href="a">3</a>
-        </div>
-        <div>
-          <h4>Opening Hours</h4>
-          <p>Everyday</p>
-          <p>10.00 AM - 10.00 Pm</p>
-        </div>
-        <div>
-          <p>© 2023 All Rights Reserved By Free Html Templates</p>
-        </div>
-      </div>
+    </div>
+    <div id="footer-opening">
+      <h4>Opening Hours</h4>
+      <p>Everyday</p>
+      <p>10.00 AM - 10.00 Pm</p>
+    </div>
+    <div  id="footer-rights">
+      <p>© 2023 All Rights Reserved By Free Html Templates</p>
+    </div>
 
-    </footer>
+  </footer>
 
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
-      crossorigin="anonymous"
-    ></script>
-  </body>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+    crossorigin="anonymous"></script>
+</body>
+
 </html>
