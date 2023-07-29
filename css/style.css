@@ -124,6 +124,10 @@ svg:hover {
   background-color: rgb(34, 40, 49);
 }
 
+.foto{
+  width: 7rem;
+}
+
 footer {
   background-color: var(--secondary-color);
   color: var(--white);
