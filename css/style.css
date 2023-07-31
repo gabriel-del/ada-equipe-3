@@ -156,6 +156,20 @@ footer {
   grid-area: rights;
 }
 
+footer a {
+background-color: white;
+display: flex;
+justify-content: center;
+align-items: center;
+border-radius: 100%;
+width: 30px;
+height: 30px;
+}
+
+footer i {
+  color: black;
+}
+
 footer div {
   /* background: #990000; */
   /* display: grid; */
