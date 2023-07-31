@@ -277,6 +277,10 @@ footer {
   padding: 75px 0 40px 0;
 }
 
+footer h4 {
+  margin-bottom: 20px;
+}
+
 #footer-feane {
   grid-area: feane;
 }
@@ -288,6 +292,10 @@ footer {
 }
 #footer-rights {
   grid-area: rights;
+}
+
+#footer-contact p{
+  margin: 5px ;
 }
 
 #footer-feane div {
