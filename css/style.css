@@ -296,8 +296,8 @@ footer {
   align-items: center;
 }
 
-#footer-feane div i {
-margin: 5px;
+#footer-feane a {
+margin: 2.5px;
 }
 
 footer a {
