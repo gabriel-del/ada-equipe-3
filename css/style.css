@@ -313,6 +313,10 @@ svg:hover {
   align-items: center;
 }
 
+.formulario-inputs{
+  width: 50%;
+}
+
 footer {
   background-color: var(--secondary-color);
   color: var(--white);
@@ -389,5 +393,8 @@ footer h4 {
 @media (max-width: 992px) {
   .navbar-nav {
     padding-left: 0;
+  }
+  .formulario-inputs,.mapa{
+    width: 100%;
   }
 }
