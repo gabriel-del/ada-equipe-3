@@ -48,7 +48,7 @@ a:hover {
 }
 
 button:hover {
-  opacity: 70%;
+  background-color: #E69C00;
 }
 
 svg {
@@ -130,6 +130,104 @@ svg:hover {
   background-color: var(--primary-color) !important;
 }
 
+.ofertas {
+  gap: 30px;
+  font-family: 'Dancing Script', cursive;
+}
+
+.card-ofertas {
+  display: grid;
+  padding: 15px;
+  grid-template-columns: 1fr 1fr 1fr;
+  background-color: #222831;
+  column-gap: 20px;
+  width: 550px;
+  border-radius: 5px;
+
+}
+
+.img-ofertas {
+  border: 5px solid var(--primary-color);
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.img-ofertas img {
+  border-radius: 50%;
+  width: 170px;
+  transition: all 0.2s linear;
+}
+
+.valor-oferta {
+  font-size: 40px;
+}
+
+.btn-oferta {
+  background-color: var(--primary-color);
+  color: var(--black);
+  padding: 14px 40px;
+  border-radius: 30px;
+  font-family: 'Open Sans', sans-serif;
+  text-decoration: none;
+  transition: all 0.2s linear;
+}
+
+.img-ofertas img:hover {
+  scale: 1.1;
+}
+
+.btn-menu {
+  padding: 8px 25px;
+  border-radius: 30px;
+  text-decoration: none;
+  color: black;
+  font-family: Arial, Helvetica, sans-serif;
+  transition: all 0.2s linear;
+}
+
+.btn-menu:hover {
+  background-color: #222831;
+  color: white;
+}
+
+.btn-preco {
+  background-color: #FFBE33;
+  padding: 10px 15px;
+  border-radius: 50%;
+  text-decoration: none;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  transition: all 0.2s linear;
+}
+
+.item-cardapio {
+  border-radius: 15px;
+  padding: 0px;
+  margin: 15px;
+  background-color: #222831;
+  overflow: hidden;
+}
+
+.img-cardapio {
+  border-bottom-left-radius: 40px;
+  height: 200px;
+  background-color: #F1F2F3;
+}
+
+.img-cardapio img {
+  width: 160px;
+  transition: all 0.2s linear;
+}
+
+.img-cardapio img:hover {
+  scale: 1.1;
+}
+
+.descricao-cardapio {
+  color: white;
+  padding: 20px;
+}
+
 .comentario {
   background-color: rgb(34, 40, 49);
 }
@@ -164,7 +262,6 @@ svg:hover {
   justify-content: center;
   margin-top: 10px;
 }
-
 
 footer {
   background-color: var(--secondary-color);
