@@ -228,6 +228,40 @@ svg:hover {
   padding: 20px;
 }
 
+.about_section {
+  padding: 90px 0;
+  background: var(--secondary-color);
+  color: #ffffff;
+}
+
+.about_section .container .row{
+  align-items: center;
+  height: 100%;
+}
+
+.about_section .row a {
+  display: inline-block;
+  margin: 15px 0;
+  padding: 10px 45px;
+  background-color: var(--primary-color);
+  border-radius: 1.5em;
+}
+
+.image_box img{
+  width: 100%;
+  max-width: 445px;
+}
+
+.about_text h2 {
+  font-family: 'Dancing Script', cursive;
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+.about_text p {
+  margin-top: 15px;
+}
+
 .comentario {
   background-color: rgb(34, 40, 49);
 }
@@ -260,7 +294,27 @@ svg:hover {
 .carousel-controls {
   display: flex;
   justify-content: center;
-  margin-top: 10px;
+  margin-top: 45px;
+  gap: 8px;
+}
+
+.carousel-controls button {
+  color: #0c0c0c;
+}
+
+.carousel-controls span {
+  width: 20px;
+}
+
+.carousel-control-prev, .carousel-control-next {
+  max-width: 40px;
+  padding: 4px;
+  justify-content: center;
+  align-items: center;
+}
+
+.formulario-inputs{
+  width: 50%;
 }
 
 footer {
@@ -277,6 +331,10 @@ footer {
   padding: 75px 0 40px 0;
 }
 
+footer h4 {
+  margin-bottom: 20px;
+}
+
 #footer-feane {
   grid-area: feane;
 }
@@ -288,6 +346,10 @@ footer {
 }
 #footer-rights {
   grid-area: rights;
+}
+
+#footer-contact p{
+  margin: 5px ;
 }
 
 #footer-feane div {
@@ -331,5 +393,8 @@ footer h4 {
 @media (max-width: 992px) {
   .navbar-nav {
     padding-left: 0;
+  }
+  .formulario-inputs,.mapa{
+    width: 100%;
   }
 }
