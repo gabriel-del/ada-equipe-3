@@ -290,6 +290,16 @@ footer {
   grid-area: rights;
 }
 
+#footer-feane div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#footer-feane a {
+margin: 2.5px;
+}
+
 footer a {
 background-color: white;
 display: flex;
