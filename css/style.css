@@ -203,7 +203,7 @@ svg:hover {
 .item-cardapio {
   border-radius: 15px;
   padding: 0px;
-  margin: 15px;
+  /* margin: 15px; */
   background-color: #222831;
   overflow: hidden;
 }

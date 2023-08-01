@@ -1,1202 +1,1060 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="shortcut icon" href="./assets/favicon.png" type="image/x-icon" />
-    <title>Feane</title>
 
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
-      crossorigin="anonymous"
-    />
-    <link rel="stylesheet" href="./css/font.awesome.min.css" />
-    <link rel="stylesheet" href="./css/./style.css" />
-    <link rel="stylesheet" href="./css/./responsive.css" />
-  </head>
-  <body class="bg-light">
-    <!-- hero section -->
-    <div id="hero" class="hero position-relative d-flex flex-column">
-      <div class="bg-box position-absolute top-0">
-        <img
-          class="vh-100 vw-100 object-fit-cover border-0"
-          src="./assets/hero-bg.jpg"
-          alt=""
-        />
-      </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="shortcut icon" href="./assets/favicon.png" type="image/x-icon" />
+  <title>Feane</title>
 
-      <header class="py-2">
-        <div class="container">
-          <nav class="navbar navbar-expand-lg bg-transparent">
-              <a class="navbar-brand text-white" href="#">
-                <span>Feane</span>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous" />
+  <link rel="stylesheet" href="./css/font.awesome.min.css" />
+  <link rel="stylesheet" href="./css/./style.css" />
+  <link rel="stylesheet" href="./css/./responsive.css" />
+</head>
+
+<body class="bg-light">
+  <!-- hero section -->
+  <div id="hero" class="hero position-relative d-flex flex-column">
+    <div class="bg-box position-absolute top-0">
+      <img class="vh-100 vw-100 object-fit-cover border-0" src="./assets/hero-bg.jpg" alt="" />
+    </div>
+
+    <header class="py-2">
+      <div class="container">
+        <nav class="navbar navbar-expand-lg bg-transparent">
+          <a class="navbar-brand text-white" href="#">
+            <span>Feane</span>
+          </a>
+          <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="#ffffff" class="bi bi-list"
+              viewBox="0 0 16 16">
+              <path fill-rule="evenodd"
+                d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
+            </svg>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mx-auto text-uppercase">
+              <li class="nav-item px-sm-0">
+                <a class="nav-link active text-primary-color my-2" aria-current="page" href="#hero">Home</a>
+              </li>
+              <li class="nav-item my-2">
+                <a class="nav-link" href="#menu">Menu</a>
+              </li>
+              <li class="nav-item my-2">
+                <a class="nav-link" href="#about">About</a>
+              </li>
+              <li class="nav-item my-2">
+                <a class="nav-link" href="#book-table">Book Table</a>
+              </li>
+            </ul>
+            <div class="user-option justify-content-center my-2">
+              <a href="#" class="user-link">
+                <i class="fa fa-user" aria-hidden="true"></i>
               </a>
-              <button
-                class="navbar-toggler border-0"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent"
-                aria-expanded="false"
-                aria-label="Toggle navigation"
-              >
-                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="#ffffff" class="bi bi-list" viewBox="0 0 16 16">
-                <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
-                </svg>
-              </button>
-              <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mx-auto text-uppercase">
-                  <li class="nav-item px-sm-0">
-                    <a
-                      class="nav-link active text-primary-color my-2"
-                      aria-current="page"
-                      href="#hero"
-                      >Home</a
-                    >
-                  </li>
-                  <li class="nav-item my-2">
-                    <a class="nav-link" href="#menu">Menu</a>
-                  </li>
-                  <li class="nav-item my-2">
-                    <a class="nav-link" href="#about">About</a>
-                  </li>
-                  <li class="nav-item my-2">
-                    <a class="nav-link" href="#book-table">Book Table</a>
-                  </li>
-                </ul>
-                <div class="user-option justify-content-center my-2">
-                  <a href="#" class="user-link">
-                    <i class="fa fa-user" aria-hidden="true"></i>
-                  </a>
-                  <a href="#" class="cart-link">
-                    <svg
-                      fill="#ffffff"
-                      version="1.1"
-                      id="Capa_1"
-                      xmlns="http://www.w3.org/2000/svg"
-                      xmlns:xlink="http://www.w3.org/1999/xlink"
-                      x="0px"
-                      y="0px"
-                      viewBox="0 0 456.029 456.029"
-                      xml:space="preserve"
-                      width="456.029"
-                      height="456.029"
-                    >
-                      <g>
-                        <g>
-                          <path
-                            d="M345.6,338.862c-29.184,0-53.248,23.552-53.248,53.248c0,29.184,23.552,53.248,53.248,53.248
-                       c29.184,0,53.248-23.552,53.248-53.248C398.336,362.926,374.784,338.862,345.6,338.862z"
-                          ></path>
-                        </g>
-                      </g>
-                      <g>
-                        <g>
-                          <path
-                            d="M439.296,84.91c-1.024,0-2.56-0.512-4.096-0.512H112.64l-5.12-34.304C104.448,27.566,84.992,10.67,61.952,10.67H20.48
+              <a href="#" class="cart-link">
+                <svg fill="#ffffff" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029"
+                  xml:space="preserve" width="456.029" height="456.029">
+                  <g>
+                    <g>
+                      <path d="M345.6,338.862c-29.184,0-53.248,23.552-53.248,53.248c0,29.184,23.552,53.248,53.248,53.248
+                       c29.184,0,53.248-23.552,53.248-53.248C398.336,362.926,374.784,338.862,345.6,338.862z"></path>
+                    </g>
+                  </g>
+                  <g>
+                    <g>
+                      <path d="M439.296,84.91c-1.024,0-2.56-0.512-4.096-0.512H112.64l-5.12-34.304C104.448,27.566,84.992,10.67,61.952,10.67H20.48
                        C9.216,10.67,0,19.886,0,31.15c0,11.264,9.216,20.48,20.48,20.48h41.472c2.56,0,4.608,2.048,5.12,4.608l31.744,216.064
                        c4.096,27.136,27.648,47.616,55.296,47.616h212.992c26.624,0,49.664-18.944,55.296-45.056l33.28-166.4
-                       C457.728,97.71,450.56,86.958,439.296,84.91z"
-                          ></path>
-                        </g>
-                      </g>
-                      <g>
-                        <g>
-                          <path
-                            d="M215.04,389.55c-1.024-28.16-24.576-50.688-52.736-50.688c-29.696,1.536-52.224,26.112-51.2,55.296
-                       c1.024,28.16,24.064,50.688,52.224,50.688h1.024C193.536,443.31,216.576,418.734,215.04,389.55z"
-                          ></path>
-                        </g>
-                      </g>
-                      <g></g>
-                      <g></g>
-                      <g></g>
-                      <g></g>
-                      <g></g>
-                      <g></g>
-                      <g></g>
-                      <g></g>
-                      <g></g>
-                      <g></g>
-                      <g></g>
-                      <g></g>
-                      <g></g>
-                      <g></g>
-                      <g></g>
-                    </svg>
-                  </a>
-                  <a href="#" class="search-btn">
-                    <i class="fa fa-search" aria-hidden="true"></i>
-                  </a>
-                  <form class="form-inline">
-                    <button
-                      class="px-4 py-2 rounded-5 border-0 bg-primary-color"
-                    >
-                      Order Online
-                    </button>
-                  </form>
-                </div>
-              </div>
+                       C457.728,97.71,450.56,86.958,439.296,84.91z"></path>
+                    </g>
+                  </g>
+                  <g>
+                    <g>
+                      <path d="M215.04,389.55c-1.024-28.16-24.576-50.688-52.736-50.688c-29.696,1.536-52.224,26.112-51.2,55.296
+                       c1.024,28.16,24.064,50.688,52.224,50.688h1.024C193.536,443.31,216.576,418.734,215.04,389.55z">
+                      </path>
+                    </g>
+                  </g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                </svg>
+              </a>
+              <a href="#" class="search-btn">
+                <i class="fa fa-search" aria-hidden="true"></i>
+              </a>
+              <form class="form-inline">
+                <button class="px-4 py-2 rounded-5 border-0 bg-primary-color">
+                  Order Online
+                </button>
+              </form>
             </div>
-          </nav>
-      </header>
+          </div>
+      </div>
+      </nav>
+    </header>
 
-      <!-- carousel section -->
-      <div class="container carousel-section d-flex align-items-center h-100">
-        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-          <div class="carousel-inner text-white">
-            <div class="carousel-item active">
-              <div class="container">
-                <div class="row">
-                  <div class="col-md-7 col-lg-6">
-                    <div class="info-box">
-                      <h1 class="mt-2 mb-3">Fast Food Restaurant</h1>
-                      <p class="mb-4">
-                        Doloremque, itaque aperiam facilis rerum, commodi, temporibus sapiente ad mollitia laborum quam quisquam esse error unde. Tempora ex doloremque, labore, sunt repellat dolore, iste magni quos nihil ducimus libero ipsam.
-                      </p>
-                      <button class="px-4 py-2 rounded-5 border-0 bg-primary-color">
-                        Order Online
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-  
-            <div class="carousel-item h-100">
-              <div class="container">
-                <div class="row">
-                  <div class="col-md-7 col-lg-6">
-                    <div class="info-box">
-                      <h1 class="mt-2 mb-3">Fast Food Restaurant</h1>
-                      <p class="mb-4">
-                        Doloremque, itaque aperiam facilis rerum, commodi, temporibus sapiente ad mollitia laborum quam quisquam esse error unde. Tempora ex doloremque, labore, sunt repellat dolore, iste magni quos nihil ducimus libero ipsam.
-                      </p>
-                      <button class="px-4 py-2 rounded-5 border-0 bg-primary-color">
-                        Order Online
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-  
-            <div class="carousel-item h-100">
-              <div class="container">
-                <div class="row">
-                  <div class="col-md-7 col-lg-6">
-                    <div class="info-box">
-                      <h1 class="mt-2 mb-3">Fast Food Restaurant</h1>
-                      <p class="mb-4">
-                        Doloremque, itaque aperiam facilis rerum, commodi, temporibus sapiente ad mollitia laborum quam quisquam esse error unde. Tempora ex doloremque, labore, sunt repellat dolore, iste magni quos nihil ducimus libero ipsam.
-                      </p>
-                      <button class="px-4 py-2 rounded-5 border-0 bg-primary-color">
-                        Order Online
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          
-          <div class="container">
-            <div class="carousel-indicators align-items-center position-relative justify-content-start m-0">
-              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active opacity-100" aria-current="true" aria-label="Slide 1"></button>
-              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" class="opacity-100" aria-label="Slide 2"></button>
-              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" class="opacity-100" aria-label="Slide 3"></button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- end carousel section -->
-
-    </div>
-    <!-- end hero section -->
-
-    <!-- promo section -->
-    <section class="container ofertas d-flex justify-content-center mt-5 pb-5">
-      <div class="card-ofertas d-flex mt-5 flex-wrap">
-        <div class="img-ofertas">
-          <img src="assets/o1.jpg" alt="oferta1">
-        </div>
-        <div class="detalhe-oferta align-self-center">
-          <h4 class="m-0 text-white">Tasty Thursdays</h4>
-          <h6 class="py-3 text-white"><span class="valor-oferta">20%</span> Off</h6>
-          <button class="btn-oferta px-4 py-2 rounded-5 border-0 bg-primary-color">
-            Order Now
-            <svg
-              version="1.1"
-              id="Capa_1"
-              xmlns="http://www.w3.org/2000/svg"
-              xmlns:xlink="http://www.w3.org/1999/xlink"
-              x="0px"
-              y="0px"
-              viewBox="0 0 456.029 456.029"
-              xml:space="preserve"
-              width="16"
-              height="16"
-            >
-              <g>
-                <g>
-                  <path
-                    d="M345.6,338.862c-29.184,0-53.248,23.552-53.248,53.248c0,29.184,23.552,53.248,53.248,53.248
-                c29.184,0,53.248-23.552,53.248-53.248C398.336,362.926,374.784,338.862,345.6,338.862z"
-                  ></path>
-                </g>
-              </g>
-              <g>
-                <g>
-                  <path
-                    d="M439.296,84.91c-1.024,0-2.56-0.512-4.096-0.512H112.64l-5.12-34.304C104.448,27.566,84.992,10.67,61.952,10.67H20.48
-                C9.216,10.67,0,19.886,0,31.15c0,11.264,9.216,20.48,20.48,20.48h41.472c2.56,0,4.608,2.048,5.12,4.608l31.744,216.064
-                c4.096,27.136,27.648,47.616,55.296,47.616h212.992c26.624,0,49.664-18.944,55.296-45.056l33.28-166.4
-                C457.728,97.71,450.56,86.958,439.296,84.91z"
-                  ></path>
-                </g>
-              </g>
-              <g>
-                <g>
-                  <path
-                    d="M215.04,389.55c-1.024-28.16-24.576-50.688-52.736-50.688c-29.696,1.536-52.224,26.112-51.2,55.296
-                c1.024,28.16,24.064,50.688,52.224,50.688h1.024C193.536,443.31,216.576,418.734,215.04,389.55z"
-                  ></path>
-                </g>
-              </g>
-              <g></g>
-              <g></g>
-              <g></g>
-              <g></g>
-              <g></g>
-              <g></g>
-              <g></g>
-              <g></g>
-              <g></g>
-              <g></g>
-              <g></g>
-              <g></g>
-              <g></g>
-              <g></g>
-              <g></g>
-            </svg>
-          </button>
-        </div>
-      </div>
-      <div class="card-ofertas d-flex mt-5 flex-wrap">
-        <div class="img-ofertas">
-          <img src="assets/o2.jpg" alt="oferta2">
-        </div>
-        <div class="detalhe-oferta align-self-center">
-          <h4 class="m-0 text-white">Pizza Days</h4>
-          <h6 class="py-3 text-white"><span class="valor-oferta">15%</span> Off</h6>
-          <button class="btn-oferta px-4 py-2 rounded-5 border-0 bg-primary-color">
-            Order Now
-            <svg
-              version="1.1"
-              id="Capa_1"
-              xmlns="http://www.w3.org/2000/svg"
-              xmlns:xlink="http://www.w3.org/1999/xlink"
-              x="0px"
-              y="0px"
-              viewBox="0 0 456.029 456.029"
-              xml:space="preserve"
-              width="16"
-              height="16"
-            >
-              <g>
-                <g>
-                  <path
-                    d="M345.6,338.862c-29.184,0-53.248,23.552-53.248,53.248c0,29.184,23.552,53.248,53.248,53.248
-                c29.184,0,53.248-23.552,53.248-53.248C398.336,362.926,374.784,338.862,345.6,338.862z"
-                  ></path>
-                </g>
-              </g>
-              <g>
-                <g>
-                  <path
-                    d="M439.296,84.91c-1.024,0-2.56-0.512-4.096-0.512H112.64l-5.12-34.304C104.448,27.566,84.992,10.67,61.952,10.67H20.48
-                C9.216,10.67,0,19.886,0,31.15c0,11.264,9.216,20.48,20.48,20.48h41.472c2.56,0,4.608,2.048,5.12,4.608l31.744,216.064
-                c4.096,27.136,27.648,47.616,55.296,47.616h212.992c26.624,0,49.664-18.944,55.296-45.056l33.28-166.4
-                C457.728,97.71,450.56,86.958,439.296,84.91z"
-                  ></path>
-                </g>
-              </g>
-              <g>
-                <g>
-                  <path
-                    d="M215.04,389.55c-1.024-28.16-24.576-50.688-52.736-50.688c-29.696,1.536-52.224,26.112-51.2,55.296
-                c1.024,28.16,24.064,50.688,52.224,50.688h1.024C193.536,443.31,216.576,418.734,215.04,389.55z"
-                  ></path>
-                </g>
-              </g>
-              <g></g>
-              <g></g>
-              <g></g>
-              <g></g>
-              <g></g>
-              <g></g>
-              <g></g>
-              <g></g>
-              <g></g>
-              <g></g>
-              <g></g>
-              <g></g>
-              <g></g>
-              <g></g>
-              <g></g>
-            </svg>
-          </button>
-        </div>
-      </div>
-    </section>
-    <!-- end promo section -->
-    
-    <!-- our menu section -->
-    <section class="container">
-      <div class="menu pt-4 d-flex justify-content-center">
-        <h2>Our Menu</h2>
-      </div>
-      <div class="menu-opcoes pt-4 d-flex justify-content-center">
-        <a href="#" class="btn-menu text-white active bg-black">All</a>
-        <a href="#" class="btn-menu text-dark">Burger</a>
-        <a href="#" class="btn-menu text-dark">Pizza</a>
-        <a href="#" class="btn-menu text-dark">Pasta</a>
-        <a href="#" class="btn-menu text-dark">Fries</a>
-      </div>
-      <div>
-        <div class="row">
-          <div class="item-cardapio col">
-            <div class="img-cardapio d-flex justify-content-center align-items-center">
-              <img src="assets/f1.png" alt="item 1">
-            </div>
-            <div class="descricao-cardapio">
-              <h5>Delicious Pizza</h5>
-              <p>Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed
-                eaque</p>
-              <div class="preco d-flex justify-content-between align-items-center">
-                <span>$20</span>
-                <a href="#" class="btn-preco">
-                  <svg
-              version="1.1"
-              id="Capa_1"
-              xmlns="http://www.w3.org/2000/svg"
-              xmlns:xlink="http://www.w3.org/1999/xlink"
-              x="0px"
-              y="0px"
-              viewBox="0 0 456.029 456.029"
-              xml:space="preserve"
-              width="16"
-              height="16"
-            >
-              <g>
-                <g>
-                  <path
-                    d="M345.6,338.862c-29.184,0-53.248,23.552-53.248,53.248c0,29.184,23.552,53.248,53.248,53.248
-                c29.184,0,53.248-23.552,53.248-53.248C398.336,362.926,374.784,338.862,345.6,338.862z"
-                  ></path>
-                </g>
-              </g>
-              <g>
-                <g>
-                  <path
-                    d="M439.296,84.91c-1.024,0-2.56-0.512-4.096-0.512H112.64l-5.12-34.304C104.448,27.566,84.992,10.67,61.952,10.67H20.48
-                C9.216,10.67,0,19.886,0,31.15c0,11.264,9.216,20.48,20.48,20.48h41.472c2.56,0,4.608,2.048,5.12,4.608l31.744,216.064
-                c4.096,27.136,27.648,47.616,55.296,47.616h212.992c26.624,0,49.664-18.944,55.296-45.056l33.28-166.4
-                C457.728,97.71,450.56,86.958,439.296,84.91z"
-                  ></path>
-                </g>
-              </g>
-              <g>
-                <g>
-                  <path
-                    d="M215.04,389.55c-1.024-28.16-24.576-50.688-52.736-50.688c-29.696,1.536-52.224,26.112-51.2,55.296
-                c1.024,28.16,24.064,50.688,52.224,50.688h1.024C193.536,443.31,216.576,418.734,215.04,389.55z"
-                  ></path>
-                </g>
-              </g>
-              <g></g>
-              <g></g>
-              <g></g>
-              <g></g>
-              <g></g>
-              <g></g>
-              <g></g>
-              <g></g>
-              <g></g>
-              <g></g>
-              <g></g>
-              <g></g>
-              <g></g>
-              <g></g>
-              <g></g>
-            </svg>
-                </a>
-              </div>
-            </div>
-          </div>
-          <div class="item-cardapio col">
-            <div class="img-cardapio d-flex justify-content-center align-items-center">
-              <img src="assets/f2.png" alt="item 2">
-            </div>
-            <div class="descricao-cardapio">
-              <h5>Delicious Burger</h5>
-              <p>Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed
-                eaque</p>
-              <div class="preco d-flex justify-content-between align-items-center">
-                <span>$15</span>
-                <a href="#" class="btn-preco">
-                  <svg
-                    version="1.1"
-                    id="Capa_1"
-                    xmlns="http://www.w3.org/2000/svg"
-                    xmlns:xlink="http://www.w3.org/1999/xlink"
-                    x="0px"
-                    y="0px"
-                    viewBox="0 0 456.029 456.029"
-                    xml:space="preserve"
-                    width="16"
-                    height="16"
-                  >
-                    <g>
-                      <g>
-                        <path
-                          d="M345.6,338.862c-29.184,0-53.248,23.552-53.248,53.248c0,29.184,23.552,53.248,53.248,53.248
-                      c29.184,0,53.248-23.552,53.248-53.248C398.336,362.926,374.784,338.862,345.6,338.862z"
-                        ></path>
-                      </g>
-                    </g>
-                    <g>
-                      <g>
-                        <path
-                          d="M439.296,84.91c-1.024,0-2.56-0.512-4.096-0.512H112.64l-5.12-34.304C104.448,27.566,84.992,10.67,61.952,10.67H20.48
-                      C9.216,10.67,0,19.886,0,31.15c0,11.264,9.216,20.48,20.48,20.48h41.472c2.56,0,4.608,2.048,5.12,4.608l31.744,216.064
-                      c4.096,27.136,27.648,47.616,55.296,47.616h212.992c26.624,0,49.664-18.944,55.296-45.056l33.28-166.4
-                      C457.728,97.71,450.56,86.958,439.296,84.91z"
-                        ></path>
-                      </g>
-                    </g>
-                    <g>
-                      <g>
-                        <path
-                          d="M215.04,389.55c-1.024-28.16-24.576-50.688-52.736-50.688c-29.696,1.536-52.224,26.112-51.2,55.296
-                      c1.024,28.16,24.064,50.688,52.224,50.688h1.024C193.536,443.31,216.576,418.734,215.04,389.55z"
-                        ></path>
-                      </g>
-                    </g>
-                    <g></g>
-                    <g></g>
-                    <g></g>
-                    <g></g>
-                    <g></g>
-                    <g></g>
-                    <g></g>
-                    <g></g>
-                    <g></g>
-                    <g></g>
-                    <g></g>
-                    <g></g>
-                    <g></g>
-                    <g></g>
-                    <g></g>
-                  </svg>
-                </a>
-              </div>
-            </div>
-          </div>
-          <div class="item-cardapio col">
-            <div class="img-cardapio d-flex justify-content-center align-items-center">
-              <img src="assets/f3.png" alt="item 3">
-            </div>
-            <div class="descricao-cardapio">
-              <h5>Delicious Pizza</h5>
-              <p>Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed
-                eaque</p>
-              <div class="preco d-flex justify-content-between align-items-center">
-                <span>$17</span>
-                <a href="#" class="btn-preco">
-                  <svg
-                    version="1.1"
-                    id="Capa_1"
-                    xmlns="http://www.w3.org/2000/svg"
-                    xmlns:xlink="http://www.w3.org/1999/xlink"
-                    x="0px"
-                    y="0px"
-                    viewBox="0 0 456.029 456.029"
-                    xml:space="preserve"
-                    width="16"
-                    height="16"
-                  >
-                    <g>
-                      <g>
-                        <path
-                          d="M345.6,338.862c-29.184,0-53.248,23.552-53.248,53.248c0,29.184,23.552,53.248,53.248,53.248
-                      c29.184,0,53.248-23.552,53.248-53.248C398.336,362.926,374.784,338.862,345.6,338.862z"
-                        ></path>
-                      </g>
-                    </g>
-                    <g>
-                      <g>
-                        <path
-                          d="M439.296,84.91c-1.024,0-2.56-0.512-4.096-0.512H112.64l-5.12-34.304C104.448,27.566,84.992,10.67,61.952,10.67H20.48
-                      C9.216,10.67,0,19.886,0,31.15c0,11.264,9.216,20.48,20.48,20.48h41.472c2.56,0,4.608,2.048,5.12,4.608l31.744,216.064
-                      c4.096,27.136,27.648,47.616,55.296,47.616h212.992c26.624,0,49.664-18.944,55.296-45.056l33.28-166.4
-                      C457.728,97.71,450.56,86.958,439.296,84.91z"
-                        ></path>
-                      </g>
-                    </g>
-                    <g>
-                      <g>
-                        <path
-                          d="M215.04,389.55c-1.024-28.16-24.576-50.688-52.736-50.688c-29.696,1.536-52.224,26.112-51.2,55.296
-                      c1.024,28.16,24.064,50.688,52.224,50.688h1.024C193.536,443.31,216.576,418.734,215.04,389.55z"
-                        ></path>
-                      </g>
-                    </g>
-                    <g></g>
-                    <g></g>
-                    <g></g>
-                    <g></g>
-                    <g></g>
-                    <g></g>
-                    <g></g>
-                    <g></g>
-                    <g></g>
-                    <g></g>
-                    <g></g>
-                    <g></g>
-                    <g></g>
-                    <g></g>
-                    <g></g>
-                  </svg>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="item-cardapio col">
-            <div class="img-cardapio d-flex justify-content-center align-items-center">
-              <img src="assets/f4.png" alt="item 4">
-            </div>
-            <div class="descricao-cardapio">
-              <h5>Delicious Pasta</h5>
-              <p>Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed
-                eaque</p>
-              <div class="preco d-flex justify-content-between align-items-center">
-                <span>$18</span>
-                <a href="#" class="btn-preco">
-                  <svg
-                    version="1.1"
-                    id="Capa_1"
-                    xmlns="http://www.w3.org/2000/svg"
-                    xmlns:xlink="http://www.w3.org/1999/xlink"
-                    x="0px"
-                    y="0px"
-                    viewBox="0 0 456.029 456.029"
-                    xml:space="preserve"
-                    width="16"
-                    height="16"
-                  >
-                    <g>
-                      <g>
-                        <path
-                          d="M345.6,338.862c-29.184,0-53.248,23.552-53.248,53.248c0,29.184,23.552,53.248,53.248,53.248
-                      c29.184,0,53.248-23.552,53.248-53.248C398.336,362.926,374.784,338.862,345.6,338.862z"
-                        ></path>
-                      </g>
-                    </g>
-                    <g>
-                      <g>
-                        <path
-                          d="M439.296,84.91c-1.024,0-2.56-0.512-4.096-0.512H112.64l-5.12-34.304C104.448,27.566,84.992,10.67,61.952,10.67H20.48
-                      C9.216,10.67,0,19.886,0,31.15c0,11.264,9.216,20.48,20.48,20.48h41.472c2.56,0,4.608,2.048,5.12,4.608l31.744,216.064
-                      c4.096,27.136,27.648,47.616,55.296,47.616h212.992c26.624,0,49.664-18.944,55.296-45.056l33.28-166.4
-                      C457.728,97.71,450.56,86.958,439.296,84.91z"
-                        ></path>
-                      </g>
-                    </g>
-                    <g>
-                      <g>
-                        <path
-                          d="M215.04,389.55c-1.024-28.16-24.576-50.688-52.736-50.688c-29.696,1.536-52.224,26.112-51.2,55.296
-                      c1.024,28.16,24.064,50.688,52.224,50.688h1.024C193.536,443.31,216.576,418.734,215.04,389.55z"
-                        ></path>
-                      </g>
-                    </g>
-                    <g></g>
-                    <g></g>
-                    <g></g>
-                    <g></g>
-                    <g></g>
-                    <g></g>
-                    <g></g>
-                    <g></g>
-                    <g></g>
-                    <g></g>
-                    <g></g>
-                    <g></g>
-                    <g></g>
-                    <g></g>
-                    <g></g>
-                  </svg>
-                </a>
-              </div>
-            </div>
-          </div>
-          <div class="item-cardapio col">
-            <div class="img-cardapio d-flex justify-content-center align-items-center">
-              <img src="assets/f5.png" alt="item 5">
-            </div>
-            <div class="descricao-cardapio">
-              <h5>French Fries</h5>
-              <p>Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed
-                eaque</p>
-              <div class="preco d-flex justify-content-between align-items-center">
-                <span>$10</span>
-                <a href="#" class="btn-preco">
-                  <svg
-                    version="1.1"
-                    id="Capa_1"
-                    xmlns="http://www.w3.org/2000/svg"
-                    xmlns:xlink="http://www.w3.org/1999/xlink"
-                    x="0px"
-                    y="0px"
-                    viewBox="0 0 456.029 456.029"
-                    xml:space="preserve"
-                    width="16"
-                    height="16"
-                  >
-                    <g>
-                      <g>
-                        <path
-                          d="M345.6,338.862c-29.184,0-53.248,23.552-53.248,53.248c0,29.184,23.552,53.248,53.248,53.248
-                      c29.184,0,53.248-23.552,53.248-53.248C398.336,362.926,374.784,338.862,345.6,338.862z"
-                        ></path>
-                      </g>
-                    </g>
-                    <g>
-                      <g>
-                        <path
-                          d="M439.296,84.91c-1.024,0-2.56-0.512-4.096-0.512H112.64l-5.12-34.304C104.448,27.566,84.992,10.67,61.952,10.67H20.48
-                      C9.216,10.67,0,19.886,0,31.15c0,11.264,9.216,20.48,20.48,20.48h41.472c2.56,0,4.608,2.048,5.12,4.608l31.744,216.064
-                      c4.096,27.136,27.648,47.616,55.296,47.616h212.992c26.624,0,49.664-18.944,55.296-45.056l33.28-166.4
-                      C457.728,97.71,450.56,86.958,439.296,84.91z"
-                        ></path>
-                      </g>
-                    </g>
-                    <g>
-                      <g>
-                        <path
-                          d="M215.04,389.55c-1.024-28.16-24.576-50.688-52.736-50.688c-29.696,1.536-52.224,26.112-51.2,55.296
-                      c1.024,28.16,24.064,50.688,52.224,50.688h1.024C193.536,443.31,216.576,418.734,215.04,389.55z"
-                        ></path>
-                      </g>
-                    </g>
-                    <g></g>
-                    <g></g>
-                    <g></g>
-                    <g></g>
-                    <g></g>
-                    <g></g>
-                    <g></g>
-                    <g></g>
-                    <g></g>
-                    <g></g>
-                    <g></g>
-                    <g></g>
-                    <g></g>
-                    <g></g>
-                    <g></g>
-                  </svg>
-                </a>
-              </div>
-            </div>
-          </div>
-          <div class="item-cardapio col">
-            <div class="img-cardapio d-flex justify-content-center align-items-center">
-              <img src="assets/f6.png" alt="item 6">
-            </div>
-            <div class="descricao-cardapio">
-              <h5>Delicious Pizza</h5>
-              <p>Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed
-                eaque</p>
-              <div class="preco d-flex justify-content-between align-items-center">
-                <span>$10</span>
-                <a href="#" class="btn-preco">
-                  <svg
-                    version="1.1"
-                    id="Capa_1"
-                    xmlns="http://www.w3.org/2000/svg"
-                    xmlns:xlink="http://www.w3.org/1999/xlink"
-                    x="0px"
-                    y="0px"
-                    viewBox="0 0 456.029 456.029"
-                    xml:space="preserve"
-                    width="16"
-                    height="16"
-                  >
-                    <g>
-                      <g>
-                        <path
-                          d="M345.6,338.862c-29.184,0-53.248,23.552-53.248,53.248c0,29.184,23.552,53.248,53.248,53.248
-                      c29.184,0,53.248-23.552,53.248-53.248C398.336,362.926,374.784,338.862,345.6,338.862z"
-                        ></path>
-                      </g>
-                    </g>
-                    <g>
-                      <g>
-                        <path
-                          d="M439.296,84.91c-1.024,0-2.56-0.512-4.096-0.512H112.64l-5.12-34.304C104.448,27.566,84.992,10.67,61.952,10.67H20.48
-                      C9.216,10.67,0,19.886,0,31.15c0,11.264,9.216,20.48,20.48,20.48h41.472c2.56,0,4.608,2.048,5.12,4.608l31.744,216.064
-                      c4.096,27.136,27.648,47.616,55.296,47.616h212.992c26.624,0,49.664-18.944,55.296-45.056l33.28-166.4
-                      C457.728,97.71,450.56,86.958,439.296,84.91z"
-                        ></path>
-                      </g>
-                    </g>
-                    <g>
-                      <g>
-                        <path
-                          d="M215.04,389.55c-1.024-28.16-24.576-50.688-52.736-50.688c-29.696,1.536-52.224,26.112-51.2,55.296
-                      c1.024,28.16,24.064,50.688,52.224,50.688h1.024C193.536,443.31,216.576,418.734,215.04,389.55z"
-                        ></path>
-                      </g>
-                    </g>
-                    <g></g>
-                    <g></g>
-                    <g></g>
-                    <g></g>
-                    <g></g>
-                    <g></g>
-                    <g></g>
-                    <g></g>
-                    <g></g>
-                    <g></g>
-                    <g></g>
-                    <g></g>
-                    <g></g>
-                    <g></g>
-                    <g></g>
-                  </svg>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="item-cardapio col">
-            <div class="img-cardapio d-flex justify-content-center align-items-center">
-              <img src="assets/f7.png" alt="item 7">
-            </div>
-            <div class="descricao-cardapio">
-              <h5>Tasty Burger</h5>
-              <p>Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed
-                eaque</p>
-              <div class="preco d-flex justify-content-between align-items-center">
-                <span>$12</span>
-                <a href="#" class="btn-preco">
-                  <svg
-                    version="1.1"
-                    id="Capa_1"
-                    xmlns="http://www.w3.org/2000/svg"
-                    xmlns:xlink="http://www.w3.org/1999/xlink"
-                    x="0px"
-                    y="0px"
-                    viewBox="0 0 456.029 456.029"
-                    xml:space="preserve"
-                    width="16"
-                    height="16"
-                  >
-                    <g>
-                      <g>
-                        <path
-                          d="M345.6,338.862c-29.184,0-53.248,23.552-53.248,53.248c0,29.184,23.552,53.248,53.248,53.248
-                      c29.184,0,53.248-23.552,53.248-53.248C398.336,362.926,374.784,338.862,345.6,338.862z"
-                        ></path>
-                      </g>
-                    </g>
-                    <g>
-                      <g>
-                        <path
-                          d="M439.296,84.91c-1.024,0-2.56-0.512-4.096-0.512H112.64l-5.12-34.304C104.448,27.566,84.992,10.67,61.952,10.67H20.48
-                      C9.216,10.67,0,19.886,0,31.15c0,11.264,9.216,20.48,20.48,20.48h41.472c2.56,0,4.608,2.048,5.12,4.608l31.744,216.064
-                      c4.096,27.136,27.648,47.616,55.296,47.616h212.992c26.624,0,49.664-18.944,55.296-45.056l33.28-166.4
-                      C457.728,97.71,450.56,86.958,439.296,84.91z"
-                        ></path>
-                      </g>
-                    </g>
-                    <g>
-                      <g>
-                        <path
-                          d="M215.04,389.55c-1.024-28.16-24.576-50.688-52.736-50.688c-29.696,1.536-52.224,26.112-51.2,55.296
-                      c1.024,28.16,24.064,50.688,52.224,50.688h1.024C193.536,443.31,216.576,418.734,215.04,389.55z"
-                        ></path>
-                      </g>
-                    </g>
-                    <g></g>
-                    <g></g>
-                    <g></g>
-                    <g></g>
-                    <g></g>
-                    <g></g>
-                    <g></g>
-                    <g></g>
-                    <g></g>
-                    <g></g>
-                    <g></g>
-                    <g></g>
-                    <g></g>
-                    <g></g>
-                    <g></g>
-                  </svg>
-                </a>
-              </div>
-            </div>
-          </div>
-          <div class="item-cardapio col">
-            <div class="img-cardapio d-flex justify-content-center align-items-center">
-              <img src="assets/f8.png" alt="item 8">
-            </div>
-            <div class="descricao-cardapio">
-              <h5>Tasty Burger</h5>
-              <p>Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed
-                eaque</p>
-              <div class="preco d-flex justify-content-between align-items-center">
-                <span>$14</span>
-                <a href="#" class="btn-preco">
-                  <svg
-                    version="1.1"
-                    id="Capa_1"
-                    xmlns="http://www.w3.org/2000/svg"
-                    xmlns:xlink="http://www.w3.org/1999/xlink"
-                    x="0px"
-                    y="0px"
-                    viewBox="0 0 456.029 456.029"
-                    xml:space="preserve"
-                    width="16"
-                    height="16"
-                  >
-                    <g>
-                      <g>
-                        <path
-                          d="M345.6,338.862c-29.184,0-53.248,23.552-53.248,53.248c0,29.184,23.552,53.248,53.248,53.248
-                      c29.184,0,53.248-23.552,53.248-53.248C398.336,362.926,374.784,338.862,345.6,338.862z"
-                        ></path>
-                      </g>
-                    </g>
-                    <g>
-                      <g>
-                        <path
-                          d="M439.296,84.91c-1.024,0-2.56-0.512-4.096-0.512H112.64l-5.12-34.304C104.448,27.566,84.992,10.67,61.952,10.67H20.48
-                      C9.216,10.67,0,19.886,0,31.15c0,11.264,9.216,20.48,20.48,20.48h41.472c2.56,0,4.608,2.048,5.12,4.608l31.744,216.064
-                      c4.096,27.136,27.648,47.616,55.296,47.616h212.992c26.624,0,49.664-18.944,55.296-45.056l33.28-166.4
-                      C457.728,97.71,450.56,86.958,439.296,84.91z"
-                        ></path>
-                      </g>
-                    </g>
-                    <g>
-                      <g>
-                        <path
-                          d="M215.04,389.55c-1.024-28.16-24.576-50.688-52.736-50.688c-29.696,1.536-52.224,26.112-51.2,55.296
-                      c1.024,28.16,24.064,50.688,52.224,50.688h1.024C193.536,443.31,216.576,418.734,215.04,389.55z"
-                        ></path>
-                      </g>
-                    </g>
-                    <g></g>
-                    <g></g>
-                    <g></g>
-                    <g></g>
-                    <g></g>
-                    <g></g>
-                    <g></g>
-                    <g></g>
-                    <g></g>
-                    <g></g>
-                    <g></g>
-                    <g></g>
-                    <g></g>
-                    <g></g>
-                    <g></g>
-                  </svg>
-                </a>
-              </div>
-            </div>
-          </div>
-          <div class="item-cardapio col">
-            <div class="img-cardapio d-flex justify-content-center align-items-center">
-              <img src="assets/f9.png" alt="item 9">
-            </div>
-            <div class="descricao-cardapio">
-              <h5>Delicious Pasta</h5>
-              <p>Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed
-                eaque</p>
-              <div class="preco d-flex justify-content-between align-items-center">
-                <span>$10</span>
-                <a href="#" class="btn-preco">
-                  <svg
-                    version="1.1"
-                    id="Capa_1"
-                    xmlns="http://www.w3.org/2000/svg"
-                    xmlns:xlink="http://www.w3.org/1999/xlink"
-                    x="0px"
-                    y="0px"
-                    viewBox="0 0 456.029 456.029"
-                    xml:space="preserve"
-                    width="16"
-                    height="16"
-                  >
-                    <g>
-                      <g>
-                        <path
-                          d="M345.6,338.862c-29.184,0-53.248,23.552-53.248,53.248c0,29.184,23.552,53.248,53.248,53.248
-                      c29.184,0,53.248-23.552,53.248-53.248C398.336,362.926,374.784,338.862,345.6,338.862z"
-                        ></path>
-                      </g>
-                    </g>
-                    <g>
-                      <g>
-                        <path
-                          d="M439.296,84.91c-1.024,0-2.56-0.512-4.096-0.512H112.64l-5.12-34.304C104.448,27.566,84.992,10.67,61.952,10.67H20.48
-                      C9.216,10.67,0,19.886,0,31.15c0,11.264,9.216,20.48,20.48,20.48h41.472c2.56,0,4.608,2.048,5.12,4.608l31.744,216.064
-                      c4.096,27.136,27.648,47.616,55.296,47.616h212.992c26.624,0,49.664-18.944,55.296-45.056l33.28-166.4
-                      C457.728,97.71,450.56,86.958,439.296,84.91z"
-                        ></path>
-                      </g>
-                    </g>
-                    <g>
-                      <g>
-                        <path
-                          d="M215.04,389.55c-1.024-28.16-24.576-50.688-52.736-50.688c-29.696,1.536-52.224,26.112-51.2,55.296
-                      c1.024,28.16,24.064,50.688,52.224,50.688h1.024C193.536,443.31,216.576,418.734,215.04,389.55z"
-                        ></path>
-                      </g>
-                    </g>
-                    <g></g>
-                    <g></g>
-                    <g></g>
-                    <g></g>
-                    <g></g>
-                    <g></g>
-                    <g></g>
-                    <g></g>
-                    <g></g>
-                    <g></g>
-                    <g></g>
-                    <g></g>
-                    <g></g>
-                    <g></g>
-                    <g></g>
-                  </svg>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="d-flex justify-content-center py-5">
-          <button class="px-5 py-2 rounded-5 border-0 bg-primary-color">
-            View More
-          </button>
-        </div>
-      </div>
-    </section>
-    <!-- end our menu section -->
-
-    <!-- burger section -->
-    <section class="about_section h-">
-      <div class="container h-100">
-          <div class="row">
-              <div class="col-md-6">
-                  <div class="image_box d-flex justify-content-center">
-                      <img src="assets/about-img.png" alt="Drawing of a hamburguer.">
-                  </div>
-              </div>
-              <div class="col-md-6">
-                <div class="about_text">
-                    <h2>We Are Feane</h2>
-                    <p>
-                      There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration
-                      in some form, by injected humour, or randomised words which don't look even slightly believable. If you
-                      are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in
-                      the middle of text. All
+    <!-- carousel section -->
+    <div class="container carousel-section d-flex align-items-center h-100">
+      <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner text-white">
+          <div class="carousel-item active">
+            <div class="container">
+              <div class="row">
+                <div class="col-md-7 col-lg-6">
+                  <div class="info-box">
+                    <h1 class="mt-2 mb-3">Fast Food Restaurant</h1>
+                    <p class="mb-4">
+                      Doloremque, itaque aperiam facilis rerum, commodi, temporibus sapiente ad mollitia laborum quam
+                      quisquam esse error unde. Tempora ex doloremque, labore, sunt repellat dolore, iste magni quos
+                      nihil ducimus libero ipsam.
                     </p>
                     <button class="px-4 py-2 rounded-5 border-0 bg-primary-color">
-                      Read More
+                      Order Online
                     </button>
-                </div>
-            </div>
-          </div>
-      </div>
-    </section>
-    <!-- end burger section -->
-
-    <!-- start forms -->
-    <section class="formulario container mb-5 mt-5">
-      <h2>Book a table</h2>
-      <div class="divisao d-flex justify-content-between flex-wrap">
-           <form class="formulario-inputs mt-3">
-                <div class="mb-4">
-                  <input type="text" class="form-control py-2" placeholder="Your Name">
-                </div>
-                <div class="mb-4">
-                     <input type="number" class="form-control py-2" placeholder="Phone Number">
-                </div>
-                <div class="mb-4">
-                     <input type="email" class="form-control py-2" placeholder="Your Email">
-                </div>
-                   <div class="mb-4">
-                     <input type="date" class="form-control py-2" placeholder="Your Email">
-                   </div>
-                <select class="form-select mb-5 py-2">
-                     <option selected>How many persons?</option>
-                     <option value="2">2</option>
-                     <option value="3">3</option>
-                     <option value="4">4</option>
-                     <option value="5">5</option>
-                   </select>
-                   <div class="mt-4">
-                     <button type="submit" class="btn btn-warning rounded-pill px-5 btn-lg mb-5">BOOK NOW</button>
-                   </div>
-                   
-              </form>
-              <iframe class="mb-5 rounded-3" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.8354348104104!2d144.96305791532114!3d-37.81410797975159!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642af0f11fd81%3A0x5045675218ce7e0!2sMelbourne%20VIC%2C%20Australia!5e0!3m2!1sen!2sus!4v1590147854552!5m2!1sen!2sus" width="500" height="450" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
-      </div>
-    </section>
-    <!-- end forms -->
-
-    <!-- start comments -->
-    <section class="comentarios mb-5">
-      <div class="mt-5 d-flex justify-content-center mb-3">
-        <h2 class="mb-4">What Says Our Customers</h2>
-      </div>
-
-      <div class="container text-center">
-        <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
-          <div class="carousel-inner">
-            <div class="carousel-item active">
-              <div class="row">
-                <div class="col-md-6">
-                  <div class="col text-light text-start mx-1">
-                    <div class="comentario rounded p-4 pb-2">
-                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
-                      <p class="h5 fs-6 fw-bolder">Mike Hamell </p>
-                      <p>magna aliqua</p>
-                    </div>
-        
-                    <div class="foto mb-2">
-                      <div class="foto-depoimento w-25 mt-4 mx-auto">
-                        </div>
-                        <img src="/assets/client2.jpg" alt="cliente 2" class="foto rounded-circle border border-5 border-warning mx-auto" >
-                    </div>
-
                   </div>
                 </div>
-                <div class="col-md-6">
-                  <div class="col text-light text-start mx-1">
-                    <div class="comentario rounded p-4 pb-2">
-                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
-                      <p class="h5 fs-6 fw-bolder">Moana Mitchell </p>
-                      <p>magna aliqua</p>
-                    </div>
-                    
-                    <div class="foto mb-2">
-                      <div class="foto-depoimento w-25 mt-4 mx-auto"></div>
-                        <img src="/assets/client1.jpg" alt="cliente 1" class="foto rounded-circle border border-5 border-warning mx-auto" >
-                    </div>
-
-                  </div>
-                </div>
-                
               </div>
             </div>
-            <div class="carousel-item">
+          </div>
+
+          <div class="carousel-item h-100">
+            <div class="container">
               <div class="row">
-                <div class="col-md-6">
-                  <div class="col text-light text-start mx-1">
-                    <div class="comentario rounded p-4 pb-2">
-                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
-                      <p class="h5 fs-6 fw-bolder">Mike Hamell </p>
-                      <p>magna aliqua</p>
-                    </div>
-        
-                    <div class="foto mb-2">
-                      <div class="foto-depoimento w-25 mt-4 mx-auto">
-                        </div>
-                        <img src="/assets/client2.jpg" alt="cliente 2" class="foto rounded-circle border border-5 border-warning mx-auto" >
-                    </div>
-
+                <div class="col-md-7 col-lg-6">
+                  <div class="info-box">
+                    <h1 class="mt-2 mb-3">Fast Food Restaurant</h1>
+                    <p class="mb-4">
+                      Doloremque, itaque aperiam facilis rerum, commodi, temporibus sapiente ad mollitia laborum quam
+                      quisquam esse error unde. Tempora ex doloremque, labore, sunt repellat dolore, iste magni quos
+                      nihil ducimus libero ipsam.
+                    </p>
+                    <button class="px-4 py-2 rounded-5 border-0 bg-primary-color">
+                      Order Online
+                    </button>
                   </div>
                 </div>
-                <div class="col-md-6">
-                  <div class="col text-light text-start mx-1">
-                    <div class="comentario rounded p-4 pb-2">
-                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
-                      <p class="h5 fs-6 fw-bolder">Moana Mitchell </p>
-                      <p>magna aliqua</p>
-                    </div>
-                    
-                    <div class="foto mb-2">
-                      <div class="foto-depoimento w-25 mt-4 mx-auto"></div>
-                        <img src="/assets/client1.jpg" alt="cliente 1" class="foto rounded-circle border border-5 border-warning mx-auto" >
-                    </div>
+              </div>
+            </div>
+          </div>
 
+          <div class="carousel-item h-100">
+            <div class="container">
+              <div class="row">
+                <div class="col-md-7 col-lg-6">
+                  <div class="info-box">
+                    <h1 class="mt-2 mb-3">Fast Food Restaurant</h1>
+                    <p class="mb-4">
+                      Doloremque, itaque aperiam facilis rerum, commodi, temporibus sapiente ad mollitia laborum quam
+                      quisquam esse error unde. Tempora ex doloremque, labore, sunt repellat dolore, iste magni quos
+                      nihil ducimus libero ipsam.
+                    </p>
+                    <button class="px-4 py-2 rounded-5 border-0 bg-primary-color">
+                      Order Online
+                    </button>
                   </div>
                 </div>
-
               </div>
             </div>
           </div>
         </div>
 
-        <div class="carousel-controls">
-          <button class="carousel-control-prev position-relative bg-primary-color opacity-100 rounded-5" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-          </button>
-          <button class="carousel-control-next position-relative bg-primary-color opacity-100 rounded-5" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-          </button>
+        <div class="container">
+          <div class="carousel-indicators align-items-center position-relative justify-content-start m-0">
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
+              class="active opacity-100" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" class="opacity-100"
+              aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" class="opacity-100"
+              aria-label="Slide 3"></button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end carousel section -->
+
+  </div>
+  <!-- end hero section -->
+
+  <!-- promo section -->
+  <section class="container ofertas d-flex justify-content-center mt-5 pb-5">
+    <div class="row">
+      <div class="col-xl-6 col-lg-12">
+        <div class="card-ofertas d-flex mt-5 flex-wrap">
+          <div class="img-ofertas">
+            <img src="assets/o1.jpg" alt="oferta1">
+          </div>
+          <div class="detalhe-oferta align-self-center">
+            <h4 class="m-0 text-white">Tasty Thursdays</h4>
+            <h6 class="py-3 text-white"><span class="valor-oferta">20%</span> Off</h6>
+            <button class="btn-oferta px-4 py-2 rounded-5 border-0 bg-primary-color">
+              Order Now
+              <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029"
+                xml:space="preserve" width="16" height="16">
+                <g>
+                  <g>
+                    <path d="M345.6,338.862c-29.184,0-53.248,23.552-53.248,53.248c0,29.184,23.552,53.248,53.248,53.248
+                    c29.184,0,53.248-23.552,53.248-53.248C398.336,362.926,374.784,338.862,345.6,338.862z"></path>
+                  </g>
+                </g>
+                <g>
+                  <g>
+                    <path d="M439.296,84.91c-1.024,0-2.56-0.512-4.096-0.512H112.64l-5.12-34.304C104.448,27.566,84.992,10.67,61.952,10.67H20.48
+                    C9.216,10.67,0,19.886,0,31.15c0,11.264,9.216,20.48,20.48,20.48h41.472c2.56,0,4.608,2.048,5.12,4.608l31.744,216.064
+                    c4.096,27.136,27.648,47.616,55.296,47.616h212.992c26.624,0,49.664-18.944,55.296-45.056l33.28-166.4
+                    C457.728,97.71,450.56,86.958,439.296,84.91z"></path>
+                  </g>
+                </g>
+                <g>
+                  <g>
+                    <path d="M215.04,389.55c-1.024-28.16-24.576-50.688-52.736-50.688c-29.696,1.536-52.224,26.112-51.2,55.296
+                    c1.024,28.16,24.064,50.688,52.224,50.688h1.024C193.536,443.31,216.576,418.734,215.04,389.55z">
+                    </path>
+                  </g>
+                </g>
+                <g></g>
+                <g></g>
+                <g></g>
+                <g></g>
+                <g></g>
+                <g></g>
+                <g></g>
+                <g></g>
+                <g></g>
+                <g></g>
+                <g></g>
+                <g></g>
+                <g></g>
+                <g></g>
+                <g></g>
+              </svg>
+            </button>
+          </div>
         </div>
 
       </div>
-    </section>
-    <!-- end comments -->
-  
-    <footer>
-      <div id="footer-contact">
-        <h4 class="fs-3">Contact Us</h4>
-        <div>
-          <p>Location</p>
-          <p>Call +01 1234567890</p>
-          <p>demo@gmail.com</p>
+      <div class="col-xl-6 col-lg-12">
+        <div class="card-ofertas d-flex mt-5 flex-wrap ">
+          <div class="img-ofertas">
+            <img src="assets/o2.jpg" alt="oferta2">
+          </div>
+          <div class="detalhe-oferta align-self-center">
+            <h4 class="m-0 text-white">Pizza Days</h4>
+            <h6 class="py-3 text-white"><span class="valor-oferta">15%</span> Off</h6>
+            <button class="btn-oferta px-4 py-2 rounded-5 border-0 bg-primary-color">
+              Order Now
+              <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029"
+                xml:space="preserve" width="16" height="16">
+                <g>
+                  <g>
+                    <path d="M345.6,338.862c-29.184,0-53.248,23.552-53.248,53.248c0,29.184,23.552,53.248,53.248,53.248
+                    c29.184,0,53.248-23.552,53.248-53.248C398.336,362.926,374.784,338.862,345.6,338.862z"></path>
+                  </g>
+                </g>
+                <g>
+                  <g>
+                    <path d="M439.296,84.91c-1.024,0-2.56-0.512-4.096-0.512H112.64l-5.12-34.304C104.448,27.566,84.992,10.67,61.952,10.67H20.48
+                    C9.216,10.67,0,19.886,0,31.15c0,11.264,9.216,20.48,20.48,20.48h41.472c2.56,0,4.608,2.048,5.12,4.608l31.744,216.064
+                    c4.096,27.136,27.648,47.616,55.296,47.616h212.992c26.624,0,49.664-18.944,55.296-45.056l33.28-166.4
+                    C457.728,97.71,450.56,86.958,439.296,84.91z"></path>
+                  </g>
+                </g>
+                <g>
+                  <g>
+                    <path d="M215.04,389.55c-1.024-28.16-24.576-50.688-52.736-50.688c-29.696,1.536-52.224,26.112-51.2,55.296
+                    c1.024,28.16,24.064,50.688,52.224,50.688h1.024C193.536,443.31,216.576,418.734,215.04,389.55z">
+                    </path>
+                  </g>
+                </g>
+                <g></g>
+                <g></g>
+                <g></g>
+                <g></g>
+                <g></g>
+                <g></g>
+                <g></g>
+                <g></g>
+                <g></g>
+                <g></g>
+                <g></g>
+                <g></g>
+                <g></g>
+                <g></g>
+                <g></g>
+              </svg>
+            </button>
+          </div>
         </div>
       </div>
-      <div id="footer-feane">
-        <h4 class="fs-1">Feane</h4>
-        <p>Necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with</p>
-        <div>
-          <a href=""><i class="fa fa-facebook"></i></a>
-          <a href=""><i class="fa fa-twitter"></i></a>
-          <a href=""><i class="fa fa-linkedin"></i></a>
-          <a href=""><i class="fa fa-instagram"></i></a>
-          <a href=""><i class="fa fa-pinterest"></i></a>
-        </div>
-      </div>
-      <div id="footer-opening">
-        <h4 class="fs-3">Opening Hours</h4>
-        <p>Everyday</p>
-        <p>10.00 AM - 10.00 Pm</p>
-      </div>
-      <div id="footer-rights">
-        <p>© 2023 All Rights Reserved By Free Html Templates</p>
-      </div>
-    </footer>
 
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
-      crossorigin="anonymous"
-    ></script>
-  </body>
+    </div>
+
+
+  </section>
+  <!-- end promo section -->
+
+  <!-- our menu section -->
+  <section class="container">
+    <div class="menu pt-4 d-flex justify-content-center">
+      <h2>Our Menu</h2>
+    </div>
+    <div class="menu-opcoes pt-4 d-flex justify-content-center">
+      <a href="#" class="btn-menu text-white active bg-black">All</a>
+      <a href="#" class="btn-menu text-dark">Burger</a>
+      <a href="#" class="btn-menu text-dark">Pizza</a>
+      <a href="#" class="btn-menu text-dark">Pasta</a>
+      <a href="#" class="btn-menu text-dark">Fries</a>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-4 col-sm-6 p-4">
+        <div class="item-cardapio">
+          <div class="img-cardapio d-flex justify-content-center align-items-center">
+            <img src="assets/f1.png" alt="item 1">
+          </div>
+          <div class="descricao-cardapio">
+            <h5>Delicious Pizza</h5>
+            <p>Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed
+              eaque</p>
+            <div class="preco d-flex justify-content-between align-items-center">
+              <span>$20</span>
+              <a href="#" class="btn-preco">
+                <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029"
+                  xml:space="preserve" width="16" height="16">
+                  <g>
+                    <g>
+                      <path d="M345.6,338.862c-29.184,0-53.248,23.552-53.248,53.248c0,29.184,23.552,53.248,53.248,53.248
+                  c29.184,0,53.248-23.552,53.248-53.248C398.336,362.926,374.784,338.862,345.6,338.862z"></path>
+                    </g>
+                  </g>
+                  <g>
+                    <g>
+                      <path d="M439.296,84.91c-1.024,0-2.56-0.512-4.096-0.512H112.64l-5.12-34.304C104.448,27.566,84.992,10.67,61.952,10.67H20.48
+                  C9.216,10.67,0,19.886,0,31.15c0,11.264,9.216,20.48,20.48,20.48h41.472c2.56,0,4.608,2.048,5.12,4.608l31.744,216.064
+                  c4.096,27.136,27.648,47.616,55.296,47.616h212.992c26.624,0,49.664-18.944,55.296-45.056l33.28-166.4
+                  C457.728,97.71,450.56,86.958,439.296,84.91z"></path>
+                    </g>
+                  </g>
+                  <g>
+                    <g>
+                      <path d="M215.04,389.55c-1.024-28.16-24.576-50.688-52.736-50.688c-29.696,1.536-52.224,26.112-51.2,55.296
+                  c1.024,28.16,24.064,50.688,52.224,50.688h1.024C193.536,443.31,216.576,418.734,215.04,389.55z"></path>
+                    </g>
+                  </g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-sm-6 p-4">
+        <div class="item-cardapio">
+          <div class="img-cardapio d-flex justify-content-center align-items-center">
+            <img src="assets/f2.png" alt="item 2">
+          </div>
+          <div class="descricao-cardapio">
+            <h5>Delicious Burger</h5>
+            <p>Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed
+              eaque</p>
+            <div class="preco d-flex justify-content-between align-items-center">
+              <span>$15</span>
+              <a href="#" class="btn-preco">
+                <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029"
+                  xml:space="preserve" width="16" height="16">
+                  <g>
+                    <g>
+                      <path d="M345.6,338.862c-29.184,0-53.248,23.552-53.248,53.248c0,29.184,23.552,53.248,53.248,53.248
+                        c29.184,0,53.248-23.552,53.248-53.248C398.336,362.926,374.784,338.862,345.6,338.862z"></path>
+                    </g>
+                  </g>
+                  <g>
+                    <g>
+                      <path d="M439.296,84.91c-1.024,0-2.56-0.512-4.096-0.512H112.64l-5.12-34.304C104.448,27.566,84.992,10.67,61.952,10.67H20.48
+                        C9.216,10.67,0,19.886,0,31.15c0,11.264,9.216,20.48,20.48,20.48h41.472c2.56,0,4.608,2.048,5.12,4.608l31.744,216.064
+                        c4.096,27.136,27.648,47.616,55.296,47.616h212.992c26.624,0,49.664-18.944,55.296-45.056l33.28-166.4
+                        C457.728,97.71,450.56,86.958,439.296,84.91z"></path>
+                    </g>
+                  </g>
+                  <g>
+                    <g>
+                      <path d="M215.04,389.55c-1.024-28.16-24.576-50.688-52.736-50.688c-29.696,1.536-52.224,26.112-51.2,55.296
+                        c1.024,28.16,24.064,50.688,52.224,50.688h1.024C193.536,443.31,216.576,418.734,215.04,389.55z">
+                      </path>
+                    </g>
+                  </g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-sm-6 p-4">
+        <div class="item-cardapio">
+          <div class="img-cardapio d-flex justify-content-center align-items-center">
+            <img src="assets/f3.png" alt="item 3">
+          </div>
+          <div class="descricao-cardapio">
+            <h5>Delicious Pizza</h5>
+            <p>Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed
+              eaque</p>
+            <div class="preco d-flex justify-content-between align-items-center">
+              <span>$17</span>
+              <a href="#" class="btn-preco">
+                <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029"
+                  xml:space="preserve" width="16" height="16">
+                  <g>
+                    <g>
+                      <path d="M345.6,338.862c-29.184,0-53.248,23.552-53.248,53.248c0,29.184,23.552,53.248,53.248,53.248
+                        c29.184,0,53.248-23.552,53.248-53.248C398.336,362.926,374.784,338.862,345.6,338.862z"></path>
+                    </g>
+                  </g>
+                  <g>
+                    <g>
+                      <path d="M439.296,84.91c-1.024,0-2.56-0.512-4.096-0.512H112.64l-5.12-34.304C104.448,27.566,84.992,10.67,61.952,10.67H20.48
+                        C9.216,10.67,0,19.886,0,31.15c0,11.264,9.216,20.48,20.48,20.48h41.472c2.56,0,4.608,2.048,5.12,4.608l31.744,216.064
+                        c4.096,27.136,27.648,47.616,55.296,47.616h212.992c26.624,0,49.664-18.944,55.296-45.056l33.28-166.4
+                        C457.728,97.71,450.56,86.958,439.296,84.91z"></path>
+                    </g>
+                  </g>
+                  <g>
+                    <g>
+                      <path d="M215.04,389.55c-1.024-28.16-24.576-50.688-52.736-50.688c-29.696,1.536-52.224,26.112-51.2,55.296
+                        c1.024,28.16,24.064,50.688,52.224,50.688h1.024C193.536,443.31,216.576,418.734,215.04,389.55z">
+                      </path>
+                    </g>
+                  </g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-sm-6 p-4">
+        <div class="item-cardapio">
+          <div class="img-cardapio d-flex justify-content-center align-items-center">
+            <img src="assets/f4.png" alt="item 4">
+          </div>
+          <div class="descricao-cardapio">
+            <h5>Delicious Pasta</h5>
+            <p>Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed
+              eaque</p>
+            <div class="preco d-flex justify-content-between align-items-center">
+              <span>$18</span>
+              <a href="#" class="btn-preco">
+                <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029"
+                  xml:space="preserve" width="16" height="16">
+                  <g>
+                    <g>
+                      <path d="M345.6,338.862c-29.184,0-53.248,23.552-53.248,53.248c0,29.184,23.552,53.248,53.248,53.248
+                        c29.184,0,53.248-23.552,53.248-53.248C398.336,362.926,374.784,338.862,345.6,338.862z"></path>
+                    </g>
+                  </g>
+                  <g>
+                    <g>
+                      <path d="M439.296,84.91c-1.024,0-2.56-0.512-4.096-0.512H112.64l-5.12-34.304C104.448,27.566,84.992,10.67,61.952,10.67H20.48
+                        C9.216,10.67,0,19.886,0,31.15c0,11.264,9.216,20.48,20.48,20.48h41.472c2.56,0,4.608,2.048,5.12,4.608l31.744,216.064
+                        c4.096,27.136,27.648,47.616,55.296,47.616h212.992c26.624,0,49.664-18.944,55.296-45.056l33.28-166.4
+                        C457.728,97.71,450.56,86.958,439.296,84.91z"></path>
+                    </g>
+                  </g>
+                  <g>
+                    <g>
+                      <path d="M215.04,389.55c-1.024-28.16-24.576-50.688-52.736-50.688c-29.696,1.536-52.224,26.112-51.2,55.296
+                        c1.024,28.16,24.064,50.688,52.224,50.688h1.024C193.536,443.31,216.576,418.734,215.04,389.55z">
+                      </path>
+                    </g>
+                  </g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-sm-6 p-4">
+        <div class="item-cardapio">
+          <div class="img-cardapio d-flex justify-content-center align-items-center">
+            <img src="assets/f5.png" alt="item 5">
+          </div>
+          <div class="descricao-cardapio">
+            <h5>French Fries</h5>
+            <p>Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed
+              eaque</p>
+            <div class="preco d-flex justify-content-between align-items-center">
+              <span>$10</span>
+              <a href="#" class="btn-preco">
+                <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029"
+                  xml:space="preserve" width="16" height="16">
+                  <g>
+                    <g>
+                      <path d="M345.6,338.862c-29.184,0-53.248,23.552-53.248,53.248c0,29.184,23.552,53.248,53.248,53.248
+                        c29.184,0,53.248-23.552,53.248-53.248C398.336,362.926,374.784,338.862,345.6,338.862z"></path>
+                    </g>
+                  </g>
+                  <g>
+                    <g>
+                      <path d="M439.296,84.91c-1.024,0-2.56-0.512-4.096-0.512H112.64l-5.12-34.304C104.448,27.566,84.992,10.67,61.952,10.67H20.48
+                        C9.216,10.67,0,19.886,0,31.15c0,11.264,9.216,20.48,20.48,20.48h41.472c2.56,0,4.608,2.048,5.12,4.608l31.744,216.064
+                        c4.096,27.136,27.648,47.616,55.296,47.616h212.992c26.624,0,49.664-18.944,55.296-45.056l33.28-166.4
+                        C457.728,97.71,450.56,86.958,439.296,84.91z"></path>
+                    </g>
+                  </g>
+                  <g>
+                    <g>
+                      <path d="M215.04,389.55c-1.024-28.16-24.576-50.688-52.736-50.688c-29.696,1.536-52.224,26.112-51.2,55.296
+                        c1.024,28.16,24.064,50.688,52.224,50.688h1.024C193.536,443.31,216.576,418.734,215.04,389.55z">
+                      </path>
+                    </g>
+                  </g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-sm-6 p-4">
+        <div class="item-cardapio">
+          <div class="img-cardapio d-flex justify-content-center align-items-center">
+            <img src="assets/f6.png" alt="item 6">
+          </div>
+          <div class="descricao-cardapio">
+            <h5>Delicious Pizza</h5>
+            <p>Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed
+              eaque</p>
+            <div class="preco d-flex justify-content-between align-items-center">
+              <span>$10</span>
+              <a href="#" class="btn-preco">
+                <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029"
+                  xml:space="preserve" width="16" height="16">
+                  <g>
+                    <g>
+                      <path d="M345.6,338.862c-29.184,0-53.248,23.552-53.248,53.248c0,29.184,23.552,53.248,53.248,53.248
+                        c29.184,0,53.248-23.552,53.248-53.248C398.336,362.926,374.784,338.862,345.6,338.862z"></path>
+                    </g>
+                  </g>
+                  <g>
+                    <g>
+                      <path d="M439.296,84.91c-1.024,0-2.56-0.512-4.096-0.512H112.64l-5.12-34.304C104.448,27.566,84.992,10.67,61.952,10.67H20.48
+                        C9.216,10.67,0,19.886,0,31.15c0,11.264,9.216,20.48,20.48,20.48h41.472c2.56,0,4.608,2.048,5.12,4.608l31.744,216.064
+                        c4.096,27.136,27.648,47.616,55.296,47.616h212.992c26.624,0,49.664-18.944,55.296-45.056l33.28-166.4
+                        C457.728,97.71,450.56,86.958,439.296,84.91z"></path>
+                    </g>
+                  </g>
+                  <g>
+                    <g>
+                      <path d="M215.04,389.55c-1.024-28.16-24.576-50.688-52.736-50.688c-29.696,1.536-52.224,26.112-51.2,55.296
+                        c1.024,28.16,24.064,50.688,52.224,50.688h1.024C193.536,443.31,216.576,418.734,215.04,389.55z">
+                      </path>
+                    </g>
+                  </g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-sm-6 p-4">
+        <div class="item-cardapio">
+          <div class="img-cardapio d-flex justify-content-center align-items-center">
+            <img src="assets/f7.png" alt="item 7">
+          </div>
+          <div class="descricao-cardapio">
+            <h5>Tasty Burger</h5>
+            <p>Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed
+              eaque</p>
+            <div class="preco d-flex justify-content-between align-items-center">
+              <span>$12</span>
+              <a href="#" class="btn-preco">
+                <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029"
+                  xml:space="preserve" width="16" height="16">
+                  <g>
+                    <g>
+                      <path d="M345.6,338.862c-29.184,0-53.248,23.552-53.248,53.248c0,29.184,23.552,53.248,53.248,53.248
+                        c29.184,0,53.248-23.552,53.248-53.248C398.336,362.926,374.784,338.862,345.6,338.862z"></path>
+                    </g>
+                  </g>
+                  <g>
+                    <g>
+                      <path d="M439.296,84.91c-1.024,0-2.56-0.512-4.096-0.512H112.64l-5.12-34.304C104.448,27.566,84.992,10.67,61.952,10.67H20.48
+                        C9.216,10.67,0,19.886,0,31.15c0,11.264,9.216,20.48,20.48,20.48h41.472c2.56,0,4.608,2.048,5.12,4.608l31.744,216.064
+                        c4.096,27.136,27.648,47.616,55.296,47.616h212.992c26.624,0,49.664-18.944,55.296-45.056l33.28-166.4
+                        C457.728,97.71,450.56,86.958,439.296,84.91z"></path>
+                    </g>
+                  </g>
+                  <g>
+                    <g>
+                      <path d="M215.04,389.55c-1.024-28.16-24.576-50.688-52.736-50.688c-29.696,1.536-52.224,26.112-51.2,55.296
+                        c1.024,28.16,24.064,50.688,52.224,50.688h1.024C193.536,443.31,216.576,418.734,215.04,389.55z">
+                      </path>
+                    </g>
+                  </g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-sm-6 p-4">
+        <div class="item-cardapio">
+          <div class="img-cardapio d-flex justify-content-center align-items-center">
+            <img src="assets/f8.png" alt="item 8">
+          </div>
+          <div class="descricao-cardapio">
+            <h5>Tasty Burger</h5>
+            <p>Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed
+              eaque</p>
+            <div class="preco d-flex justify-content-between align-items-center">
+              <span>$14</span>
+              <a href="#" class="btn-preco">
+                <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029"
+                  xml:space="preserve" width="16" height="16">
+                  <g>
+                    <g>
+                      <path d="M345.6,338.862c-29.184,0-53.248,23.552-53.248,53.248c0,29.184,23.552,53.248,53.248,53.248
+                        c29.184,0,53.248-23.552,53.248-53.248C398.336,362.926,374.784,338.862,345.6,338.862z"></path>
+                    </g>
+                  </g>
+                  <g>
+                    <g>
+                      <path d="M439.296,84.91c-1.024,0-2.56-0.512-4.096-0.512H112.64l-5.12-34.304C104.448,27.566,84.992,10.67,61.952,10.67H20.48
+                        C9.216,10.67,0,19.886,0,31.15c0,11.264,9.216,20.48,20.48,20.48h41.472c2.56,0,4.608,2.048,5.12,4.608l31.744,216.064
+                        c4.096,27.136,27.648,47.616,55.296,47.616h212.992c26.624,0,49.664-18.944,55.296-45.056l33.28-166.4
+                        C457.728,97.71,450.56,86.958,439.296,84.91z"></path>
+                    </g>
+                  </g>
+                  <g>
+                    <g>
+                      <path d="M215.04,389.55c-1.024-28.16-24.576-50.688-52.736-50.688c-29.696,1.536-52.224,26.112-51.2,55.296
+                        c1.024,28.16,24.064,50.688,52.224,50.688h1.024C193.536,443.31,216.576,418.734,215.04,389.55z">
+                      </path>
+                    </g>
+                  </g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-sm-6 p-4">
+        <div class="item-cardapio">
+          <div class="img-cardapio d-flex justify-content-center align-items-center">
+            <img src="assets/f9.png" alt="item 9">
+          </div>
+          <div class="descricao-cardapio">
+            <h5>Delicious Pasta</h5>
+            <p>Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed
+              eaque</p>
+            <div class="preco d-flex justify-content-between align-items-center">
+              <span>$10</span>
+              <a href="#" class="btn-preco">
+                <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029"
+                  xml:space="preserve" width="16" height="16">
+                  <g>
+                    <g>
+                      <path d="M345.6,338.862c-29.184,0-53.248,23.552-53.248,53.248c0,29.184,23.552,53.248,53.248,53.248
+                        c29.184,0,53.248-23.552,53.248-53.248C398.336,362.926,374.784,338.862,345.6,338.862z"></path>
+                    </g>
+                  </g>
+                  <g>
+                    <g>
+                      <path d="M439.296,84.91c-1.024,0-2.56-0.512-4.096-0.512H112.64l-5.12-34.304C104.448,27.566,84.992,10.67,61.952,10.67H20.48
+                        C9.216,10.67,0,19.886,0,31.15c0,11.264,9.216,20.48,20.48,20.48h41.472c2.56,0,4.608,2.048,5.12,4.608l31.744,216.064
+                        c4.096,27.136,27.648,47.616,55.296,47.616h212.992c26.624,0,49.664-18.944,55.296-45.056l33.28-166.4
+                        C457.728,97.71,450.56,86.958,439.296,84.91z"></path>
+                    </g>
+                  </g>
+                  <g>
+                    <g>
+                      <path d="M215.04,389.55c-1.024-28.16-24.576-50.688-52.736-50.688c-29.696,1.536-52.224,26.112-51.2,55.296
+                        c1.024,28.16,24.064,50.688,52.224,50.688h1.024C193.536,443.31,216.576,418.734,215.04,389.55z">
+                      </path>
+                    </g>
+                  </g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="d-flex justify-content-center py-5">
+      <button class="px-5 py-2 rounded-5 border-0 bg-primary-color">
+        View More
+      </button>
+    </div>
+
+  </section>
+  <!-- end our menu section -->
+
+  <!-- burger section -->
+  <section class="about_section h-">
+    <div class="container h-100">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="image_box d-flex justify-content-center">
+            <img src="assets/about-img.png" alt="Drawing of a hamburguer.">
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="about_text">
+            <h2>We Are Feane</h2>
+            <p>
+              There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration
+              in some form, by injected humour, or randomised words which don't look even slightly believable. If you
+              are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in
+              the middle of text. All
+            </p>
+            <button class="px-4 py-2 rounded-5 border-0 bg-primary-color">
+              Read More
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- end burger section -->
+
+  <!-- start forms -->
+  <section class="formulario container mb-5 mt-5">
+    <h2>Book a table</h2>
+    <div class="divisao d-flex justify-content-between flex-wrap">
+      <form class="formulario-inputs mt-3">
+        <div class="mb-4">
+          <input type="text" class="form-control py-2" placeholder="Your Name">
+        </div>
+        <div class="mb-4">
+          <input type="number" class="form-control py-2" placeholder="Phone Number">
+        </div>
+        <div class="mb-4">
+          <input type="email" class="form-control py-2" placeholder="Your Email">
+        </div>
+        <div class="mb-4">
+          <input type="date" class="form-control py-2" placeholder="Your Email">
+        </div>
+        <select class="form-select mb-5 py-2">
+          <option selected>How many persons?</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+        <div class="mt-4">
+          <button type="submit" class="btn btn-warning rounded-pill px-5 btn-lg mb-5">BOOK NOW</button>
+        </div>
+
+      </form>
+      <iframe class="mb-5 rounded-3"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.8354348104104!2d144.96305791532114!3d-37.81410797975159!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642af0f11fd81%3A0x5045675218ce7e0!2sMelbourne%20VIC%2C%20Australia!5e0!3m2!1sen!2sus!4v1590147854552!5m2!1sen!2sus"
+        width="500" height="450" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+    </div>
+  </section>
+  <!-- end forms -->
+
+  <!-- start comments -->
+  <section class="comentarios mb-5">
+    <div class="mt-5 d-flex justify-content-center mb-3">
+      <h2 class="mb-4">What Says Our Customers</h2>
+    </div>
+
+    <div class="container text-center">
+      <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="col text-light text-start mx-1">
+                  <div class="comentario rounded p-4 pb-2">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                      labore et dolore magna aliqua. Ut enim ad minim veniam</p>
+                    <p class="h5 fs-6 fw-bolder">Mike Hamell </p>
+                    <p>magna aliqua</p>
+                  </div>
+
+                  <div class="foto mb-2">
+                    <div class="foto-depoimento w-25 mt-4 mx-auto">
+                    </div>
+                    <img src="/assets/client2.jpg" alt="cliente 2"
+                      class="foto rounded-circle border border-5 border-warning mx-auto">
+                  </div>
+
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="col text-light text-start mx-1">
+                  <div class="comentario rounded p-4 pb-2">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                      labore et dolore magna aliqua. Ut enim ad minim veniam</p>
+                    <p class="h5 fs-6 fw-bolder">Moana Mitchell </p>
+                    <p>magna aliqua</p>
+                  </div>
+
+                  <div class="foto mb-2">
+                    <div class="foto-depoimento w-25 mt-4 mx-auto"></div>
+                    <img src="/assets/client1.jpg" alt="cliente 1"
+                      class="foto rounded-circle border border-5 border-warning mx-auto">
+                  </div>
+
+                </div>
+              </div>
+
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="col text-light text-start mx-1">
+                  <div class="comentario rounded p-4 pb-2">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                      labore et dolore magna aliqua. Ut enim ad minim veniam</p>
+                    <p class="h5 fs-6 fw-bolder">Mike Hamell </p>
+                    <p>magna aliqua</p>
+                  </div>
+
+                  <div class="foto mb-2">
+                    <div class="foto-depoimento w-25 mt-4 mx-auto">
+                    </div>
+                    <img src="/assets/client2.jpg" alt="cliente 2"
+                      class="foto rounded-circle border border-5 border-warning mx-auto">
+                  </div>
+
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="col text-light text-start mx-1">
+                  <div class="comentario rounded p-4 pb-2">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                      labore et dolore magna aliqua. Ut enim ad minim veniam</p>
+                    <p class="h5 fs-6 fw-bolder">Moana Mitchell </p>
+                    <p>magna aliqua</p>
+                  </div>
+
+                  <div class="foto mb-2">
+                    <div class="foto-depoimento w-25 mt-4 mx-auto"></div>
+                    <img src="/assets/client1.jpg" alt="cliente 1"
+                      class="foto rounded-circle border border-5 border-warning mx-auto">
+                  </div>
+
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="carousel-controls">
+        <button class="carousel-control-prev position-relative bg-primary-color opacity-100 rounded-5" type="button"
+          data-bs-target="#carouselExample" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next position-relative bg-primary-color opacity-100 rounded-5" type="button"
+          data-bs-target="#carouselExample" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+
+    </div>
+  </section>
+  <!-- end comments -->
+
+  <footer>
+    <div id="footer-contact">
+      <h4 class="fs-3">Contact Us</h4>
+      <div>
+        <p>Location</p>
+        <p>Call +01 1234567890</p>
+        <p>demo@gmail.com</p>
+      </div>
+    </div>
+    <div id="footer-feane">
+      <h4 class="fs-1">Feane</h4>
+      <p>Necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words,
+        combined with</p>
+      <div>
+        <a href=""><i class="fa fa-facebook"></i></a>
+        <a href=""><i class="fa fa-twitter"></i></a>
+        <a href=""><i class="fa fa-linkedin"></i></a>
+        <a href=""><i class="fa fa-instagram"></i></a>
+        <a href=""><i class="fa fa-pinterest"></i></a>
+      </div>
+    </div>
+    <div id="footer-opening">
+      <h4 class="fs-3">Opening Hours</h4>
+      <p>Everyday</p>
+      <p>10.00 AM - 10.00 Pm</p>
+    </div>
+    <div id="footer-rights">
+      <p>© 2023 All Rights Reserved By Free Html Templates</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+    crossorigin="anonymous"></script>
+</body>
+
 </html>
