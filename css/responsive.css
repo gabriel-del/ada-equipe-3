@@ -65,6 +65,16 @@
 }
 
 @media (max-width: 480px) {
+  footer {
+    grid-template-areas:
+    'contact' 
+    'feane'
+    'opening'
+    'rights';
+    grid-template-columns: 1fr
+    
+  }
+    
 }
 
 @media (max-width: 430px) {
