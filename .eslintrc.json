@@ -1,0 +1,16 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "extends": "@antfu",
+  "parserOptions": {
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  "rules": {
+    "no-console": "off",
+    "@typescript-eslint/space-infix-ops": "off",
+    "@typescript-eslint/object-curly-spacing": ["error", "never"]
+  }
+}
