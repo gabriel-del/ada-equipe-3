@@ -1,67 +1,43 @@
-const localStorageKey = 'todo-list'
-const addTaskBtn = document.getElementById('btn-add-task')
-const updateTaskBtn = document.getElementById('btn-update-task')
-const values = JSON.parse(localStorage.getItem(localStorageKey) || '[]')
-const input = document.getElementById('input-new-task')
-let idToUpdate = ''
-let lastTask = ''
-let lastId = ''
+const localStorageKey = 'todo-list',
+  addTaskBtn = document.getElementById('btn-add-task'),
+  updateTaskBtn = document.getElementById('btn-update-task'),
+  values = JSON.parse(localStorage.getItem(localStorageKey) || '[]'),
+  input = document.getElementById('input-new-task')
+let idToUpdate = '', lastTask = '', lastId = ''
 
 input.addEventListener('keypress', (e) => {
   if (e.key === 'Enter') {
     e.preventDefault()
-    addTaskBtn.style.display !== 'none'
-      ? addTaskBtn.click()
-      : updateTaskBtn.click()
+    addTaskBtn.style.display !== 'none' ? addTaskBtn.click() : updateTaskBtn.click()
   }
 })
 
 function addNewTask() {
-  const newTask = {
-    Task: input.value,
-    Status: 'Pendente',
-  }
-
+  const newTask = {Task: input.value, Status: 'Pendente'}
   input.style.border = ''
-
   if (!input.value) {
     input.style.border = '1px solid red'
     return alert('Digite um item para incluir na lista.')
   }
-
   if (values.length === 0) {
-    values.push({
-      Id: values.length + 1,
-      ...newTask,
-    })
-
+    values.push({Id: values.length + 1, ...newTask})
     saveList()
     input.value = ''
     return showTodoList()
   }
-
   lastTask = values.findLast(({Id}) => Id >= values.length)
   lastId = lastTask.Id
-
-  values.push({
-    Id: lastId + 1,
-    ...newTask,
-  })
-
+  values.push({Id: lastId + 1, ...newTask})
   saveList()
   input.value = ''
   showTodoList()
 }
 
-function saveList() {
-  localStorage.setItem(localStorageKey, JSON.stringify(values))
-}
+function saveList() { localStorage.setItem(localStorageKey, JSON.stringify(values)) }
 
 function showTodoList() {
   const list = document.getElementById('todo-list')
-
   list.innerHTML = ''
-
   for (const value of values) {
     list.innerHTML += `
         <li>
@@ -95,10 +71,8 @@ function showTodoList() {
 
 function editTask(data) {
   const index = values.findIndex(i => i.Id === data)
-
   idToUpdate = values[index].Id
   input.value = values[index].Task
-
   addTaskBtn.style.display = 'none'
   updateTaskBtn.style.display = 'block'
 }
@@ -112,22 +86,16 @@ function removeItem(data) {
 
 function doneTask(data) {
   const index = values.findIndex(i => i.Id === data)
-  values[index].Status === 'Finalizado'
-    ? (values[index].Status = 'Pendente')
-    : (values[index].Status = 'Finalizado')
+  values[index].Status === 'Finalizado' ? (values[index].Status = 'Pendente') : (values[index].Status = 'Finalizado')
   saveList()
   showTodoList()
 }
 
 function updateTask() {
   const index = values.findIndex(i => i.Id === idToUpdate)
-
   values[index].Task = input.value
-
   saveList()
-
   input.value = ''
-
   showTodoList()
 }
 

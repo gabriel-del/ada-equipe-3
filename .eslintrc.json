@@ -12,6 +12,8 @@
     "no-console": "off",
     "@typescript-eslint/space-infix-ops": "off",
     "@typescript-eslint/object-curly-spacing": ["error", "never"],
-    "array-element-newline": ["error", "never"]
+    "array-element-newline": ["error", "never"],
+    "one-var": ["error", "always"],
+    "max-statements-per-line": ["error", { "max": 6 }]
   }
 }
