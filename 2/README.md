@@ -5,6 +5,8 @@
 
 [Descrição](https://github.com/ivirson/logica-programacao-1003/blob/master/projeto.md)
 
+[Demo](https://gabriel-del.github.io/ada-equipe-3/)
+
 ### Divisão de tarefas
 
 * Bruno: SVG diminuir
@@ -15,7 +17,6 @@
 
 ### Tarefas
 * Refatorar: todo mundo
-
 
 
 ### Install
