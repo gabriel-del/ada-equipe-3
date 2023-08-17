@@ -20,8 +20,5 @@
   },
   "lint-staged": {
     "*": "eslint --fix"
-  },
-  "dependencies": {
-    "bootstrap-icons": "^1.10.5"
   }
 }
