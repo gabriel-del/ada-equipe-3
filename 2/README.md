@@ -18,7 +18,7 @@
 instalar [pnpm](https://pnpm.io/cli/add)
 
 ```
-git clone git@github.com:gabriel-del/ada-grupo.git
+git clone git@github.com:gabriel-del/ada-equipe-3.git
 cd ada-grupo
 pnpm i
 git checkout -b SeuNome
