@@ -33,22 +33,25 @@ function addNewTask() {
   showTodoList()
 }
 
+addTaskBtn.addEventListener('click', addNewTask)
+
 function saveList() { localStorage.setItem(localStorageKey, JSON.stringify(values)) }
 
 function showTodoList() {
   const list = document.getElementById('todo-list')
   list.innerHTML = ''
-  for (const value of values){
+  for (const value of values) {
     list.innerHTML += `
         <li>
           <span class='${value.Status === 'Finalizado' ? 'task-done' : ''}'>${value.Task}</span>
             <div id='btn-task'>
               <button id='btn-edit' onclick='editTask("${value.Id}")' class="bi bi-pencil"></button>
               <button id='btn-remove' onclick='removeItem("${value.Id}")' class="bi bi-trash3" ></button>
-              <button id='btn-done' onclick='doneTask("${value.Id}")' class="bi bi-pencil"></button>
+              <button id='btn-done' onclick='doneTask("${value.Id}")' class="bi bi-bag-check"></button>
             </div>
         </li>
-      <hr>`}
+      <hr>`
+  }
 }
 
 function editTask(data) {
@@ -80,5 +83,7 @@ function updateTask() {
   input.value = ''
   showTodoList()
 }
+
+updateTaskBtn.addEventListener('click', updateTask)
 
 showTodoList()
