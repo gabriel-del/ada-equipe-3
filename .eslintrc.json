@@ -11,6 +11,7 @@
   "rules": {
     "no-console": "off",
     "@typescript-eslint/space-infix-ops": "off",
-    "@typescript-eslint/object-curly-spacing": ["error", "never"]
+    "@typescript-eslint/object-curly-spacing": ["error", "never"],
+    "array-element-newline": ["error", "never"]
   }
 }
