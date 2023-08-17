@@ -7,11 +7,15 @@
 
 ### Divisão de tarefas
 
-* Bruno: 
-* Gabriel: 
-* Gabriela: 
-* Gustavo: 
-* Lucas: 
+* Bruno: SVG diminuir
+* Gabriel: Busca
+* Gabriela: layout no figma
+* Gustavo: Interface
+* Lucas: Busca
+
+### Tarefas
+* Refatorar: todo mundo
+
 
 
 ### Install
