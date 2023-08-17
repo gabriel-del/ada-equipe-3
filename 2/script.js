@@ -10,7 +10,7 @@ let lastId = ''
 input.addEventListener('keypress', (e) => {
   if (e.key === 'Enter') {
     e.preventDefault()
-    addTaskBtn.style.display != 'none'
+    addTaskBtn.style.display !== 'none'
       ? addTaskBtn.click()
       : updateTaskBtn.click()
   }
@@ -29,7 +29,7 @@ function addNewTask() {
     return alert('Digite um item para incluir na lista.')
   }
 
-  if (values.length == 0) {
+  if (values.length === 0) {
     values.push({
       Id: values.length + 1,
       ...newTask,
@@ -65,7 +65,7 @@ function showTodoList() {
   for (const value of values) {
     list.innerHTML += `
         <li>
-          <span class='${value.Status == 'Finalizado' ? 'task-done' : ''}'>${
+          <span class='${value.Status === 'Finalizado' ? 'task-done' : ''}'>${
       value.Task
     }</span>
             <div id='btn-task'>
@@ -94,7 +94,7 @@ function showTodoList() {
 }
 
 function editTask(data) {
-  const index = values.findIndex(i => i.Id == data)
+  const index = values.findIndex(i => i.Id === data)
 
   idToUpdate = values[index].Id
   input.value = values[index].Task
@@ -104,15 +104,15 @@ function editTask(data) {
 }
 
 function removeItem(data) {
-  const index = values.findIndex(i => i.Id == data)
+  const index = values.findIndex(i => i.Id === data)
   values.splice(index, 1)
   saveList()
   showTodoList()
 }
 
 function doneTask(data) {
-  const index = values.findIndex(i => i.Id == data)
-  values[index].Status == 'Finalizado'
+  const index = values.findIndex(i => i.Id === data)
+  values[index].Status === 'Finalizado'
     ? (values[index].Status = 'Pendente')
     : (values[index].Status = 'Finalizado')
   saveList()
@@ -120,7 +120,7 @@ function doneTask(data) {
 }
 
 function updateTask() {
-  const index = values.findIndex(i => i.Id == idToUpdate)
+  const index = values.findIndex(i => i.Id === idToUpdate)
 
   values[index].Task = input.value
 
