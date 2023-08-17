@@ -43,9 +43,9 @@ function showTodoList() {
         <li>
           <span class='${value.Status === 'Finalizado' ? 'task-done' : ''}'>${value.Task}</span>
             <div id='btn-task'>
-              <button id='btn-edit' onclick='editTask("${value.Id}")'><i width="16" height="16" class="bi bi-pencil"></i></button>
-              <button id='btn-remove' onclick='removeItem("${value.Id}")'><i width="16" height="16" class="bi bi-trash3"></i></button>
-              <button id='btn-done' onclick='doneTask("${value.Id}")'><i width="16" height="16" class="bi bi-pencil"></i></button>
+              <button id='btn-edit' onclick='editTask("${value.Id}")' class="bi bi-pencil"></button>
+              <button id='btn-remove' onclick='removeItem("${value.Id}")' class="bi bi-trash3" ></button>
+              <button id='btn-done' onclick='doneTask("${value.Id}")' class="bi bi-pencil"></button>
             </div>
         </li>
       <hr>`}
