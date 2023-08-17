@@ -55,7 +55,7 @@ function showTodoList() {
 }
 
 function editTask(data) {
-  const index = values.findIndex(i => i.Id === data)
+  const index = values.findIndex(i => i.Id == data)
   idToUpdate = values[index].Id
   input.value = values[index].Task
   addTaskBtn.style.display = 'none'
@@ -63,14 +63,14 @@ function editTask(data) {
 }
 
 function removeItem(data) {
-  const index = values.findIndex(i => i.Id === data)
+  const index = values.findIndex(i => i.Id == data)
   values.splice(index, 1)
   saveList()
   showTodoList()
 }
 
 function doneTask(data) {
-  const index = values.findIndex(i => i.Id === data)
+  const index = values.findIndex(i => i.Id == data)
   values[index].Status === 'Finalizado' ? (values[index].Status = 'Pendente') : (values[index].Status = 'Finalizado')
   saveList()
   showTodoList()
