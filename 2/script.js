@@ -1,68 +1,68 @@
-const localStorageKey = 'todo-list';
-const addTaskBtn = document.getElementById('btn-add-task');
-const updateTaskBtn = document.getElementById('btn-update-task');
-const values = JSON.parse(localStorage.getItem(localStorageKey) || '[]');
-const input = document.getElementById('input-new-task');
-let idToUpdate = '';
-let lastTask = '';
-let lastId = '';
+const localStorageKey = 'todo-list'
+const addTaskBtn = document.getElementById('btn-add-task')
+const updateTaskBtn = document.getElementById('btn-update-task')
+const values = JSON.parse(localStorage.getItem(localStorageKey) || '[]')
+const input = document.getElementById('input-new-task')
+let idToUpdate = ''
+let lastTask = ''
+let lastId = ''
 
-input.addEventListener('keypress', function (e) {
+input.addEventListener('keypress', (e) => {
   if (e.key === 'Enter') {
-    e.preventDefault();
+    e.preventDefault()
     addTaskBtn.style.display != 'none'
       ? addTaskBtn.click()
-      : updateTaskBtn.click();
+      : updateTaskBtn.click()
   }
-});
+})
 
 function addNewTask() {
   const newTask = {
     Task: input.value,
     Status: 'Pendente',
-  };
+  }
 
-  input.style.border = '';
+  input.style.border = ''
 
   if (!input.value) {
-    input.style.border = '1px solid red';
-    return alert('Digite um item para incluir na lista.');
+    input.style.border = '1px solid red'
+    return alert('Digite um item para incluir na lista.')
   }
 
   if (values.length == 0) {
     values.push({
       Id: values.length + 1,
       ...newTask,
-    });
+    })
 
-    saveList();
-    input.value = '';
-    return showTodoList();
+    saveList()
+    input.value = ''
+    return showTodoList()
   }
 
-  lastTask = values.findLast(({ Id }) => Id >= values.length);
-  lastId = lastTask.Id;
+  lastTask = values.findLast(({Id}) => Id >= values.length)
+  lastId = lastTask.Id
 
   values.push({
     Id: lastId + 1,
     ...newTask,
-  });
+  })
 
-  saveList();
-  input.value = '';
-  showTodoList();
+  saveList()
+  input.value = ''
+  showTodoList()
 }
 
 function saveList() {
-  localStorage.setItem(localStorageKey, JSON.stringify(values));
+  localStorage.setItem(localStorageKey, JSON.stringify(values))
 }
 
 function showTodoList() {
-  const list = document.getElementById('todo-list');
+  const list = document.getElementById('todo-list')
 
-  list.innerHTML = '';
+  list.innerHTML = ''
 
-  for (let value of values) {
+  for (const value of values) {
     list.innerHTML += `
         <li>
           <span class='${value.Status == 'Finalizado' ? 'task-done' : ''}'>${
@@ -89,46 +89,46 @@ function showTodoList() {
             </div>
         </li>
       <hr>
-    `;
+    `
   }
 }
 
 function editTask(data) {
-  const index = values.findIndex((i) => i.Id == data);
+  const index = values.findIndex(i => i.Id == data)
 
-  idToUpdate = values[index].Id;
-  input.value = values[index].Task;
+  idToUpdate = values[index].Id
+  input.value = values[index].Task
 
-  addTaskBtn.style.display = 'none';
-  updateTaskBtn.style.display = 'block';
+  addTaskBtn.style.display = 'none'
+  updateTaskBtn.style.display = 'block'
 }
 
 function removeItem(data) {
-  const index = values.findIndex((i) => i.Id == data);
-  values.splice(index, 1);
-  saveList();
-  showTodoList();
+  const index = values.findIndex(i => i.Id == data)
+  values.splice(index, 1)
+  saveList()
+  showTodoList()
 }
 
 function doneTask(data) {
-  const index = values.findIndex((i) => i.Id == data);
+  const index = values.findIndex(i => i.Id == data)
   values[index].Status == 'Finalizado'
     ? (values[index].Status = 'Pendente')
-    : (values[index].Status = 'Finalizado');
-  saveList();
-  showTodoList();
+    : (values[index].Status = 'Finalizado')
+  saveList()
+  showTodoList()
 }
 
 function updateTask() {
-  const index = values.findIndex((i) => i.Id == idToUpdate);
+  const index = values.findIndex(i => i.Id == idToUpdate)
 
-  values[index].Task = input.value;
+  values[index].Task = input.value
 
-  saveList();
+  saveList()
 
-  input.value = '';
+  input.value = ''
 
-  showTodoList();
+  showTodoList()
 }
 
-showTodoList();
+showTodoList()
