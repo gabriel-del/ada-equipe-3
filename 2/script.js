@@ -3,12 +3,12 @@ const localStorageKey = 'todo-list',
   add = document.querySelector('#add'),
   update = document.querySelector('#update'),
   values = JSON.parse(localStorage.getItem(localStorageKey) || '[]')
-let idToUpdate = '', lastTask = '', lastId = ''
 
-input.addEventListener('keypress', (e) => {
+  input.addEventListener('keypress', (e) => {
   if (e.key === 'Enter')  add.style.display !== 'none' ? add.click() : update.click()
 })
-function addNewTask() {
+
+add.addEventListener('click', () => {
   if (!input.value) {
     input.style.border = '1px solid red'
     alert('Digite um item para incluir na lista.')
@@ -19,9 +19,7 @@ function addNewTask() {
     saveList()
     showTodoList()
   }
-}
-
-add.addEventListener('click', addNewTask)
+})
 
 function saveList() { localStorage.setItem(localStorageKey, JSON.stringify(values)) }
 
