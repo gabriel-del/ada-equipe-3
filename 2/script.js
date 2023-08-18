@@ -5,7 +5,7 @@ const listKey = 'todo-list',
   listOut = JSON.parse(localStorage.getItem(listKey) || '[]')
   
 F = f => index => {
-    f(index)
+  f(index)
   updateList()
 }
 (updateList = () => {
@@ -28,7 +28,7 @@ add.addEventListener('click', F(() => {
     alert('Digite um item para incluir na lista.')
   } else {
     input.style.border = ''
-    listOut.push({Task: input.value, done: false})
+    listOut.unshift({Task: input.value, done: false})
     input.value = ''
   }
 }))
