@@ -31,44 +31,43 @@ main {
   gap: 4rem;
 }
 
-.content {
+section {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
 }
 
-.add-task {
-  display: flex;
-  gap: 0.5rem;
-  flex-wrap: wrap;
-}
+hr {border: 0.5px var(--color-dark2) solid;}
 
-hr {
-  border: 0.5px var(--color-dark2) solid;
-}
-
-#input-new-task,
-#btn-add-task,
-#btn-update-task {
+.add-task * {
   border: none;
   font-size: 1rem;
   outline: none;
   padding: 1rem;
 }
 
-#input-new-task {
+section input {
   width: 18rem;
   border-radius: 1rem;
 }
 
-#btn-add-task {
-  background-color: var(--color-green);
-  color: var(--color-dark);
+section button{
   border-radius: 50%;
   width: 3.125rem;
   height: 3.125rem;
   cursor: pointer;
   transition: 0.4s;
+}
+
+#btn-add-task {
+  background-color: var(--color-green);
+  color: var(--color-dark);
+}
+
+#btn-update-task {
+  background-color: var(--color-dark2);
+  color: var(--color-white);
+  display: none;
 }
 
 #btn-add-task:hover {
@@ -76,16 +75,7 @@ hr {
   color: var(--color-white);
 }
 
-#btn-update-task {
-  background-color: var(--color-dark2);
-  color: var(--color-white);
-  border-radius: 50%;
-  width: 3.125rem;
-  height: 3.125rem;
-  cursor: pointer;
-  transition: 0.4s;
-  display: none;
-}
+
 
 #btn-update-task:hover {
   background-color: var(--color-dark3);
