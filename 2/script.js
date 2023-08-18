@@ -34,7 +34,7 @@ add.addEventListener('click', addNewTask)
 function saveList() { localStorage.setItem(localStorageKey, JSON.stringify(values)) }
 
 function showTodoList() {
-  const list = document.getElementById('todo-list')
+  const list = document.querySelector('ul')
   list.innerHTML = ''
   for (const value of values) {
     list.innerHTML += `
