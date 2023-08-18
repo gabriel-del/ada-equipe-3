@@ -20,6 +20,7 @@ add.addEventListener('click', () => {
   }
 })
 
+
 function updateList() {
   localStorage.setItem(listKey, JSON.stringify(listOut)) 
   const listIn = document.querySelector('ul')
@@ -40,14 +41,20 @@ function updateList() {
   )
 }
 
+function showBtnAdd(show) {
+if(show){add.style.display = 'block';  update.style.display = 'none'} 
+else {add.style.display = 'none'; update.style.display = 'block'}
+}
+
+
 function editTask(index) {
   input.value = listOut[index].Task
-  add.style.display = 'none'
-  update.style.display = 'block'
+  showBtnAdd(false)
   update.addEventListener('click', () => {
     listOut[index].Task = input.value
     input.value = ''
     updateList()
+    showBtnAdd(true)
   })
 }
 
