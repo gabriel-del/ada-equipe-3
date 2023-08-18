@@ -9,15 +9,16 @@ input.addEventListener('keypress', (e) => {
   if (e.key === 'Enter')  add.style.display !== 'none' ? add.click() : update.click()
 })
 function addNewTask() {
-  input.style.border = ''
   if (!input.value) {
     input.style.border = '1px solid red'
-    return alert('Digite um item para incluir na lista.')
+    alert('Digite um item para incluir na lista.')
+  } else {
+    input.style.border = ''
+    values.push({Task: input.value, done: false})
+    input.value = ''
+    saveList()
+    showTodoList()
   }
-  values.push({Task: input.value, done: false})
-  input.value = ''
-  saveList()
-  showTodoList()
 }
 
 add.addEventListener('click', addNewTask)
