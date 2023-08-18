@@ -6,82 +6,28 @@
   --color-green: rgb(103, 195, 80);
   --color-green2: rgb(51, 149, 26);
   --color-red: rgb(184, 40, 35);
-  --color-red2: rgb(146, 22, 17);
-}
-
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-body {
-  background-color: var(--color-dark);
-  color: var(--color-white);
-  font-family: sans-serif;
-}
-
-main {
-  height: 100vh;
-  width: 100vw;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 4rem;
-}
-
-section {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-}
-
-hr {border: 0.5px var(--color-dark2) solid;}
-
-.add-task * {
+  --color-red2: rgb(146, 22, 17);}
+* {box-sizing: border-box; margin: 0; padding: 0;}
+body {background-color: var(--color-dark); color: var(--color-white); font-family: sans-serif;}
+main { height: 100vh; width: 100vw;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  gap: 4rem;}
+section {display: flex; flex-direction: column; gap: 1.5rem;}
+section > div * {
   border: none;
   font-size: 1rem;
   outline: none;
-  padding: 1rem;
-}
+  padding: 1rem;}
+section input { width: 18rem; border-radius: 1rem;}
+section button{width: 3.125rem; height: 3.125rem; border-radius: 50%;
+  cursor: pointer; transition: 0.4s;}
 
-section input {
-  width: 18rem;
-  border-radius: 1rem;
-}
-
-section button{
-  border-radius: 50%;
-  width: 3.125rem;
-  height: 3.125rem;
-  cursor: pointer;
-  transition: 0.4s;
-}
-
-#btn-add-task {
-  background-color: var(--color-green);
-  color: var(--color-dark);
-}
-
-#btn-update-task {
-  background-color: var(--color-dark2);
-  color: var(--color-white);
-  display: none;
-}
-
-#btn-add-task:hover {
-  background-color: var(--color-dark3);
-  color: var(--color-white);
-}
-
-
-
-#btn-update-task:hover {
-  background-color: var(--color-dark3);
-}
-
-#btn-edit {
+#btn-add-task {         background-color: var(--color-green); color: var(--color-dark);}
+#btn-update-task {      background-color: var(--color-dark2); color: var(--color-white); display: none;}
+#btn-add-task:hover {   background-color: var(--color-dark3); color: var(--color-white);}
+#btn-update-task:hover {background-color: var(--color-dark3);}
+li button {
   background-color: var(--color-dark2);
   color: var(--color-white);
   border: none;
@@ -89,56 +35,19 @@ section button{
   width: 2.5rem;
   height: 2.5rem;
   cursor: pointer;
-  transition: 0.4s;
-}
-
-#btn-edit:hover {
-  background-color: var(--color-white);
-  color: var(--color-dark);
-}
-
-#btn-remove {
-  background-color: var(--color-dark2);
-  color: var(--color-white);
-  border: none;
-  border-radius: 50%;
-  width: 2.5rem;
-  height: 2.5rem;
-  cursor: pointer;
-  transition: 0.4s;
-}
-
-#btn-remove:hover {
-  background-color: var(--color-red);
-  color: var(--color-white);
-}
-
-#btn-done {
-  background-color: var(--color-dark2);
-  color: var(--color-white);
-  border: none;
-  border-radius: 50%;
-  width: 2.5rem;
-  height: 2.5rem;
-  cursor: pointer;
-  transition: 0.4s;
-}
-
-#btn-done:hover {
-  background-color: var(--color-green2);
-}
-
-#todo-list {
+  transition: 0.4s;}
+#btn-edit:hover {background-color: var(--color-white); color: var(--color-dark);}
+#btn-remove:hover {background-color: var(--color-red); color: var(--color-white);}
+#btn-done:hover { background-color: var(--color-green2);}
+ul {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
   padding: 0;
   overflow: scroll;
   max-height: 420px;
-  scroll-behavior: smooth;
-}
-
-#todo-list li {
+  scroll-behavior: smooth;}
+ul li {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -148,26 +57,12 @@ section button{
   padding: 0.5rem 1rem;
   transition: 0.2s;
 }
-
-#todo-list li:hover {
+ul li:hover {
   background-color: var(--color-dark3);
   border-radius: 1rem;
-  cursor: pointer;
-}
-
-.task-done {
-  text-decoration: line-through;
-  opacity: 30%;
-}
-
+  cursor: pointer;}
+li .task-done {text-decoration: line-through; opacity: 30%;}
+hr {border: 0.5px var(--color-dark2) solid;}
 @media (max-width: 320px) {
-  #input-new-task,
-  #btn-add-task,
-  #btn-update-task {
-    font-size: 0.8rem;
-  }
-
-  #input-new-task {
-    width: 14rem;
-  }
-}
+  section > div {font-size: 0.8rem;}
+  section > div input {width: 14rem;}}
