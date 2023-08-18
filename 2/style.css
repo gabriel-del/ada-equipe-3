@@ -31,6 +31,18 @@ main {
   gap: 4rem;
 }
 
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.add-task {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
 hr {
   border: 0.5px var(--color-dark2) solid;
 }
@@ -124,18 +136,6 @@ hr {
 
 #btn-done:hover {
   background-color: var(--color-green2);
-}
-
-.content {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-}
-
-.add-task {
-  display: flex;
-  gap: 0.5rem;
-  flex-wrap: wrap;
 }
 
 #todo-list {
