@@ -19,7 +19,7 @@ section > div * {
   font-size: 1rem;
   outline: none;
   padding: 1rem;}
-section input { width: 18rem; border-radius: 1rem;}
+section input {width: 18rem; border-radius: 1rem;}
 section button{width: 3.125rem; height: 3.125rem; border-radius: 50%;
   cursor: pointer; transition: 0.4s;}
 #add {         background-color: var(--color-green); color: var(--color-dark);}
@@ -35,9 +35,9 @@ li button {
   height: 2.5rem;
   cursor: pointer;
   transition: 0.4s;}
-#btn-edit:hover {background-color: var(--color-white); color: var(--color-dark);}
-#btn-remove:hover {background-color: var(--color-red); color: var(--color-white);}
-#btn-done:hover { background-color: var(--color-green2);}
+#edit:hover {background-color: var(--color-white); color: var(--color-dark);}
+#remove:hover {background-color: var(--color-red); color: var(--color-white);}
+#done:hover { background-color: var(--color-green2);}
 ul {
   display: flex;
   flex-direction: column;
