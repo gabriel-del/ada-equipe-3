@@ -25,20 +25,12 @@ updateList = () => {
   localStorage.setItem(listKey, JSON.stringify(listOut)) 
   const listIn = document.querySelector('ul')
   listIn.innerHTML = ''
-  listOut.forEach(
-    (value, index) => {
-      listIn.innerHTML += `
-        <li>
-          <span class='${value.done === true ? 'done' : ''}'>${value.Task}</span>
-            <div id='btn-task'>
-              <button id='edit' onclick='edit("${index}")' class="bi bi-pencil"></button>
-              <button id='remove' onclick='remove("${index}")' class="bi bi-trash3" ></button>
-              <button id='done' onclick='done("${index}")' class="bi bi-bag-check"></button>
-            </div>
-        </li>
-      <hr>`
-    }
-  )
+  listOut.forEach((value, index) => {listIn.innerHTML += `
+    <li><span class='${value.done === true ? 'done' : ''}'>${value.Task}</span><div>
+      <button id='edit' onclick='edit("${index}")' class="bi bi-pencil"/>
+      <button id='remove' onclick='remove("${index}")' class="bi bi-trash3"/>
+      <button id='done' onclick='done("${index}")' class="bi bi-bag-check"/>
+    </div></li><hr>`})
 }
 
 showBtnAdd = show => {
