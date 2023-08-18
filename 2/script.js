@@ -15,15 +15,7 @@ function addNewTask() {
     input.style.border = '1px solid red'
     return alert('Digite um item para incluir na lista.')
   }
-  if (values.length === 0) {
-    values.push({Id: values.length + 1, ...newTask})
-    saveList()
-    input.value = ''
-    return showTodoList()
-  }
-  lastTask = values.findLast(({Id}) => Id >= values.length)
-  lastId = lastTask.Id
-  values.push({Id: lastId + 1, ...newTask})
+  values.push(newTask)
   saveList()
   input.value = ''
   showTodoList()
@@ -36,44 +28,43 @@ function saveList() { localStorage.setItem(localStorageKey, JSON.stringify(value
 function showTodoList() {
   const list = document.querySelector('ul')
   list.innerHTML = ''
-  for (const value of values) {
-    list.innerHTML += `
+  values.forEach(
+    (value, index) => {
+      list.innerHTML += `
         <li>
           <span class='${value.done === true ? 'task-done' : ''}'>${value.Task}</span>
             <div id='btn-task'>
-              <button id='edit' onclick='editTask("${value.Id}")' class="bi bi-pencil"></button>
-              <button id='remove' onclick='removeItem("${value.Id}")' class="bi bi-trash3" ></button>
-              <button id='done' onclick='doneTask("${value.Id}")' class="bi bi-bag-check"></button>
+              <button id='edit' onclick='editTask("${index}")' class="bi bi-pencil"></button>
+              <button id='remove' onclick='removeItem("${index}")' class="bi bi-trash3" ></button>
+              <button id='done' onclick='doneTask("${index}")' class="bi bi-bag-check"></button>
             </div>
         </li>
       <hr>`
-  }
+    }
+  )
 }
 
-function editTask(data) {
-  const index = values.findIndex(i => i.Id == data)
-  idToUpdate = values[index].Id
+function editTask(index) {
+  idToUpdate = index
   input.value = values[index].Task
   add.style.display = 'none'
   update.style.display = 'block'
 }
 
-function removeItem(data) {
-  const index = values.findIndex(i => i.Id == data)
+function removeItem(index) {
   values.splice(index, 1)
   saveList()
   showTodoList()
 }
 
-function doneTask(data) {
-  const index = values.findIndex(i => i.Id == data)
+function doneTask(index) {
   values[index].done = !values[index].done
   saveList()
   showTodoList()
 }
 
 function updateTask() {
-  const index = values.findIndex(i => i.Id === idToUpdate)
+  index = idToUpdate
   values[index].Task = input.value
   saveList()
   input.value = ''
