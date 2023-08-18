@@ -6,9 +6,7 @@ const localStorageKey = 'todo-list',
 let idToUpdate = '', lastTask = '', lastId = ''
 
 input.addEventListener('keypress', (e) => {
-  if (e.key === 'Enter') {
-    addTaskBtn.style.display !== 'none' ? addTaskBtn.click() : updateTaskBtn.click()
-  }
+  if (e.key === 'Enter')  addTaskBtn.style.display !== 'none' ? addTaskBtn.click() : updateTaskBtn.click()
 })
 
 function addNewTask() {
