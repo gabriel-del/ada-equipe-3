@@ -67,7 +67,7 @@ function removeItem(data) {
 
 function doneTask(data) {
   const index = values.findIndex(i => i.Id == data)
-  values[index].done === true ? (values[index].done = false) : (values[index].done = true)
+  values[index].done = !values[index].done
   saveList()
   showTodoList()
 }
