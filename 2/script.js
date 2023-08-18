@@ -1,14 +1,13 @@
 const localStorageKey = 'todo-list',
-  addTaskBtn = document.getElementById('btn-add-task'),
-  updateTaskBtn = document.getElementById('btn-update-task'),
-  values = JSON.parse(localStorage.getItem(localStorageKey) || '[]'),
-  input = document.getElementById('input-new-task')
+  input = document.querySelector('input'),
+  add = document.querySelector('#add'),
+  update = document.querySelector('#update'),
+  values = JSON.parse(localStorage.getItem(localStorageKey) || '[]')
 let idToUpdate = '', lastTask = '', lastId = ''
 
 input.addEventListener('keypress', (e) => {
-  if (e.key === 'Enter')  addTaskBtn.style.display !== 'none' ? addTaskBtn.click() : updateTaskBtn.click()
+  if (e.key === 'Enter')  add.style.display !== 'none' ? add.click() : update.click()
 })
-
 function addNewTask() {
   const newTask = {Task: input.value, Status: 'Pendente'}
   input.style.border = ''
@@ -30,7 +29,7 @@ function addNewTask() {
   showTodoList()
 }
 
-addTaskBtn.addEventListener('click', addNewTask)
+add.addEventListener('click', addNewTask)
 
 function saveList() { localStorage.setItem(localStorageKey, JSON.stringify(values)) }
 
@@ -55,8 +54,8 @@ function editTask(data) {
   const index = values.findIndex(i => i.Id == data)
   idToUpdate = values[index].Id
   input.value = values[index].Task
-  addTaskBtn.style.display = 'none'
-  updateTaskBtn.style.display = 'block'
+  add.style.display = 'none'
+  update.style.display = 'block'
 }
 
 function removeItem(data) {
@@ -80,7 +79,5 @@ function updateTask() {
   input.value = ''
   showTodoList()
 }
-
-updateTaskBtn.addEventListener('click', updateTask)
-
+update.addEventListener('click', updateTask)
 showTodoList()

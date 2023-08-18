@@ -22,10 +22,10 @@ section > div * {
 section input { width: 18rem; border-radius: 1rem;}
 section button{width: 3.125rem; height: 3.125rem; border-radius: 50%;
   cursor: pointer; transition: 0.4s;}
-#btn-add-task {         background-color: var(--color-green); color: var(--color-dark);}
-#btn-update-task {      background-color: var(--color-dark2); color: var(--color-white); display: none;}
-#btn-add-task:hover {   background-color: var(--color-dark3); color: var(--color-white);}
-#btn-update-task:hover {background-color: var(--color-dark3);}
+#add {         background-color: var(--color-green); color: var(--color-dark);}
+#update {      background-color: var(--color-dark2); color: var(--color-white); display: none;}
+#add:hover {   background-color: var(--color-dark3); color: var(--color-white);}
+#update:hover {background-color: var(--color-dark3);}
 li button {
   background-color: var(--color-dark2);
   color: var(--color-white);
