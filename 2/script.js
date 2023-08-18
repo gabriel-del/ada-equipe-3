@@ -32,7 +32,7 @@ function showTodoList() {
     (value, index) => {
       list.innerHTML += `
         <li>
-          <span class='${value.done === true ? 'task-done' : ''}'>${value.Task}</span>
+          <span class='${value.done === true ? 'done' : ''}'>${value.Task}</span>
             <div id='btn-task'>
               <button id='edit' onclick='editTask("${index}")' class="bi bi-pencil"></button>
               <button id='remove' onclick='removeItem("${index}")' class="bi bi-trash3" ></button>

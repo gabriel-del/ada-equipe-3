@@ -60,7 +60,7 @@ ul li:hover {
   background-color: var(--color-dark3);
   border-radius: 1rem;
   cursor: pointer;}
-li .task-done {text-decoration: line-through; opacity: 30%;}
+li .done {text-decoration: line-through; opacity: 30%;}
 hr {border: 0.5px var(--color-dark2) solid;}
 @media (max-width: 320px) {
   section > div {font-size: 0.8rem;}
