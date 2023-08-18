@@ -49,7 +49,17 @@ function editTask(index) {
   input.value = values[index].Task
   add.style.display = 'none'
   update.style.display = 'block'
+  update.addEventListener('click', () => {
+    index = idToUpdate
+    values[index].Task = input.value
+    saveList()
+    input.value = ''
+    showTodoList()
+  }) 
 }
+
+
+
 
 function removeItem(index) {
   values.splice(index, 1)
@@ -63,12 +73,5 @@ function doneTask(index) {
   showTodoList()
 }
 
-function updateTask() {
-  index = idToUpdate
-  values[index].Task = input.value
-  saveList()
-  input.value = ''
-  showTodoList()
-}
-update.addEventListener('click', updateTask)
+
 showTodoList()
