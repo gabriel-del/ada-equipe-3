@@ -20,7 +20,7 @@ F = f => index => {
   </div></li><hr>`})
 })()
 input.addEventListener('keypress', e => {
-  if (e.key === 'Enter')  document.querySelector('section').querySelector('button:not([style*="display:none"]):not([style*="display: none"])').click()
+  if (e.key === 'Enter')  document.querySelector('section').querySelector('button:not([style*="display: none"])').click()
 })
 add.addEventListener('click', F(() => {
   if (!input.value) {
@@ -32,17 +32,20 @@ add.addEventListener('click', F(() => {
     input.value = ''
   }
 }))
-showBtnAdd = show => {if(show){add.style.display = 'block';  update.style.display = 'none'} else {add.style.display = 'none'; update.style.display = 'block'}}
+showBtnAdd = show => {if(show){add.style.display = 'inline-block';  update.style.display = 'none'} else {add.style.display = 'none'; update.style.display = 'inline-block'}}
 remove = index => listOut.splice(index, 1)
 done = index => listOut[index].done = !listOut[index].done
 edit = index => {
   input.value = listOut[index].Task
   showBtnAdd(false)
-  update.addEventListener('click', F(() => {
+  update.addEventListener('click', () => {
     listOut[index].Task = input.value
+    console.log(input.value)
+    console.log(index)
     input.value = ''
     showBtnAdd(true)
-  }))
+    updateList()
+  }, {once: true})
 }
 
 
