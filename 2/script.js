@@ -1,8 +1,8 @@
-const localStorageKey = 'todo-list',
+const listKey = 'todo-list',
   input = document.querySelector('input'),
   add = document.querySelector('#add'),
   update = document.querySelector('#update'),
-  values = JSON.parse(localStorage.getItem(localStorageKey) || '[]')
+  listOut = JSON.parse(localStorage.getItem(listKey) || '[]')
 
   input.addEventListener('keypress', (e) => {
   if (e.key === 'Enter')  add.style.display !== 'none' ? add.click() : update.click()
@@ -14,19 +14,19 @@ add.addEventListener('click', () => {
     alert('Digite um item para incluir na lista.')
   } else {
     input.style.border = ''
-    values.push({Task: input.value, done: false})
+    listOut.push({Task: input.value, done: false})
     input.value = ''
     updateList()
   }
 })
 
 function updateList() {
-  localStorage.setItem(localStorageKey, JSON.stringify(values)) 
-  const list = document.querySelector('ul')
-  list.innerHTML = ''
-  values.forEach(
+  localStorage.setItem(listKey, JSON.stringify(listOut)) 
+  const listIn = document.querySelector('ul')
+  listIn.innerHTML = ''
+  listOut.forEach(
     (value, index) => {
-      list.innerHTML += `
+      listIn.innerHTML += `
         <li>
           <span class='${value.done === true ? 'done' : ''}'>${value.Task}</span>
             <div id='btn-task'>
@@ -41,23 +41,23 @@ function updateList() {
 }
 
 function editTask(index) {
-  input.value = values[index].Task
+  input.value = listOut[index].Task
   add.style.display = 'none'
   update.style.display = 'block'
   update.addEventListener('click', () => {
-    values[index].Task = input.value
+    listOut[index].Task = input.value
     input.value = ''
     updateList()
   })
 }
 
 function removeItem(index) {
-  values.splice(index, 1)
+  listOut.splice(index, 1)
   updateList()
 }
 
 function doneTask(index) {
-  values[index].done = !values[index].done
+  listOut[index].done = !listOut[index].done
   updateList()
 }
 
