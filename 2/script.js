@@ -9,7 +9,7 @@ input.addEventListener('keypress', (e) => {
   if (e.key === 'Enter')  add.style.display !== 'none' ? add.click() : update.click()
 })
 function addNewTask() {
-  const newTask = {Task: input.value, Status: 'Pendente'}
+  const newTask = {Task: input.value, done: false}
   input.style.border = ''
   if (!input.value) {
     input.style.border = '1px solid red'
@@ -39,7 +39,7 @@ function showTodoList() {
   for (const value of values) {
     list.innerHTML += `
         <li>
-          <span class='${value.Status === 'Finalizado' ? 'task-done' : ''}'>${value.Task}</span>
+          <span class='${value.done === true ? 'task-done' : ''}'>${value.Task}</span>
             <div id='btn-task'>
               <button id='btn-edit' onclick='editTask("${value.Id}")' class="bi bi-pencil"></button>
               <button id='btn-remove' onclick='removeItem("${value.Id}")' class="bi bi-trash3" ></button>
@@ -67,7 +67,7 @@ function removeItem(data) {
 
 function doneTask(data) {
   const index = values.findIndex(i => i.Id == data)
-  values[index].Status === 'Finalizado' ? (values[index].Status = 'Pendente') : (values[index].Status = 'Finalizado')
+  values[index].done === true ? (values[index].done = false) : (values[index].done = true)
   saveList()
   showTodoList()
 }
