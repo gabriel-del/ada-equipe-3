@@ -13,7 +13,11 @@
     "@typescript-eslint/space-infix-ops": "off",
     "@typescript-eslint/object-curly-spacing": ["error", "never"],
     "array-element-newline": ["error", "never"],
-    "one-var": ["error", "always"],
-    "max-statements-per-line": ["error", { "max": 6 }]
+    "one-var": ["error", "consecutive"],
+    "max-statements-per-line": ["error", { "max": 6 }],
+    "@typescript-eslint/brace-style": ["error", "1tbs", { "allowSingleLine": true }],
+    "arrow-parens": ["error", "as-needed"],
+    "antfu/if-newline": 0,
+    "block-spacing": ["error", "never"]
   }
 }
