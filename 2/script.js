@@ -7,7 +7,6 @@ let idToUpdate = '', lastTask = '', lastId = ''
 
 input.addEventListener('keypress', (e) => {
   if (e.key === 'Enter') {
-    e.preventDefault()
     addTaskBtn.style.display !== 'none' ? addTaskBtn.click() : updateTaskBtn.click()
   }
 })
