@@ -2,7 +2,8 @@ const listKey = 'todo-list',
   input = document.querySelector('input'),
   add = document.querySelector('#add'),
   update = document.querySelector('#update'),
-  listOut = JSON.parse(localStorage.getItem(listKey) || '[]')
+  listOut = JSON.parse(localStorage.getItem(listKey) || '[]'),
+  display = ["none", "inline-block"]
   
 F = f => index => {
   f(index)
@@ -32,7 +33,7 @@ add.addEventListener('click', F(() => {
     input.value = ''
   }
 }))
-showBtnAdd = show => {if(show){add.style.display = 'inline-block';  update.style.display = 'none'} else {add.style.display = 'none'; update.style.display = 'inline-block'}}
+showBtnAdd = show => {add.style.display = display[+show];  update.style.display = display[+!show]}
 remove = index => listOut.splice(index, 1)
 done = index => listOut[index].done = !listOut[index].done
 edit = index => {
@@ -40,12 +41,9 @@ edit = index => {
   showBtnAdd(false)
   update.addEventListener('click', () => {
     listOut[index].Task = input.value
-    console.log(input.value)
-    console.log(index)
     input.value = ''
     showBtnAdd(true)
     updateList()
   }, {once: true})
 }
-
 
