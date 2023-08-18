@@ -20,7 +20,7 @@ F = f => index => {
   </div></li><hr>`})
 })()
 input.addEventListener('keypress', e => {
-  if (e.key === 'Enter')  add.style.display !== 'none' ? add.click() : update.click()
+  if (e.key === 'Enter')  document.querySelector('section').querySelector('button:not([style*="display:none"]):not([style*="display: none"])').click()
 })
 add.addEventListener('click', F(() => {
   if (!input.value) {
