@@ -9,15 +9,14 @@ input.addEventListener('keypress', (e) => {
   if (e.key === 'Enter')  add.style.display !== 'none' ? add.click() : update.click()
 })
 function addNewTask() {
-  const newTask = {Task: input.value, done: false}
   input.style.border = ''
   if (!input.value) {
     input.style.border = '1px solid red'
     return alert('Digite um item para incluir na lista.')
   }
-  values.push(newTask)
-  saveList()
+  values.push({Task: input.value, done: false})
   input.value = ''
+  saveList()
   showTodoList()
 }
 
@@ -45,21 +44,16 @@ function showTodoList() {
 }
 
 function editTask(index) {
-  idToUpdate = index
   input.value = values[index].Task
   add.style.display = 'none'
   update.style.display = 'block'
   update.addEventListener('click', () => {
-    index = idToUpdate
     values[index].Task = input.value
     saveList()
     input.value = ''
     showTodoList()
-  }) 
+  })
 }
-
-
-
 
 function removeItem(index) {
   values.splice(index, 1)
