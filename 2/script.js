@@ -16,14 +16,12 @@ add.addEventListener('click', () => {
     input.style.border = ''
     values.push({Task: input.value, done: false})
     input.value = ''
-    saveList()
-    showTodoList()
+    updateList()
   }
 })
 
-function saveList() { localStorage.setItem(localStorageKey, JSON.stringify(values)) }
-
-function showTodoList() {
+function updateList() {
+  localStorage.setItem(localStorageKey, JSON.stringify(values)) 
   const list = document.querySelector('ul')
   list.innerHTML = ''
   values.forEach(
@@ -48,23 +46,20 @@ function editTask(index) {
   update.style.display = 'block'
   update.addEventListener('click', () => {
     values[index].Task = input.value
-    saveList()
     input.value = ''
-    showTodoList()
+    updateList()
   })
 }
 
 function removeItem(index) {
   values.splice(index, 1)
-  saveList()
-  showTodoList()
+  updateList()
 }
 
 function doneTask(index) {
   values[index].done = !values[index].done
-  saveList()
-  showTodoList()
+  updateList()
 }
 
 
-showTodoList()
+updateList()
