@@ -52,22 +52,6 @@ function updateList() {
   })
 }
 
-function filter() {
-  localStorage.setItem(listKey, JSON.stringify(listOut))
-  const listIn = document.querySelector('ul')
-  listIn.innerHTML = ''
-  listOut.forEach((value, index) => {
-    listIn.innerHTML += `
-    <li><span class='${value.done === true ? 'done' : ''}' >${value.Task}</span>
-    <span class='description'>${value.Description}</span>
-    <div>
-    <button id='edit' onclick='edit(${index})' class="bi bi-pencil"/>
-    <button id='remove' onclick='F(remove)(${index})' class="bi bi-trash3"/>
-    <button id='done' onclick='F(done)(${index})' class="bi bi-bag-check"/>
-    </div></li><hr>`
-  })
-}
-
 const filterElement = document.querySelector('header .buscador')
 filterElement.addEventListener('input', filterCards)
 
