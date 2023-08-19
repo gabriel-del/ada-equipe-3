@@ -126,7 +126,8 @@ ul {
   overflow: scroll;
   max-height: 420px;
   scroll-behavior: smooth;
-  border-radius: 16px;}
+  border-radius: 16px;
+  box-shadow: 0px 16px 32px 0px rgba(0, 0, 0, 0.50);}
 
 ul li {
   display: flex;
@@ -143,18 +144,18 @@ ul li {
 /* Largura da barra de rolagem */
 
 ::-webkit-scrollbar {
-  width: 0.5rem;
-  border-radius: 20px;}
+  width: 0.5rem;}
 
 /* Cor de fundo da barra de rolagem */
 
 ::-webkit-scrollbar-track {
-  background-color: #1A2126;}
+ display: none;}
 
 /* Cor da própria barra de rolagem */
 
 ::-webkit-scrollbar-thumb {
-  background-color: #888;}
+  background-color: #888;
+  border-radius: 10px;}
 
 /* Cor quando você passa o mouse sobre a barra de rolagem */
 
