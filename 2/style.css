@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
 :root {
   --color-dark: rgb(14, 14, 14);
   --color-dark2: rgb(32, 32, 32);
@@ -13,6 +15,29 @@ main { height: 100vh; width: 100vw;
   display: flex; flex-direction: column;
   align-items: center; justify-content: center;
   gap: 4rem;}
+
+
+header {
+  width: 100vw;
+  padding: 1rem 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--color-dark2);
+  border-bottom: 1px solid var(--color-dark3);
+}
+
+header input {
+  width: 260px;
+  padding: 0.5rem 1.3rem;
+  border-radius: 2.5rem;
+  background-color: var(--color-dark);
+  border: 1px solid var(--color-dark3);
+}
+
+
+
+
 section {display: flex; flex-direction: column; gap: 1.5rem;}
 section > div * {
   border: none;
@@ -61,7 +86,7 @@ ul li:hover {
   border-radius: 1rem;
   cursor: pointer;}
 li .done {text-decoration: line-through; opacity: 30%;}
-hr {border: 0.5px var(--color-dark2) solid;}
+hr {border: 0.5px var(--color-dark3) solid;}
 @media (max-width: 320px) {
   section > div {font-size: 0.8rem;}
   section > div input {width: 14rem;}}

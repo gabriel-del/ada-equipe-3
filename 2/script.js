@@ -1,5 +1,5 @@
 const listKey = 'todo-list',
-  input = document.querySelector('main section input'),
+  input = document.querySelector('#title'),
   add = document.querySelector('#add'),
   update = document.querySelector('#update'),
   listOut = JSON.parse(localStorage.getItem(listKey) || '[]'),
