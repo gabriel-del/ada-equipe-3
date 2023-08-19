@@ -96,10 +96,6 @@ section button{
 #add:hover {   background-color: var(--color-dark3); color: var(--color-white);}
 #update:hover {background-color: var(--color-dark3);}
 
-.task{
-
-}
-
 .description{
   color: #A5ADB4;
 }

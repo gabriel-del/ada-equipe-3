@@ -9,6 +9,7 @@ const listKey = 'todo-list',
   F = f => index => { f(index); updateList() },
   remove = index => listOut.splice(index, 1),
   done = index => listOut[index].done = !listOut[index].done
+
 input.addEventListener('keypress', e => {
   if (e.key === 'Enter') document.querySelector('section').querySelector('button:not([style*="display: none"])').click()
 })
@@ -42,8 +43,8 @@ function updateList() {
   listIn.innerHTML = ''
   listOut.forEach((value, index) => {
     listIn.innerHTML += `
-    <li><span class='task ${value.done === true ? 'done' : ''}'>${value.Task}</span>
-    <span class='description'>${value.Description}</span>
+    <li><span class=' ${value.done === true ? 'done' : ''}'>${value.Task}</span>
+    <span class='description ${value.done === true ? 'done' : ''}'>${value.Description}</span>
     <div>
     <button id='edit' onclick='edit(${index})' class="bi bi-pencil"/>
     <button id='remove' onclick='F(remove)(${index})' class="bi bi-trash3"/>
@@ -59,7 +60,7 @@ function filter() {
   listOut.forEach((value, index) => {
     listIn.innerHTML += `
     <li><span class='${value.done === true ? 'done' : ''}' >${value.Task}</span>
-    <span class='description'>${value.Description}</span>
+    <span class='description ${value.done === true ? 'done' : ''}'>${value.Description}</span>
     <div>
     <button id='edit' onclick='edit(${index})' class="bi bi-pencil"/>
     <button id='remove' onclick='F(remove)(${index})' class="bi bi-trash3"/>
@@ -83,7 +84,7 @@ function filterCards() {
       if (value.Task.toLowerCase().includes(filterText)){
         listIn.innerHTML += `
           <li><span class='${value.done === true ? 'done' : ''}'>${value.Task}</span>
-          <span class='description'>${value.Description}</span>
+          <span class='description ${value.done === true ? 'done' : ''}'>${value.Description}</span>
           <div>
           <button id='edit' onclick='edit(${index})' class="bi bi-pencil"/>
           <button id='remove' onclick='F(remove)(${index})' class="bi bi-trash3"/>
@@ -99,7 +100,7 @@ function filterCards() {
     listOut.forEach((value, index) => {
       listIn.innerHTML += `
         <li><span class='${value.done === true ? 'done' : ''}'>${value.Task}</span>
-        <span class='description'>${value.Description}</span>
+        <span class='description ${value.done === true ? 'done' : ''}'>${value.Description}</span>
         <div>
         <button id='edit' onclick='edit(${index})' class="bi bi-pencil"/>
         <button id='remove' onclick='F(remove)(${index})' class="bi bi-trash3"/>
