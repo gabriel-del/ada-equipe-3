@@ -77,9 +77,18 @@ section button {
   cursor: pointer;
   transition: 0.4s;}
 
-#add {background-color: var(--color-orange); color: var(--color-dark);}
-#update {background-color: var(--color-dark2); color: var(--color-white); display: none;}
-#add:hover {background-color: var(--color-dark3); color: var(--color-white);}
+#add {
+  background-color: var(--color-orange);
+  color: var(--color-dark);}
+
+#update {
+  background-color: var(--color-dark2);
+  color: var(--color-white);
+  display: none;}
+
+#add:hover {
+  background-color: var(--color-dark3);
+  color: var(--color-white);}
 #update:hover {background-color: var(--color-dark3);}
 
 .description {
