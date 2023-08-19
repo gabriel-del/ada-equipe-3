@@ -1,0 +1,8 @@
+{
+  "extends": "stylelint-config-standard",
+  "rules": {
+    "declaration-block-single-line-max-declarations": 10,
+    "declaration-block-semicolon-newline-after": "never-multi-line",
+    "declaration-block-semicolon-newline-before": "never-multi-line"
+  }
+}

@@ -4,11 +4,11 @@
   --color-dark: #161B1F;
   --color-dark2: #1A2126;
   --color-dark3: #32393F;
-  --color-white: rgb(255, 255, 255);
-  --color-green: rgb(103, 195, 80);
-  --color-green2: rgb(51, 149, 26);
-  --color-red: rgb(184, 40, 35);
-  --color-red2: rgb(146, 22, 17);
+  --color-white: rgb(255 255 255);
+  --color-green: rgb(103 195 80);
+  --color-green2: rgb(51 149 26);
+  --color-red: rgb(184 40 35);
+  --color-red2: rgb(146 22 17);
 }
 
 * {
@@ -19,13 +19,16 @@
 
 body {background-color: var(--color-dark);
   color: var(--color-white);
-  font-family: 'Poppins', sans-serif;
+  font-family: Poppins, sans-serif;
 }
 
 main {
-  height: 100vh; width: 100vw;
-  display: flex; flex-direction: column;
-  align-items: center; justify-content: center;
+  height: 100vh;
+ width: 100vw;
+  display: flex;
+ flex-direction: column;
+  align-items: center;
+ justify-content: center;
   gap: 4rem;
 }
 
@@ -137,11 +140,11 @@ ul li:hover {
   cursor: pointer;
 }
 
-li .done {text-decoration: line-through; opacity: 30%;}
+li .done {text-decoration: line-through; opacity: 0.3;}
 
 hr {border: 0.5px var(--color-dark3) solid;}
 
-@media (max-width: 320px) {
+@media (width <= 320px) {
   section > div {font-size: 0.8rem;}
   section > div input {width: 14rem;}
 }
