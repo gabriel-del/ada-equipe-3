@@ -58,7 +58,9 @@ function filter() {
   listIn.innerHTML = ''
   listOut.forEach((value, index) => {
     listIn.innerHTML += `
-    <li><span class='${value.done === true ? 'done' : ''}' >${value.Task}</span><div>
+    <li><span class='${value.done === true ? 'done' : ''}' >${value.Task}</span>
+    <span class='description'>${value.Description}</span>
+    <div>
     <button id='edit' onclick='edit(${index})' class="bi bi-pencil"/>
     <button id='remove' onclick='F(remove)(${index})' class="bi bi-trash3"/>
     <button id='done' onclick='F(done)(${index})' class="bi bi-bag-check"/>
@@ -80,7 +82,9 @@ function filterCards() {
 
       if (value.Task.toLowerCase().includes(filterText)){
         listIn.innerHTML += `
-          <li><span class='${value.done === true ? 'done' : ''}'>${value.Task}</span><div>
+          <li><span class='${value.done === true ? 'done' : ''}'>${value.Task}</span>
+          <span class='description'>${value.Description}</span>
+          <div>
           <button id='edit' onclick='edit(${index})' class="bi bi-pencil"/>
           <button id='remove' onclick='F(remove)(${index})' class="bi bi-trash3"/>
           <button id='done' onclick='F(done)(${index})' class="bi bi-bag-check"/>
@@ -94,7 +98,9 @@ function filterCards() {
     listIn.innerHTML = ''
     listOut.forEach((value, index) => {
       listIn.innerHTML += `
-        <li><span class='${value.done === true ? 'done' : ''}'>${value.Task}</span><div>
+        <li><span class='${value.done === true ? 'done' : ''}'>${value.Task}</span>
+        <span class='description'>${value.Description}</span>
+        <div>
         <button id='edit' onclick='edit(${index})' class="bi bi-pencil"/>
         <button id='remove' onclick='F(remove)(${index})' class="bi bi-trash3"/>
         <button id='done' onclick='F(done)(${index})' class="bi bi-bag-check"/>
