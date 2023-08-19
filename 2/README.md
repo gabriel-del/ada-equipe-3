@@ -20,11 +20,10 @@
 
 
 ### Install
-instalar [pnpm](https://pnpm.io/cli/add)
+<!-- instalar [pnpm](https://pnpm.io/cli/add) -->
 
 ```
 git clone git@github.com:gabriel-del/ada-equipe-3.git
-cd ada-grupo
-pnpm i
+cd ada-equipe-3
 git checkout -b SeuNome
 ```
