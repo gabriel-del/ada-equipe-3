@@ -2,7 +2,17 @@
   "extends": "stylelint-config-standard",
   "rules": {
     "declaration-block-single-line-max-declarations": 10,
-    "declaration-block-semicolon-newline-after": "never-multi-line",
-    "declaration-block-semicolon-newline-before": "never-multi-line"
+    "declaration-block-no-duplicate-properties": true,
+    "no-duplicate-selectors": true,
+    "declaration-block-semicolon-newline-before": "never-multi-line",
+    "declaration-block-semicolon-newline-after": "always-multi-line",
+    "block-opening-brace-newline-before": "never-multi-line",
+    "block-opening-brace-newline-after": "always-multi-line",
+    "block-closing-brace-newline-before": "never-multi-line",
+    "block-closing-brace-newline-after": "always",
+    "block-opening-brace-space-before": "always",
+    "block-opening-brace-space-after": "never-single-line",
+    "block-closing-brace-space-before": "never",
+    "block-closing-brace-space-after": "never"
   }
 }
