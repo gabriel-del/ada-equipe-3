@@ -1,20 +1,33 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
 
 :root {
-  --color-dark: rgb(14, 14, 14);
-  --color-dark2: rgb(32, 32, 32);
-  --color-dark3: rgb(22, 22, 22);
+  --color-dark: #161B1F;
+  --color-dark2: #1A2126;
+  --color-dark3: #32393F;
   --color-white: rgb(255, 255, 255);
   --color-green: rgb(103, 195, 80);
   --color-green2: rgb(51, 149, 26);
   --color-red: rgb(184, 40, 35);
-  --color-red2: rgb(146, 22, 17);}
-* {box-sizing: border-box; margin: 0; padding: 0;}
-body {background-color: var(--color-dark); color: var(--color-white); font-family: sans-serif;}
-main { height: 100vh; width: 100vw;
+  --color-red2: rgb(146, 22, 17);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {background-color: var(--color-dark);
+  color: var(--color-white);
+  font-family: 'Poppins', sans-serif;
+}
+
+main {
+  height: 100vh; width: 100vw;
   display: flex; flex-direction: column;
   align-items: center; justify-content: center;
-  gap: 4rem;}
+  gap: 4rem;
+}
 
 
 header {
@@ -35,22 +48,53 @@ header input {
   border: 1px solid var(--color-dark3);
 }
 
+section {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
 
+.add-task {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
 
+.add-task span {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
 
-section {display: flex; flex-direction: column; gap: 1.5rem;}
-section > div * {
+section input {
   border: none;
-  font-size: 1rem;
   outline: none;
-  padding: 1rem;}
-section input {width: 18rem; border-radius: 1rem;}
-section button{width: 3.125rem; height: 3.125rem; border-radius: 50%;
-  cursor: pointer; transition: 0.4s;}
+  font-size: 0.875rem;
+  padding: 1rem 1.5rem;
+  border-radius: 1.75rem;
+}
+
+#title {
+  width: 16rem;
+}
+
+#desc {
+  width: 18rem;
+}
+
+section button{
+  width: 3.125rem;
+  height: 3.125rem;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: 0.4s;
+}
+
 #add {         background-color: var(--color-green); color: var(--color-dark);}
 #update {      background-color: var(--color-dark2); color: var(--color-white); display: none;}
 #add:hover {   background-color: var(--color-dark3); color: var(--color-white);}
 #update:hover {background-color: var(--color-dark3);}
+
 li button {
   background-color: var(--color-dark2);
   color: var(--color-white);
@@ -59,10 +103,13 @@ li button {
   width: 2.5rem;
   height: 2.5rem;
   cursor: pointer;
-  transition: 0.4s;}
+  transition: 0.4s;
+}
+
 #edit:hover {background-color: var(--color-white); color: var(--color-dark);}
 #remove:hover {background-color: var(--color-red); color: var(--color-white);}
 #done:hover { background-color: var(--color-green2);}
+
 ul {
   display: flex;
   flex-direction: column;
@@ -70,7 +117,9 @@ ul {
   padding: 0;
   overflow: scroll;
   max-height: 420px;
-  scroll-behavior: smooth;}
+  scroll-behavior: smooth;
+}
+
 ul li {
   display: flex;
   justify-content: space-between;
@@ -81,12 +130,18 @@ ul li {
   padding: 0.5rem 1rem;
   transition: 0.2s;
 }
+
 ul li:hover {
   background-color: var(--color-dark3);
   border-radius: 1rem;
-  cursor: pointer;}
+  cursor: pointer;
+}
+
 li .done {text-decoration: line-through; opacity: 30%;}
+
 hr {border: 0.5px var(--color-dark3) solid;}
+
 @media (max-width: 320px) {
   section > div {font-size: 0.8rem;}
-  section > div input {width: 14rem;}}
+  section > div input {width: 14rem;}
+}
