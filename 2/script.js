@@ -75,13 +75,16 @@ function updateList(list = listOut) {
   listIn.innerHTML = ''
   list.forEach((value, index) => {
     listIn.innerHTML += `
-    <li><span class='task ${value.done ? 'done' : ''}'>${value.Task}</span>
+    <li>
+      <span class='task ${value.done ? 'done' : ''}'>${value.Task}</span>
       <span class='description ${value.done ? 'done' : ''}'>${value.Description}</span>
       <div>
         <button id='edit' onclick='edit(${index})' class="bi bi-pencil"/>
         <button id='remove' onclick='F(remove)(${index})' class="bi bi-trash3"/>
         <button id='done' onclick='F(done)(${index})' class="bi bi-check-circle"/>
-    </div></li><hr>`
+      </div>
+    </li>
+    <hr>`
   })
 }
 updateList()

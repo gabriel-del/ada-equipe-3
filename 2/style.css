@@ -5,6 +5,8 @@
   --color-dark2: rgb(26 33 38);
   --color-dark3: rgb(50 57 63);
   --color-white: rgb(255 255 255);
+  --color-light: rgb(236, 237, 238);
+  --color-light2: rgb(213, 216, 218);
   --color-green: rgb(103 195 80);
   --color-green2: rgb(51 149 26);
   --color-red: rgb(184 40 35);
@@ -62,8 +64,6 @@ header input {
   left: 1rem;
   color: rgb(165 173 180);}
 
-#nav-right {display: flex;}
-
 main {
   width: 100%;
   padding-top: 3rem;
@@ -87,6 +87,7 @@ section {
   flex-wrap: wrap;}
 
 .add-task span {
+  color: var(--color-light2);
   font-size: 1.1rem;
   font-weight: 600;}
 
@@ -96,6 +97,7 @@ section input {
   padding: 0.845rem 1.5rem;
   padding-right: 3rem;
   border-radius: 1.75rem;
+  background-color: var(--color-light);
 
   &:focus, &:hover {
     border: none;
@@ -159,13 +161,13 @@ section button {
   opacity: 50%;}
 
 .description {
-  font-size: 0.813rem;
-  font-weight: 300;
+  font-size: 0.8rem;
+  font-weight: 200;
   color: rgb(165 173 180);}
 
 li button {
   background-color: var(--color-dark2);
-  color: var(--color-white);
+  color: var(--color-light2);
   border: none;
   border-radius: 50%;
   width: 2.5rem;
@@ -208,40 +210,35 @@ ul li {
 ul li div {
   justify-self: end;}
 
+ul li .task {
+  color: var(--color-light2);
+}
+
 ul hr:last-child {
   display: none;}
-
-/* Estilos para a barra de rolagem */
-
-/* Largura da barra de rolagem */
 
 ::-webkit-scrollbar {
   width: 0.5rem;}
 
-/* Cor de fundo da barra de rolagem */
-
 ::-webkit-scrollbar-track {
   display: none;}
 
-/* Cor da própria barra de rolagem */
-
 ::-webkit-scrollbar-thumb {
-  background-color: rgb(136 136 136);
+  background-color: rgb(50, 57, 63);
   border-radius: 10px;}
 
-/* Cor quando você passa o mouse sobre a barra de rolagem */
-
 ::-webkit-scrollbar-thumb:hover {
-  background-color: rgb(85 85 85);}
+  background-color: rgb(165, 173, 180);}
 
 ul li:hover {
-  background-color: var(--color-dark3);
+  background-color: var(--color-dark);
   border-radius: 1rem;
   cursor: pointer;}
 
 li .done {
   text-decoration: line-through;
   opacity: 0.3;}
+
 hr {border: 0.5px var(--color-dark3) solid;}
 
 footer {
