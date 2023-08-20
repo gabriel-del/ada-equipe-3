@@ -1,5 +1,0 @@
-add '2/script.js'
-add 'updateList'
-[main bede27e] saveList,showTodoList -
- 2 files changed, 7 insertions(+), 12 deletions(-)
- create mode 100644 updateList
