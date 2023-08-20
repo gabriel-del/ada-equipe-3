@@ -235,6 +235,10 @@ ul li:hover {
   border-radius: 1rem;
   cursor: pointer;}
 
+ul:hover li:not(:hover) {
+  opacity: 0.7;
+  transition: all 0.2s ease;}
+
 li .done {
   text-decoration: line-through;
   opacity: 0.3;}
