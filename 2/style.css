@@ -122,7 +122,7 @@ section button {
   border: none;
   border-radius: 50%;
   cursor: pointer;
-  transition: 0.4s;}
+  transition: color 0.2s ease;}
 
 #add {
   background-color: var(--color-orange);
@@ -267,3 +267,58 @@ footer a {
   section > div {
     font-size: 0.8rem;
     width: 14rem;}}
+
+@media screen and (max-width: 854px) {
+  section {
+    max-width: 46rem;}
+
+  header {
+    padding: 1rem 3rem;}
+
+  ul {
+    padding: 2rem;}
+}
+
+@media screen and (max-width: 578px){
+
+  header {
+    padding: 1rem;}
+
+  header input {
+    width: 186px;}
+
+  main {
+    padding-top: 1.5rem;}
+
+  ul {
+    padding: 1rem;}
+
+  ul li {
+    grid-template-columns: 1fr;
+    gap: 1rem;}
+
+  ul li div {
+    justify-self: flex-start;}
+
+  #title, #desc, #add {
+    width: 100%; 
+    margin-bottom: 1rem; 
+    border-radius: 30px;}
+
+  #add::after {
+    content: "adicionar tarefa";
+    text-transform: uppercase;
+    font-size: 0.875rem;
+    font-weight: 600;}
+
+  .input-search {
+    width: auto;}
+  
+  .add-task {
+    display: block;
+    gap: 1rem;}
+
+  .add-task span {
+    display: none;}
+
+}
