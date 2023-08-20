@@ -1,0 +1,23 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "extends": "@antfu",
+  "parserOptions": {
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  "rules": {
+    "no-console": "off",
+    "@typescript-eslint/space-infix-ops": "off",
+    "@typescript-eslint/object-curly-spacing": ["error", "never"],
+    "array-element-newline": ["error", "never"],
+    "one-var": ["error", "consecutive"],
+    "max-statements-per-line": ["error", { "max": 6 }],
+    "@typescript-eslint/brace-style": ["error", "1tbs", { "allowSingleLine": true }],
+    "arrow-parens": ["error", "as-needed"],
+    "antfu/if-newline": 0,
+    "block-spacing": ["error", "never"]
+  }
+}

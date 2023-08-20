@@ -3,11 +3,11 @@ const listKey = 'todo-list',
   input2 = document.querySelector('#desc'),
   add = document.querySelector('#add'),
   update = document.querySelector('#update'),
-  searchBar = document.querySelector('header input'),  
+  searchBar = document.querySelector('header input'),
   listOut = JSON.parse(localStorage.getItem(listKey) || '[]'),
   display = ['none', 'inline-block'],
-  showBtnAdd = show => { add.style.display = display[+show]; update.style.display = display[+!show] },
-  F = f => index => { f(index); updateList() },
+  showBtnAdd = show => {add.style.display = display[+show]; update.style.display = display[+!show]},
+  F = f => index => {f(index); updateList()},
   remove = index => listOut.splice(index, 1),
   done = index => listOut[index].done = !listOut[index].done
 input.addEventListener('keypress', e => {
@@ -22,15 +22,15 @@ add.addEventListener('click', F(() => {
     alert('Digite um item para incluir na lista.')
   } else {
     input.style.border = ''
-    listOut.unshift({ Task: input.value, Description: input2.value, done: false })
+    listOut.unshift({Task: input.value, Description: input2.value, done: false})
     input.value = ''
     input2.value = ''
   }
 }))
 searchBar.addEventListener('input', () => {
-const searchBarInput = searchBar.value.toLowerCase()  
-const list =  listOut.filter(({Task,Description}) => Task.toLowerCase().includes(searchBarInput) || Description.toLowerCase().includes(searchBarInput))
-updateList(list)
+  const searchBarInput = searchBar.value.toLowerCase(),
+    list = listOut.filter(({Task, Description}) => Task.toLowerCase().includes(searchBarInput) || Description.toLowerCase().includes(searchBarInput))
+  updateList(list)
 })
 function edit(index) {
   input.value = listOut[index].Task
@@ -40,7 +40,7 @@ function edit(index) {
     input.value = ''
     showBtnAdd(true)
     updateList()
-  }, { once: true })
+  }, {once: true})
 }
 function updateList(list = listOut) {
   localStorage.setItem(listKey, JSON.stringify(listOut))
