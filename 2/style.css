@@ -17,7 +17,8 @@
 
 body {
   height: 100vh;
-  width: 100vw;
+  width: 100%;
+  overflow-x: hidden;
   background-color: var(--color-dark);
   color: var(--color-white);
   font-family: Poppins, sans-serif;}
@@ -45,6 +46,7 @@ header input:focus {
   outline: 0.1rem solid var(--color-orange);}
 
 main {
+  width: 100%;
   height: calc(100vh - 100px);
   padding-top: 2rem;
   display: flex;
@@ -54,6 +56,8 @@ main {
   gap: 4rem;}
 
 section {
+  width: 90%;
+  max-width: 58rem;
   display: flex;
   flex-direction: column;
   gap: 1.5rem;}
@@ -61,6 +65,7 @@ section {
 .add-task {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 0.5rem;
   flex-wrap: wrap;}
 
@@ -106,10 +111,6 @@ section button {
 .description {
   color: rgb(165 173 180);}
 
-li {
-  display: flex;
-  border-left: 2px var(--color-orange) solid;}
-
 li button {
   background-color: var(--color-dark2);
   color: var(--color-white);
@@ -130,13 +131,14 @@ li button {
 #done:hover {background-color: var(--color-green2);}
 
 ul {
+  width: 100%;
+  max-height: 420px;
   background: rgb(26 33 38);
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
   padding: 4rem;
-  overflow: scroll;
-  max-height: 420px;
+  overflow-y: scroll;
   scroll-behavior: smooth;
   border-radius: 16px;
   box-shadow: 0 16px 32px 0 rgb(0 0 0 / 50%);}
@@ -149,6 +151,7 @@ ul li {
   font-size: 1rem;
   text-transform: capitalize;
   padding: 0.5rem 1rem;
+  border-left: 2px var(--color-orange) solid;
   transition: 0.2s;}
 
 /* Estilos para a barra de rolagem */
