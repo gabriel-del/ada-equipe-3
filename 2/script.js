@@ -3,6 +3,7 @@ const listKey = 'todo-list',
   input2 = document.querySelector('#desc'),
   add = document.querySelector('#add'),
   update = document.querySelector('#update'),
+  searchBar = document.querySelector('header input'),  
   listOut = JSON.parse(localStorage.getItem(listKey) || '[]'),
   display = ['none', 'inline-block'],
   showBtnAdd = show => { add.style.display = display[+show]; update.style.display = display[+!show] },
@@ -26,6 +27,13 @@ add.addEventListener('click', F(() => {
     input2.value = ''
   }
 }))
+searchBar.addEventListener('input', () => {
+list =  listOut.filter(({Task,Description}) => Task.toLowerCase().includes(searchBar.value.toLowerCase()))
+updateList(list)
+})
+
+
+
 function edit(index) {
   input.value = listOut[index].Task
   showBtnAdd(false)
@@ -52,13 +60,5 @@ function updateList(list = listOut) {
   })
 }
 
-const filterElement = document.querySelector('header .buscador')
-filterElement.addEventListener('input', filterCards)
-
-function filterCards(){
-a =  listOut.filter(({Task,Description}) => Task.toLowerCase().includes(filterElement.value.toLowerCase()))
-updateList(a)
-
-}
 
 updateList()
