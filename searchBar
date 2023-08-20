@@ -1,0 +1,6 @@
+add '2/index.html'
+add '2/script.js'
+add 'searchBar'
+[main 6aae837] filterElement -
+ 3 files changed, 9 insertions(+), 9 deletions(-)
+ create mode 100644 searchBar

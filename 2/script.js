@@ -28,12 +28,10 @@ add.addEventListener('click', F(() => {
   }
 }))
 searchBar.addEventListener('input', () => {
-list =  listOut.filter(({Task,Description}) => Task.toLowerCase().includes(searchBar.value.toLowerCase()))
+const searchBarInput = searchBar.value.toLowerCase()  
+const list =  listOut.filter(({Task,Description}) => Task.toLowerCase().includes(searchBarInput) || Description.toLowerCase().includes(searchBarInput))
 updateList(list)
 })
-
-
-
 function edit(index) {
   input.value = listOut[index].Task
   showBtnAdd(false)
@@ -59,6 +57,4 @@ function updateList(list = listOut) {
     </div></li><hr>`
   })
 }
-
-
 updateList()
