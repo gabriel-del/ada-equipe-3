@@ -45,7 +45,7 @@ inputTitle.addEventListener('input', () => {
 });
 
 inputDesc.addEventListener('input', () => {
-  const maxLength = 60;
+  const maxLength = 72;
   updateCharCount(inputDesc, maxLength, descCharCount);
 });
 
