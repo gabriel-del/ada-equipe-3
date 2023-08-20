@@ -80,7 +80,7 @@ function updateList(list = listOut) {
       <div>
         <button id='edit' onclick='edit(${index})' class="bi bi-pencil"/>
         <button id='remove' onclick='F(remove)(${index})' class="bi bi-trash3"/>
-        <button id='done' onclick='F(done)(${index})' class="bi bi-bag-check"/>
+        <button id='done' onclick='F(done)(${index})' class="bi bi-check-circle"/>
     </div></li><hr>`
   })
 }
