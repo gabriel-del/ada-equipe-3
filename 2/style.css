@@ -127,7 +127,7 @@ ul {
   max-height: 420px;
   scroll-behavior: smooth;
   border-radius: 16px;
-  box-shadow: 0px 16px 32px 0px rgba(0, 0, 0, 0.50);}
+  box-shadow: 0 16px 32px 0 rgb(0 0 0 / 50%);}
 
 ul li {
   display: flex;
@@ -149,7 +149,7 @@ ul li {
 /* Cor de fundo da barra de rolagem */
 
 ::-webkit-scrollbar-track {
- display: none;}
+  display: none;}
 
 /* Cor da própria barra de rolagem */
 
@@ -173,5 +173,7 @@ li .done {
 hr {border: 0.5px var(--color-dark3) solid;}
 
 @media (width <= 320px) {
-  section > div {font-size: 0.8rem;}
-  section > div input {width: 14rem;}}
+
+  section > div {
+    font-size: 0.8rem;
+    width: 14rem;}}
