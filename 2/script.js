@@ -36,11 +36,11 @@ function edit(index) {
     updateList()
   }, { once: true })
 }
-function updateList() {
+function updateList(list = listOut) {
   localStorage.setItem(listKey, JSON.stringify(listOut))
   const listIn = document.querySelector('ul')
   listIn.innerHTML = ''
-  listOut.forEach((value, index) => {
+  list.forEach((value, index) => {
     listIn.innerHTML += `
     <li><span class='task ${value.done === true ? 'done' : ''}'>${value.Task}</span>
     <span class='description'>${value.Description}</span>
@@ -55,43 +55,10 @@ function updateList() {
 const filterElement = document.querySelector('header .buscador')
 filterElement.addEventListener('input', filterCards)
 
-function filterCards() {
+function filterCards(){
+a =  listOut.filter(({Task,Description}) => Task.toLowerCase().includes(filterElement.value.toLowerCase()))
+updateList(a)
 
-  if (filterElement.value != '') {
-    let filterText = filterElement.value.toLowerCase()
-    localStorage.setItem(listKey, JSON.stringify(listOut))
-    const listIn = document.querySelector('ul')
-    listIn.innerHTML = ''
-    listOut.forEach((value, index) => {
-
-      if (value.Task.toLowerCase().includes(filterText)){
-        listIn.innerHTML += `
-          <li><span class='${value.done === true ? 'done' : ''}'>${value.Task}</span>
-          <span class='description'>${value.Description}</span>
-          <div>
-          <button id='edit' onclick='edit(${index})' class="bi bi-pencil"/>
-          <button id='remove' onclick='F(remove)(${index})' class="bi bi-trash3"/>
-          <button id='done' onclick='F(done)(${index})' class="bi bi-bag-check"/>
-          </div></li><hr>`
-      }
-    })
-    
-  } else {
-    localStorage.setItem(listKey, JSON.stringify(listOut))
-    const listIn = document.querySelector('ul')
-    listIn.innerHTML = ''
-    listOut.forEach((value, index) => {
-      listIn.innerHTML += `
-        <li><span class='${value.done === true ? 'done' : ''}'>${value.Task}</span>
-        <span class='description'>${value.Description}</span>
-        <div>
-        <button id='edit' onclick='edit(${index})' class="bi bi-pencil"/>
-        <button id='remove' onclick='F(remove)(${index})' class="bi bi-trash3"/>
-        <button id='done' onclick='F(done)(${index})' class="bi bi-bag-check"/>
-        </div></li><hr>`
-    })
-  }
 }
-
 
 updateList()
