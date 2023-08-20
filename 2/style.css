@@ -1,14 +1,14 @@
 @import 'https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap';
 
 :root {
-  --color-dark: #161B1F;
-  --color-dark2: #1A2126;
-  --color-dark3: #32393F;
+  --color-dark: rgb(22 27 31);
+  --color-dark2: rgb(26 33 38);
+  --color-dark3: rgb(50 57 63);
   --color-white: rgb(255 255 255);
   --color-green: rgb(103 195 80);
   --color-green2: rgb(51 149 26);
   --color-red: rgb(184 40 35);
-  --color-orange: #F5BB63;}
+  --color-orange: rgb(245 187 99);}
 
 * {
   box-sizing: border-box;
@@ -92,7 +92,7 @@ section button {
 #update:hover {background-color: var(--color-dark3);}
 
 .description {
-  color: #A5ADB4;}
+  color: rgb(165 173 180);}
 
 li {
   display: flex;
@@ -118,7 +118,7 @@ li button {
 #done:hover {background-color: var(--color-green2);}
 
 ul {
-  background: #1A2126;
+  background: rgb(26 33 38);
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
@@ -154,13 +154,13 @@ ul li {
 /* Cor da própria barra de rolagem */
 
 ::-webkit-scrollbar-thumb {
-  background-color: #888;
+  background-color: rgb(136 136 136);
   border-radius: 10px;}
 
 /* Cor quando você passa o mouse sobre a barra de rolagem */
 
 ::-webkit-scrollbar-thumb:hover {
-  background-color: #555;}
+  background-color: rgb(85 85 85);}
 
 ul li:hover {
   background-color: var(--color-dark3);
