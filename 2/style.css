@@ -42,14 +42,14 @@ header input {
   font-size: 0.875rem;
   font-weight: 300;
   background-color: var(--color-dark);
-  color: var(--color-white);}
+  color: var(--color-white);
 
-header input::placeholder{
-  color: rgb(165 173 180);}
+  &::placeholder {
+    color: rgb(165 173 180);}
   
-header input:focus, header input:hover {
-  border: 1px solid transparent;
-  outline: 0.1rem solid var(--color-orange);}
+  &:focus, &:hover {
+    border: 1px solid transparent;
+    outline: 0.1rem solid var(--color-orange);}}
 
 .input-search {
   position: relative;
@@ -95,11 +95,11 @@ section input {
   font-size: 0.875rem;
   padding: 0.845rem 1.5rem;
   padding-right: 3rem;
-  border-radius: 1.75rem;}
+  border-radius: 1.75rem;
 
-section input:focus {
-  border: none;
-  outline: 0.1rem solid var(--color-orange);}
+  &:focus, &:hover {
+    border: none;
+    outline: 0.1rem solid var(--color-orange);}}
 
 #title {width: 16rem;}
 #desc {width: 18rem;}
