@@ -51,6 +51,10 @@ header input:focus {
   border: 1px solid transparent;
   outline: 0.1rem solid var(--color-orange);}
 
+  header input:hover {
+  border: 1px solid transparent;
+  outline: 0.1rem solid var(--color-orange);}
+
 .input-search {
   position: relative;
   display: flex;
