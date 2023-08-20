@@ -1,6 +1,6 @@
 const listKey = 'todo-list',
-  input = document.querySelector('#title'),
-  input2 = document.querySelector('#desc'),
+  inputTitle = document.querySelector('#title'),
+  inputDesc = document.querySelector('#desc'),
   add = document.querySelector('#add'),
   update = document.querySelector('#update'),
   searchBar = document.querySelector('header input'),
@@ -10,38 +10,46 @@ const listKey = 'todo-list',
   F = f => index => {f(index); updateList()},
   remove = index => listOut.splice(index, 1),
   done = index => listOut[index].done = !listOut[index].done
-input.addEventListener('keypress', e => {
+
+inputTitle.addEventListener('keypress', e => {
   if (e.key === 'Enter') document.querySelector('section').querySelector('button:not([style*="display: none"])').click()
 })
-input2.addEventListener('keypress', e => {
+
+inputDesc.addEventListener('keypress', e => {
   if (e.key === 'Enter') document.querySelector('section').querySelector('button:not([style*="display: none"])').click()
 })
+
 add.addEventListener('click', F(() => {
-  if (!input.value) {
-    input.style.border = '1px solid red'
+  if (!inputTitle.value) {
+    inputTitle.style.border = '1px solid red'
     alert('Digite um item para incluir na lista.')
   } else {
-    input.style.border = ''
-    listOut.unshift({Task: input.value, Description: input2.value, done: false})
-    input.value = ''
-    input2.value = ''
+    inputTitle.style.border = ''
+    listOut.unshift({Task: inputTitle.value, Description: inputDesc.value, done: false})
+    inputTitle.value = ''
+    inputDesc.value = ''
   }
 }))
+
 searchBar.addEventListener('input', () => {
   const searchBarInput = searchBar.value.toLowerCase(),
     list = listOut.filter(({Task, Description}) => Task.toLowerCase().includes(searchBarInput) || Description.toLowerCase().includes(searchBarInput))
   updateList(list)
 })
+
 function edit(index) {
-  input.value = listOut[index].Task
+  inputTitle.value = listOut[index].Task
+  inputDesc.value = listOut[index].Description
   showBtnAdd(false)
   update.addEventListener('click', () => {
-    listOut[index].Task = input.value
-    input.value = ''
+    listOut[index].Task = inputTitle.value
+    listOut[index].Description = inputDesc.value
+    inputTitle.value = ''
     showBtnAdd(true)
     updateList()
   }, {once: true})
 }
+
 function updateList(list = listOut) {
   localStorage.setItem(listKey, JSON.stringify(listOut))
   const listIn = document.querySelector('ul')
@@ -57,4 +65,5 @@ function updateList(list = listOut) {
     </div></li><hr>`
   })
 }
+
 updateList()

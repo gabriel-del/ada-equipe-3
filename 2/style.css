@@ -126,6 +126,9 @@ section button {
 #update:hover {background-color: var(--color-dark3);}
 
 .description {
+  width: 60%;
+  font-size: 0.813rem;
+  font-weight: 300;
   color: rgb(165 173 180);}
 
 li button {
@@ -162,8 +165,8 @@ ul {
 
 ul li {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
   list-style-type: none;
   font-size: 1rem;
   text-transform: capitalize;
