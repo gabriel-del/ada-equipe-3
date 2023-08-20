@@ -45,6 +45,7 @@ function edit(index) {
     listOut[index].Task = inputTitle.value
     listOut[index].Description = inputDesc.value
     inputTitle.value = ''
+    inputDesc.value = ''
     showBtnAdd(true)
     updateList()
   }, {once: true})
