@@ -94,6 +94,7 @@ section input {
   border: none;
   font-size: 0.875rem;
   padding: 0.845rem 1.5rem;
+  padding-right: 3rem;
   border-radius: 1.75rem;}
 
 section input:focus {
@@ -102,6 +103,16 @@ section input:focus {
 
 #title {width: 16rem;}
 #desc {width: 18rem;}
+
+#title-char-count {
+  font-size: 0.75rem; 
+  font-weight: 200;
+  color: var(--color-dark);}
+
+#desc-char-count {
+  font-size: 0.75rem; 
+  font-weight: 200;
+  color: var(--color-dark);}
 
 section button {
   width: 3rem;
@@ -125,8 +136,29 @@ section button {
   color: var(--color-white);}
 #update:hover {background-color: var(--color-dark3);}
 
+.div-title {
+  position: relative;
+  display: flex;
+  align-items: center;}
+
+.div-title span {
+  position: absolute;
+  right: 1.2rem;
+  color: inherit;
+  opacity: 50%;}
+
+.div-desc {
+  position: relative;
+  display: flex;
+  align-items: center;}
+
+.div-desc span {
+  position: absolute;
+  right: 1.2rem;
+  color: inherit;
+  opacity: 50%;}
+
 .description {
-  width: 60%;
   font-size: 0.813rem;
   font-weight: 300;
   color: rgb(165 173 180);}

@@ -24,8 +24,14 @@
       <section>
         <div class="add-task">
           <span>Add Tarefa:</span>
-          <input id="title" placeholder="Digite o título da tarefa" maxlength="20" type="text"/>
-          <input id="desc" placeholder="Digite a descrição da tarefa" type="text"/>
+          <div class="div-title">
+            <input id="title" placeholder="Digite o título da tarefa" maxlength="20" type="text"/>
+            <span id="title-char-count">20</span>
+          </div>
+          <div class="div-desc">
+            <input id="desc" placeholder="Digite a descrição da tarefa" maxlength="60" type="text"/>
+            <span id="desc-char-count">60</span>
+          </div>
           <button id="add" title="Adicionar tarefa" class="bi bi-plus-lg"/>
           <button id="update" title="Salvar tarefa" class="bi bi-save"/>
         </div>

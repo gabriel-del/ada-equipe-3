@@ -1,6 +1,8 @@
 const listKey = 'todo-list',
   inputTitle = document.querySelector('#title'),
   inputDesc = document.querySelector('#desc'),
+  titleCharCount = document.getElementById("title-char-count"),
+  descCharCount = document.getElementById("desc-char-count"),
   add = document.querySelector('#add'),
   update = document.querySelector('#update'),
   searchBar = document.querySelector('header input'),
@@ -30,6 +32,22 @@ add.addEventListener('click', F(() => {
     inputDesc.value = ''
   }
 }))
+
+function updateCharCount(inputElement, maxLength, charCountElement) {
+  const currentLength = inputElement.value.length;
+  const remaining = maxLength - currentLength;
+  charCountElement.innerText = remaining;
+}
+
+inputTitle.addEventListener('input', () => {
+  const maxLength = 20;
+  updateCharCount(inputTitle, maxLength, titleCharCount);
+});
+
+inputDesc.addEventListener('input', () => {
+  const maxLength = 60;
+  updateCharCount(inputDesc, maxLength, descCharCount);
+});
 
 searchBar.addEventListener('input', () => {
   const searchBarInput = searchBar.value.toLowerCase(),
