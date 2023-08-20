@@ -63,16 +63,18 @@ section {
 
 section input {
   border: none;
-  outline: none;
+  outline-color: var(--color-orange);
   font-size: 0.875rem;
-  padding: 1rem 1.5rem;
+  padding: 0.845rem 1rem;
   border-radius: 1.75rem;}
+
 #title {width: 16rem;}
 #desc {width: 18rem;}
 
 section button {
-  width: 3.125rem;
-  height: 3.125rem;
+  width: 3rem;
+  height: 3rem;
+  border: none;
   border-radius: 50%;
   cursor: pointer;
   transition: 0.4s;}
