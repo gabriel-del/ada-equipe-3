@@ -62,6 +62,14 @@ header input:focus {
   left: 1rem;
   color: rgb(165 173 180);}
 
+#nav-right {display: flex;}
+
+header a {
+  margin-left: 10%;
+  font-size: 150%;
+  color: var(--color-white);
+  text-decoration: none;}
+
 main {
   width: 100%;
   height: calc(100vh - 100px);
