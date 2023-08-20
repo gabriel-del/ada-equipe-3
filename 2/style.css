@@ -164,15 +164,18 @@ ul {
   box-shadow: 0 16px 32px 0 rgb(0 0 0 / 50%);}
 
 ul li {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
   align-items: center;
-  justify-content: space-between;
   list-style-type: none;
   font-size: 1rem;
   text-transform: capitalize;
   padding: 0.5rem 1rem;
   border-left: 2px var(--color-orange) solid;
   transition: 0.2s;}
+
+ul li div {
+  justify-self: end;}
 
 /* Estilos para a barra de rolagem */
 
