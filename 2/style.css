@@ -5,8 +5,8 @@
   --color-dark2: rgb(26 33 38);
   --color-dark3: rgb(50 57 63);
   --color-white: rgb(255 255 255);
-  --color-light: rgb(236, 237, 238);
-  --color-light2: rgb(213, 216, 218);
+  --color-light: rgb(236 237 238);
+  --color-light2: rgb(213 216 218);
   --color-green: rgb(103 195 80);
   --color-green2: rgb(51 149 26);
   --color-red: rgb(184 40 35);
@@ -25,7 +25,7 @@ body {
   color: var(--color-white);
   font-family: Poppins, sans-serif;
   scroll-behavior: smooth;
-  text-rendering: optimizeLegibility;}
+  text-rendering: optimizelegibility;}
 
 header {
   width: 100vw;
@@ -108,12 +108,12 @@ section input {
 #desc {width: 18rem;}
 
 #title-char-count {
-  font-size: 0.75rem; 
+  font-size: 0.75rem;
   font-weight: 200;
   color: var(--color-dark);}
 
 #desc-char-count {
-  font-size: 0.75rem; 
+  font-size: 0.75rem;
   font-weight: 200;
   color: var(--color-dark);}
 
@@ -148,7 +148,7 @@ section button {
   position: absolute;
   right: 1.2rem;
   color: inherit;
-  opacity: 50%;}
+  opacity: 0.5;}
 
 .div-desc {
   position: relative;
@@ -159,7 +159,7 @@ section button {
   position: absolute;
   right: 1.2rem;
   color: inherit;
-  opacity: 50%;}
+  opacity: 0.5;}
 
 .description {
   font-size: 0.8rem;
@@ -207,13 +207,14 @@ ul li {
   padding: 0.5rem 1rem;
   border-left: 2px var(--color-orange) solid;
   transition: 0.2s;}
-
+  
 ul li div {
   justify-self: end;}
-
+    
 ul li .task {
-  color: var(--color-light2);
-}
+  color: var(--color-light2);}
+      
+hr {border: 0.5px var(--color-dark3) solid;}
 
 ul hr:last-child {
   display: none;}
@@ -225,11 +226,11 @@ ul hr:last-child {
   display: none;}
 
 ::-webkit-scrollbar-thumb {
-  background-color: rgb(50, 57, 63);
+  background-color: rgb(50 57 63);
   border-radius: 10px;}
 
 ::-webkit-scrollbar-thumb:hover {
-  background-color: rgb(165, 173, 180);}
+  background-color: rgb(165 173 180);}
 
 ul li:hover {
   background-color: var(--color-dark);
@@ -247,7 +248,6 @@ li .done {
 li .icon-done {
   color: var(--color-green)}
 
-hr {border: 0.5px var(--color-dark3) solid;}
 
 footer {
   width: 100%;
@@ -262,9 +262,9 @@ footer a {
   color: rgb(165 173 180);
   text-decoration: none;
   transition: color 0.2s ease;
-&:hover{
-  color: var(--color-white);
-}}
+
+  &:hover {
+    color: var(--color-white);}}
 
 @media (width <= 320px) {
 
@@ -272,7 +272,7 @@ footer a {
     font-size: 0.8rem;
     width: 14rem;}}
 
-@media screen and (min-width: 744px) and (max-width: 854px) {
+@media screen and (width >= 744px) and (width <= 854px) {
   
   header {
     padding: 1rem 3rem;}
@@ -285,22 +285,18 @@ footer a {
     padding: 2rem;}
 
   #title {
-    width: 240px;
-  }
+    width: 240px;}
 
   #desc {
-    width: 270px;
-  }
-}
+    width: 270px;}}
 
-@media screen and (max-width: 743px){
+@media screen and (width <= 743px) {
 
   header {
     padding: 1rem;}
 
   header img {
-    height: 1.5rem;
-  }
+    height: 1.5rem;}
 
   header input {
     width: 186px;}
@@ -319,8 +315,8 @@ footer a {
     justify-self: flex-start;}
 
   #title, #desc, #add, #update {
-    width: 100%; 
-    margin-bottom: 1rem; 
+    width: 100%;
+    margin-bottom: 1rem;
     border-radius: 30px;}
 
   #add::after {
@@ -343,6 +339,4 @@ footer a {
     gap: 1rem;}
 
   .add-task span {
-    display: none;}
-
-}
+    display: none;}}
