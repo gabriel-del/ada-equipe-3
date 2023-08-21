@@ -37,6 +37,10 @@ function clearInputs() {
   inputDesc.value = ''
 }
 
+function getDoneButtonId(index) {
+  return `done_${index}`
+}
+
 function updateCharCount(inputElement, maxLength, charCountElement) {
   const currentLength = inputElement.value.length,
     remaining = maxLength - currentLength
@@ -65,6 +69,8 @@ function edit(index) {
   updateCharCount(inputTitle, 20, titleCharCount)
   updateCharCount(inputDesc, 76, descCharCount)
   showBtnAdd(false)
+  const doneButton = document.getElementById(getDoneButtonId(index))
+  doneButton.disabled = true
   update.addEventListener('click', () => {
     listOut[index].Task = inputTitle.value
     listOut[index].Description = inputDesc.value
@@ -72,6 +78,7 @@ function edit(index) {
     updateCharCount(inputTitle, 20, titleCharCount)
     updateCharCount(inputDesc, 76, descCharCount)
     showBtnAdd(true)
+    doneButton.disabled = false;
     updateList()
   }, {once: true})
 }
@@ -93,7 +100,7 @@ function updateList(list = listOut) {
         <div>
           <button id='edit' onclick='edit(${index})' class="bi bi-pencil"/>
           <button id='remove' onclick='F(remove)(${index})' class="bi bi-trash3"/>
-          <button id='done' onclick='F(done)(${index})' class="bi bi-check-circle ${value.done ? 'icon-done' : ''}"/>
+          <button id='${getDoneButtonId(index)}' onclick='F(done)(${index})' class="bi bi-check-circle ${value.done ? 'icon-done' : ''}"/>
         </div>
       </li>
       <hr>`
