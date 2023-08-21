@@ -1,8 +1,8 @@
 const listKey = 'todo-list',
   inputTitle = document.querySelector('#title'),
   inputDesc = document.querySelector('#desc'),
-  titleCharCount = document.getElementById("title-char-count"),
-  descCharCount = document.getElementById("desc-char-count"),
+  titleCharCount = document.getElementById('title-char-count'),
+  descCharCount = document.getElementById('desc-char-count'),
   add = document.querySelector('#add'),
   update = document.querySelector('#update'),
   searchBar = document.querySelector('header input'),
@@ -34,20 +34,20 @@ add.addEventListener('click', F(() => {
 }))
 
 function updateCharCount(inputElement, maxLength, charCountElement) {
-  const currentLength = inputElement.value.length;
-  const remaining = maxLength - currentLength;
-  charCountElement.innerText = remaining;
+  const currentLength = inputElement.value.length,
+    remaining = maxLength - currentLength
+  charCountElement.innerText = remaining
 }
 
 inputTitle.addEventListener('input', () => {
-  const maxLength = 20;
-  updateCharCount(inputTitle, maxLength, titleCharCount);
-});
+  const maxLength = 20
+  updateCharCount(inputTitle, maxLength, titleCharCount)
+})
 
 inputDesc.addEventListener('input', () => {
-  const maxLength = 72;
-  updateCharCount(inputDesc, maxLength, descCharCount);
-});
+  const maxLength = 72
+  updateCharCount(inputDesc, maxLength, descCharCount)
+})
 
 searchBar.addEventListener('input', () => {
   const searchBarInput = searchBar.value.toLowerCase(),
@@ -58,16 +58,16 @@ searchBar.addEventListener('input', () => {
 function edit(index) {
   inputTitle.value = listOut[index].Task
   inputDesc.value = listOut[index].Description
-  updateCharCount(inputTitle, 20, titleCharCount);
-  updateCharCount(inputDesc, 76, descCharCount);
+  updateCharCount(inputTitle, 20, titleCharCount)
+  updateCharCount(inputDesc, 76, descCharCount)
   showBtnAdd(false)
   update.addEventListener('click', () => {
     listOut[index].Task = inputTitle.value
     listOut[index].Description = inputDesc.value
     inputTitle.value = ''
     inputDesc.value = ''
-    updateCharCount(inputTitle, 20, titleCharCount);
-    updateCharCount(inputDesc, 76, descCharCount);
+    updateCharCount(inputTitle, 20, titleCharCount)
+    updateCharCount(inputDesc, 76, descCharCount)
     showBtnAdd(true)
     updateList()
   }, {once: true})
@@ -77,7 +77,7 @@ function updateList(list = listOut) {
   localStorage.setItem(listKey, JSON.stringify(listOut))
   const listIn = document.querySelector('ul')
   listIn.innerHTML = ''
-  
+
   list.forEach((value, index) => {
     listIn.innerHTML += `
     <li>
@@ -92,7 +92,7 @@ function updateList(list = listOut) {
     <hr>`
   })
 
-  updateCharCount(inputTitle, 20, titleCharCount);
-  updateCharCount(inputDesc, 76, descCharCount);
+  updateCharCount(inputTitle, 20, titleCharCount)
+  updateCharCount(inputDesc, 76, descCharCount)
 }
 updateList()
