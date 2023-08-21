@@ -24,6 +24,7 @@ body {
   background-color: var(--color-dark);
   color: var(--color-white);
   font-family: Poppins, sans-serif;
+  scroll-behavior: smooth;
   text-rendering: optimizeLegibility;}
 
 header {
@@ -122,7 +123,7 @@ section button {
   border: none;
   border-radius: 50%;
   cursor: pointer;
-  transition: color 0.2s ease;}
+  transition: background-color 0.3s ease;}
 
 #add {
   background-color: var(--color-orange);
@@ -182,6 +183,7 @@ li button {
 #remove:hover {
   background-color: var(--color-red);
   color: var(--color-white);}
+
 #done:hover {background-color: var(--color-green2);}
 
 ul {
@@ -192,7 +194,6 @@ ul {
   flex-direction: column;
   padding: 3.5rem 4rem;
   margin-top: 2rem;
-  scroll-behavior: smooth;
   border-radius: 16px;
   box-shadow: 0 16px 32px 0 rgb(0 0 0 / 50%);}
 
@@ -243,6 +244,9 @@ li .done {
   text-decoration: line-through;
   opacity: 0.3;}
 
+li .icon-done {
+  color: var(--color-green)}
+
 hr {border: 0.5px var(--color-dark3) solid;}
 
 footer {
@@ -268,21 +272,35 @@ footer a {
     font-size: 0.8rem;
     width: 14rem;}}
 
-@media screen and (max-width: 854px) {
-  section {
-    max-width: 46rem;}
-
+@media screen and (min-width: 744px) and (max-width: 854px) {
+  
   header {
     padding: 1rem 3rem;}
+    
+  section {
+    width: 100%;
+    padding: 0 1rem;}
 
   ul {
     padding: 2rem;}
+
+  #title {
+    width: 240px;
+  }
+
+  #desc {
+    width: 270px;
+  }
 }
 
-@media screen and (max-width: 578px){
+@media screen and (max-width: 743px){
 
   header {
     padding: 1rem;}
+
+  header img {
+    height: 1.5rem;
+  }
 
   header input {
     width: 186px;}
@@ -300,13 +318,19 @@ footer a {
   ul li div {
     justify-self: flex-start;}
 
-  #title, #desc, #add {
+  #title, #desc, #add, #update {
     width: 100%; 
     margin-bottom: 1rem; 
     border-radius: 30px;}
 
   #add::after {
     content: "adicionar tarefa";
+    text-transform: uppercase;
+    font-size: 0.875rem;
+    font-weight: 600;}
+
+  #update::after {
+    content: "atualizar tarefa";
     text-transform: uppercase;
     font-size: 0.875rem;
     font-weight: 600;}

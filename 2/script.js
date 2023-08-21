@@ -24,7 +24,7 @@ inputDesc.addEventListener('keypress', e => {
 add.addEventListener('click', F(() => {
   if (!inputTitle.value) {
     inputTitle.style.border = '1px solid red'
-    alert('Digite um item para incluir na lista.')
+    alert('Digite o título da tarefa!')
   } else {
     inputTitle.style.border = ''
     listOut.unshift({Task: inputTitle.value, Description: inputDesc.value, done: false})
@@ -58,12 +58,16 @@ searchBar.addEventListener('input', () => {
 function edit(index) {
   inputTitle.value = listOut[index].Task
   inputDesc.value = listOut[index].Description
+  updateCharCount(inputTitle, 20, titleCharCount);
+  updateCharCount(inputDesc, 76, descCharCount);
   showBtnAdd(false)
   update.addEventListener('click', () => {
     listOut[index].Task = inputTitle.value
     listOut[index].Description = inputDesc.value
     inputTitle.value = ''
     inputDesc.value = ''
+    updateCharCount(inputTitle, 20, titleCharCount);
+    updateCharCount(inputDesc, 76, descCharCount);
     showBtnAdd(true)
     updateList()
   }, {once: true})
@@ -73,6 +77,7 @@ function updateList(list = listOut) {
   localStorage.setItem(listKey, JSON.stringify(listOut))
   const listIn = document.querySelector('ul')
   listIn.innerHTML = ''
+  
   list.forEach((value, index) => {
     listIn.innerHTML += `
     <li>
@@ -81,10 +86,13 @@ function updateList(list = listOut) {
       <div>
         <button id='edit' onclick='edit(${index})' class="bi bi-pencil"/>
         <button id='remove' onclick='F(remove)(${index})' class="bi bi-trash3"/>
-        <button id='done' onclick='F(done)(${index})' class="bi bi-check-circle"/>
+        <button id='done' onclick='F(done)(${index})' class="bi bi-check-circle ${value.done ? 'icon-done' : ''}"/>
       </div>
     </li>
     <hr>`
   })
+
+  updateCharCount(inputTitle, 20, titleCharCount);
+  updateCharCount(inputDesc, 76, descCharCount);
 }
 updateList()
