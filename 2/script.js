@@ -10,7 +10,7 @@ const listKey = 'todo-list',
   display = ['none', 'inline-block'],
   showBtnAdd = show => {add.style.display = display[+show]; update.style.display = display[+!show]},
   F = f => index => {f(index); updateList()},
-  remove = index => listOut.splice(index, 1),
+  remove = index => {listOut.splice(index, 1); clearInputs(); showBtnAdd(true)},
   done = index => listOut[index].done = !listOut[index].done
 
 inputTitle.addEventListener('keypress', e => {
@@ -28,10 +28,14 @@ add.addEventListener('click', F(() => {
   } else {
     inputTitle.style.border = ''
     listOut.unshift({Task: inputTitle.value, Description: inputDesc.value, done: false})
-    inputTitle.value = ''
-    inputDesc.value = ''
+    clearInputs()
   }
 }))
+
+function clearInputs() {
+  inputTitle.value = ''
+  inputDesc.value = ''
+}
 
 function updateCharCount(inputElement, maxLength, charCountElement) {
   const currentLength = inputElement.value.length,
@@ -64,8 +68,7 @@ function edit(index) {
   update.addEventListener('click', () => {
     listOut[index].Task = inputTitle.value
     listOut[index].Description = inputDesc.value
-    inputTitle.value = ''
-    inputDesc.value = ''
+    clearInputs()
     updateCharCount(inputTitle, 20, titleCharCount)
     updateCharCount(inputDesc, 76, descCharCount)
     showBtnAdd(true)
