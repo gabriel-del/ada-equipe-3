@@ -78,19 +78,24 @@ function updateList(list = listOut) {
   const listIn = document.querySelector('ul')
   listIn.innerHTML = ''
 
-  list.forEach((value, index) => {
-    listIn.innerHTML += `
-    <li>
-      <span class='task ${value.done ? 'done' : ''}'>${value.Task}</span>
-      <span class='description ${value.done ? 'done' : ''}'>${value.Description}</span>
-      <div>
-        <button id='edit' onclick='edit(${index})' class="bi bi-pencil"/>
-        <button id='remove' onclick='F(remove)(${index})' class="bi bi-trash3"/>
-        <button id='done' onclick='F(done)(${index})' class="bi bi-check-circle ${value.done ? 'icon-done' : ''}"/>
-      </div>
-    </li>
-    <hr>`
-  })
+  if (list.length === 0) {
+    listIn.innerHTML = `
+    <p class='no-task'>Adicione uma nova tarefa</p>`
+  } else {
+    list.forEach((value, index) => {
+      listIn.innerHTML += `
+      <li>
+        <span class='task ${value.done ? 'done' : ''}'>${value.Task}</span>
+        <span class='description ${value.done ? 'done' : ''}'>${value.Description}</span>
+        <div>
+          <button id='edit' onclick='edit(${index})' class="bi bi-pencil"/>
+          <button id='remove' onclick='F(remove)(${index})' class="bi bi-trash3"/>
+          <button id='done' onclick='F(done)(${index})' class="bi bi-check-circle ${value.done ? 'icon-done' : ''}"/>
+        </div>
+      </li>
+      <hr>`
+    })
+  }
 
   updateCharCount(inputTitle, 20, titleCharCount)
   updateCharCount(inputDesc, 76, descCharCount)
