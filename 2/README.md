@@ -1,4 +1,4 @@
-# Projeto ToDo list
+# Projeto TaskFlow | ToDo list
 
 [Descrição](https://github.com/ivirson/logica-programacao-1003/blob/master/projeto.md)
 
