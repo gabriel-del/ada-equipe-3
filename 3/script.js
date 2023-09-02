@@ -15,8 +15,7 @@ function has_game_ended() {
   return hitLeftWall || hitRightWall || hitToptWall || hitBottomWall
 }
 
-document.addEventListener('keydown', change_direction)
-function change_direction(event) {
+document.addEventListener('keydown', event => {
   const LEFT_KEY = 37, RIGHT_KEY = 39, UP_KEY = 38, DOWN_KEY = 40
 
   if (changing_direction) return
@@ -30,7 +29,7 @@ function change_direction(event) {
   if (keyPressed === UP_KEY && !goingDown) {dx = 0; dy = -10}
   if (keyPressed === RIGHT_KEY && !goingLeft) {dx = 10; dy = 0}
   if (keyPressed === DOWN_KEY && !goingUp) {dx = 0; dy = 10}
-}
+})
 
 main()
 function main() {
