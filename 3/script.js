@@ -35,17 +35,14 @@ const board_border = 'black';
     }
     
     function drawSnake() {
-      snake.forEach(drawSnakePart)
+      snake.forEach(snakePart => {
+        ctx.fillStyle = snake_col;
+        ctx.strokestyle = snake_border;
+        ctx.fillRect(snakePart.x, snakePart.y, 10, 10);
+        ctx.strokeRect(snakePart.x, snakePart.y, 10, 10);
+      })
     }
-    
-    function drawSnakePart(snakePart) {
-
-      ctx.fillStyle = snake_col;
-      ctx.strokestyle = snake_border;
-      ctx.fillRect(snakePart.x, snakePart.y, 10, 10);
-      ctx.strokeRect(snakePart.x, snakePart.y, 10, 10);
-    }
-
+   
     function has_game_ended() {
       for (let i = 4; i < snake.length; i++) {
         if (snake[i].x === snake[0].x && snake[i].y === snake[0].y) return true
