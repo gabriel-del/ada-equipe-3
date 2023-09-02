@@ -43,11 +43,7 @@ function change_direction(event) {
   if (keyPressed === DOWN_KEY && !goingUp) {dx = 0; dy = 10}
 }
 
-function move_snake() {
-  const head = {x: snake[0].x + dx, y: snake[0].y + dy}
-  snake.unshift(head)
-  snake.pop()
-}
+
 
 main()
 function main() {
@@ -61,8 +57,10 @@ function main() {
     ctx.fillRect(0, 0, canvas.width, canvas.height)
     ctx.strokeRect(0, 0, canvas.width, canvas.height)
   
+      const head = {x: snake[0].x + dx, y: snake[0].y + dy}
+      snake.unshift(head)
+      snake.pop()
  
-    move_snake()
     drawSnake()
     // Call main again
     main()
