@@ -4,12 +4,7 @@ let snake = [{x: 200, y: 200}, {x: 190, y: 200}, {x: 180, y: 200}, {x: 170, y: 2
   changing_direction = false,
   dx = 10, dy = 0
   
-  function clear_board() {
-    ctx.fillStyle = 'white'
-  ctx.strokestyle = 'black'
-  ctx.fillRect(0, 0, canvas.width, canvas.height)
-  ctx.strokeRect(0, 0, canvas.width, canvas.height)
-}
+
 
 function drawSnake() {
   snake.forEach(snakePart => {
@@ -56,11 +51,17 @@ function move_snake() {
 
 main()
 function main() {
-  if (has_game_ended()) return
+  if (has_game_ended()) return  
 
   changing_direction = false
   setTimeout(() => {
-    clear_board()
+
+      ctx.fillStyle = 'white'
+    ctx.strokestyle = 'black'
+    ctx.fillRect(0, 0, canvas.width, canvas.height)
+    ctx.strokeRect(0, 0, canvas.width, canvas.height)
+  
+ 
     move_snake()
     drawSnake()
     // Call main again
