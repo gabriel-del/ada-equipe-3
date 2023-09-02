@@ -1,15 +1,11 @@
-let snake = [{x: 200, y: 200}, {x: 190, y: 200}, {x: 180, y: 200}, {x: 170, y: 200}, {x: 160, y: 200}],
-
-  changing_direction = false,
-  dx = 10, dy = 0
-
 const canvas = document.querySelector('canvas'),
   ctx = canvas.getContext('2d')
-
-document.addEventListener('keydown', change_direction)
-
-function clear_board() {
-  ctx.fillStyle = 'white'
+let snake = [{x: 200, y: 200}, {x: 190, y: 200}, {x: 180, y: 200}, {x: 170, y: 200}, {x: 160, y: 200}],
+  changing_direction = false,
+  dx = 10, dy = 0
+  
+  function clear_board() {
+    ctx.fillStyle = 'white'
   ctx.strokestyle = 'black'
   ctx.fillRect(0, 0, canvas.width, canvas.height)
   ctx.strokeRect(0, 0, canvas.width, canvas.height)
@@ -26,15 +22,16 @@ function drawSnake() {
 
 function has_game_ended() {
   for (let i = 4; i < snake.length; i++)
-    if (snake[i].x === snake[0].x && snake[i].y === snake[0].y) return true
-
+  if (snake[i].x === snake[0].x && snake[i].y === snake[0].y) return true
+  
   const hitLeftWall = snake[0].x < 0,
-    hitRightWall = snake[0].x > canvas.width - 10,
-    hitToptWall = snake[0].y < 0,
-    hitBottomWall = snake[0].y > canvas.height - 10
+  hitRightWall = snake[0].x > canvas.width - 10,
+  hitToptWall = snake[0].y < 0,
+  hitBottomWall = snake[0].y > canvas.height - 10
   return hitLeftWall || hitRightWall || hitToptWall || hitBottomWall
 }
 
+document.addEventListener('keydown', change_direction)
 function change_direction(event) {
   const LEFT_KEY = 37, RIGHT_KEY = 39, UP_KEY = 38, DOWN_KEY = 40
 
