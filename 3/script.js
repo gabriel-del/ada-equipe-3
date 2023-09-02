@@ -6,12 +6,11 @@ const board_border = 'black';
     let snake = [{x: 200, y: 200}, {x: 190, y: 200},{x: 180, y: 200}, {x: 170, y: 200}, {x: 160, y: 200} ]
 
     let changing_direction = false;
-    let dx = 10;
-    let dy = 0;
+    let dx = 10, dy = 0;
     
     const snakeboard = document.getElementById("snakeboard");
     const snakeboard_ctx = snakeboard.getContext("2d");
-    main();
+    main(); 
 
     document.addEventListener("keydown", change_direction);
     
@@ -61,11 +60,7 @@ const board_border = 'black';
     }
 
     function change_direction(event) {
-      const LEFT_KEY = 37;
-      const RIGHT_KEY = 39;
-      const UP_KEY = 38;
-      const DOWN_KEY = 40;
-      
+      const LEFT_KEY = 37, RIGHT_KEY = 39, UP_KEY = 38, DOWN_KEY = 40;
     
       if (changing_direction) return;
       changing_direction = true;
@@ -74,22 +69,10 @@ const board_border = 'black';
       const goingDown = dy === 10;
       const goingRight = dx === 10;
       const goingLeft = dx === -10;
-      if (keyPressed === LEFT_KEY && !goingRight) {
-        dx = -10;
-        dy = 0;
-      }
-      if (keyPressed === UP_KEY && !goingDown) {
-        dx = 0;
-        dy = -10;
-      }
-      if (keyPressed === RIGHT_KEY && !goingLeft) {
-        dx = 10;
-        dy = 0;
-      }  
-      if (keyPressed === DOWN_KEY && !goingUp) {
-        dx = 0;
-        dy = 10;
-      }
+      if (keyPressed === LEFT_KEY && !goingRight) { dx = -10; dy = 0;}
+      if (keyPressed === UP_KEY && !goingDown) {dx = 0; dy = -10;}
+      if (keyPressed === RIGHT_KEY && !goingLeft) {dx = 10; dy = 0;}  
+      if (keyPressed === DOWN_KEY && !goingUp) {dx = 0;dy = 10;}
     }
 
     function move_snake() {
