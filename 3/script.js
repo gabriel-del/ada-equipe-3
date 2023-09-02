@@ -6,23 +6,9 @@
     
     const canvas = document.querySelector('canvas') 
     const ctx = canvas.getContext("2d");
-    main(); 
-
+    
     document.addEventListener("keydown", change_direction);
     
-    function main() { 
-
-        if (has_game_ended()) return; 
-
-        changing_direction = false;
-        setTimeout(function onTick() {
-        clear_board();
-        move_snake();
-        drawSnake();
-        // Call main again
-        main();
-      }, 100)
-    }
         function clear_board() {
       ctx.fillStyle = 'white';
       ctx.strokestyle = 'black';
@@ -70,4 +56,20 @@
       const head = {x: snake[0].x + dx, y: snake[0].y + dy};
       snake.unshift(head);
       snake.pop();
+    }
+
+
+    main(); 
+    function main() { 
+
+        if (has_game_ended()) return; 
+
+        changing_direction = false;
+        setTimeout(function onTick() {
+        clear_board();
+        move_snake();
+        drawSnake();
+        // Call main again
+        main();
+      }, 100)
     }
