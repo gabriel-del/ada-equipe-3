@@ -8,15 +8,15 @@ const board_border = 'black';
     let changing_direction = false;
     let dx = 10, dy = 0;
     
-    const snakeboard = document.getElementById("snakeboard");
-    const snakeboard_ctx = snakeboard.getContext("2d");
+    const canvas = document.querySelector('canvas') 
+    const ctx = canvas.getContext("2d");
     main(); 
 
     document.addEventListener("keydown", change_direction);
     
     function main() { 
 
-        if (has_game_ended()) return;
+        if (has_game_ended()) return; 
 
         changing_direction = false;
         setTimeout(function onTick() {
@@ -27,13 +27,11 @@ const board_border = 'black';
         main();
       }, 100)
     }
-    
-    // draw a border around the canvas
-    function clear_board() {
-      snakeboard_ctx.fillStyle = board_background;
-      snakeboard_ctx.strokestyle = board_border;
-      snakeboard_ctx.fillRect(0, 0, snakeboard.width, snakeboard.height);
-      snakeboard_ctx.strokeRect(0, 0, snakeboard.width, snakeboard.height);
+        function clear_board() {
+      ctx.fillStyle = board_background;
+      ctx.strokestyle = board_border;
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      ctx.strokeRect(0, 0, canvas.width, canvas.height);
     }
     
     function drawSnake() {
@@ -42,10 +40,10 @@ const board_border = 'black';
     
     function drawSnakePart(snakePart) {
 
-      snakeboard_ctx.fillStyle = snake_col;
-      snakeboard_ctx.strokestyle = snake_border;
-      snakeboard_ctx.fillRect(snakePart.x, snakePart.y, 10, 10);
-      snakeboard_ctx.strokeRect(snakePart.x, snakePart.y, 10, 10);
+      ctx.fillStyle = snake_col;
+      ctx.strokestyle = snake_border;
+      ctx.fillRect(snakePart.x, snakePart.y, 10, 10);
+      ctx.strokeRect(snakePart.x, snakePart.y, 10, 10);
     }
 
     function has_game_ended() {
@@ -53,9 +51,9 @@ const board_border = 'black';
         if (snake[i].x === snake[0].x && snake[i].y === snake[0].y) return true
       }
       const hitLeftWall = snake[0].x < 0;
-      const hitRightWall = snake[0].x > snakeboard.width - 10;
+      const hitRightWall = snake[0].x > canvas.width - 10;
       const hitToptWall = snake[0].y < 0;
-      const hitBottomWall = snake[0].y > snakeboard.height - 10;
+      const hitBottomWall = snake[0].y > canvas.height - 10;
       return hitLeftWall || hitRightWall || hitToptWall || hitBottomWall
     }
 
@@ -65,7 +63,7 @@ const board_border = 'black';
       if (changing_direction) return;
       changing_direction = true;
       const keyPressed = event.keyCode;
-      const goingUp = dy === -10;
+      const goingUp = dy === -10;  
       const goingDown = dy === 10;
       const goingRight = dx === 10;
       const goingLeft = dx === -10;
