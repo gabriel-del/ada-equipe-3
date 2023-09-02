@@ -54,11 +54,11 @@ function main() {
       snake.unshift(head)
       snake.pop()
  
-        snake.forEach(snakePart => {
+        snake.forEach(({x, y}) => {
           ctx.fillStyle = 'lightblue'
           ctx.strokeStyle = 'darkblue'
-          ctx.fillRect(snakePart.x, snakePart.y, 10, 10)
-          ctx.strokeRect(snakePart.x, snakePart.y, 10, 10)
+          ctx.fillRect(x, y, 10, 10) 
+          ctx.strokeRect(x, y, 10, 10)
         })
  
     main()
