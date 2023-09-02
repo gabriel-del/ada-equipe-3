@@ -6,14 +6,7 @@ let snake = [{x: 200, y: 200}, {x: 190, y: 200}, {x: 180, y: 200}, {x: 170, y: 2
   
 
 
-function drawSnake() {
-  snake.forEach(snakePart => {
-    ctx.fillStyle = 'lightblue'
-    ctx.strokestyle = 'darkblue'
-    ctx.fillRect(snakePart.x, snakePart.y, 10, 10)
-    ctx.strokeRect(snakePart.x, snakePart.y, 10, 10)
-  })
-}
+
 
 function has_game_ended() {
   for (let i = 4; i < snake.length; i++)
@@ -61,8 +54,13 @@ function main() {
       snake.unshift(head)
       snake.pop()
  
-    drawSnake()
-    // Call main again
+        snake.forEach(snakePart => {
+          ctx.fillStyle = 'lightblue'
+          ctx.strokestyle = 'darkblue'
+          ctx.fillRect(snakePart.x, snakePart.y, 10, 10)
+          ctx.strokeRect(snakePart.x, snakePart.y, 10, 10)
+        })
+ 
     main()
   }, 100)
 }
