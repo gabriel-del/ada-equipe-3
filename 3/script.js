@@ -46,7 +46,7 @@ function main() {
   setTimeout(() => {
 
       ctx.fillStyle = 'white'
-    ctx.strokestyle = 'black'
+    ctx.strokeStyle = 'black'
     ctx.fillRect(0, 0, canvas.width, canvas.height)
     ctx.strokeRect(0, 0, canvas.width, canvas.height)
   
@@ -56,7 +56,7 @@ function main() {
  
         snake.forEach(snakePart => {
           ctx.fillStyle = 'lightblue'
-          ctx.strokestyle = 'darkblue'
+          ctx.strokeStyle = 'darkblue'
           ctx.fillRect(snakePart.x, snakePart.y, 10, 10)
           ctx.strokeRect(snakePart.x, snakePart.y, 10, 10)
         })
