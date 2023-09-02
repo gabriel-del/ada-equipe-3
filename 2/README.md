@@ -1,27 +1,24 @@
-# Projeto ToDo list
-
-
-[Código da Gabriela](https://github.com/gwebsurfer/localstorage-grocery-list/tree/main)
+# Projeto TaskFlow | ToDo list
 
 [Descrição](https://github.com/ivirson/logica-programacao-1003/blob/master/projeto.md)
 
-[Demo](https://gabriel-del.github.io/ada-equipe-3/)
+[Live Preview](https://gabriel-del.github.io/ada-equipe-3)
+
+## Equipe 3
+- Gabriela Leite
+- Gabriel Del
+- Lucas Aquino
+- Bruno Cesar
+- Luiz Gustavo Souza
+
 
 ### Divisão de tarefas
-
-* Bruno: SVG diminuir
-* Gabriel: Busca
-* Gabriela: layout no figma
-* Gustavo: Interface
-* Lucas: Busca
-
-### Tarefas
-* Refatorar: todo mundo
+https://github.com/users/gabriel-del/projects/3/views/1
+### Protótipo
+[Figma](https://www.figma.com/file/bMtW8x5tweYVZSd4nVx5Xj/taskflow?type=design&node-id=0%3A1&mode=design&t=mWu9hk640fyDrraa-1)
 
 
 ### Install
-<!-- instalar [pnpm](https://pnpm.io/cli/add) -->
-
 ```
 git clone git@github.com:gabriel-del/ada-equipe-3.git
 cd ada-equipe-3

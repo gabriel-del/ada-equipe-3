@@ -10,7 +10,7 @@ const listKey = 'todo-list',
   display = ['none', 'inline-block'],
   showBtnAdd = show => {add.style.display = display[+show]; update.style.display = display[+!show]},
   F = f => index => {f(index); updateList()},
-  remove = index => listOut.splice(index, 1),
+  remove = index => {listOut.splice(index, 1); clearInputs(); showBtnAdd(true)},
   done = index => listOut[index].done = !listOut[index].done
 
 inputTitle.addEventListener('keypress', e => {
@@ -28,10 +28,18 @@ add.addEventListener('click', F(() => {
   } else {
     inputTitle.style.border = ''
     listOut.unshift({Task: inputTitle.value, Description: inputDesc.value, done: false})
-    inputTitle.value = ''
-    inputDesc.value = ''
+    clearInputs()
   }
 }))
+
+function clearInputs() {
+  inputTitle.value = ''
+  inputDesc.value = ''
+}
+
+function getDoneButtonId(index) {
+  return `done_${index}`
+}
 
 function updateCharCount(inputElement, maxLength, charCountElement) {
   const currentLength = inputElement.value.length,
@@ -61,14 +69,16 @@ function edit(index) {
   updateCharCount(inputTitle, 20, titleCharCount)
   updateCharCount(inputDesc, 76, descCharCount)
   showBtnAdd(false)
+  const doneButton = document.getElementById(getDoneButtonId(index))
+  doneButton.disabled = true
   update.addEventListener('click', () => {
     listOut[index].Task = inputTitle.value
     listOut[index].Description = inputDesc.value
-    inputTitle.value = ''
-    inputDesc.value = ''
+    clearInputs()
     updateCharCount(inputTitle, 20, titleCharCount)
     updateCharCount(inputDesc, 76, descCharCount)
     showBtnAdd(true)
+    doneButton.disabled = false;
     updateList()
   }, {once: true})
 }
@@ -78,19 +88,24 @@ function updateList(list = listOut) {
   const listIn = document.querySelector('ul')
   listIn.innerHTML = ''
 
-  list.forEach((value, index) => {
-    listIn.innerHTML += `
-    <li>
-      <span class='task ${value.done ? 'done' : ''}'>${value.Task}</span>
-      <span class='description ${value.done ? 'done' : ''}'>${value.Description}</span>
-      <div>
-        <button id='edit' onclick='edit(${index})' class="bi bi-pencil"/>
-        <button id='remove' onclick='F(remove)(${index})' class="bi bi-trash3"/>
-        <button id='done' onclick='F(done)(${index})' class="bi bi-check-circle ${value.done ? 'icon-done' : ''}"/>
-      </div>
-    </li>
-    <hr>`
-  })
+  if (list.length === 0) {
+    listIn.innerHTML = `
+    <p class='no-task'>Adicione uma nova tarefa</p>`
+  } else {
+    list.forEach((value, index) => {
+      listIn.innerHTML += `
+      <li>
+        <span class='task ${value.done ? 'done' : ''}'>${value.Task}</span>
+        <span class='description ${value.done ? 'done' : ''}'>${value.Description}</span>
+        <div>
+          <button id='edit' onclick='edit(${index})' class="bi bi-pencil"/>
+          <button id='remove' onclick='F(remove)(${index})' class="bi bi-trash3"/>
+          <button id='${getDoneButtonId(index)}' onclick='F(done)(${index})' class="bi bi-check-circle ${value.done ? 'icon-done' : ''}"/>
+        </div>
+      </li>
+      <hr>`
+    })
+  }
 
   updateCharCount(inputTitle, 20, titleCharCount)
   updateCharCount(inputDesc, 76, descCharCount)

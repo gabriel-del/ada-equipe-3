@@ -166,6 +166,12 @@ section button {
   font-weight: 200;
   color: rgb(165 173 180);}
 
+.no-task {
+  text-align: center;
+  font-size: 0.9rem;
+  font-weight: 200;
+  color: var(--color-light2);}
+
 li button {
   background-color: var(--color-dark2);
   color: var(--color-light2);
