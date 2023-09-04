@@ -45,8 +45,7 @@ class Snake {
   alive = true
   move() {
     let head = {x: this.snake.slice(-1)[0].x+snake.direction.x, y: this.snake.slice(-1)[0].y+snake.direction.y}
-    this.snake.forEach(square => { if (JSON.stringify(square) == JSON.stringify(head)) { snake.alive = false } })
-    
+    if (this.snake.filter(square => JSON.stringify(square) == JSON.stringify(head)).length != 0) snake.alive = false
     if (400 - 10 < head.x || head.x <= 0 -10 || 400 - 10 < head.y || head.y <= 0 -10) snake.alive = false
     if (snake.alive) {
     this.snake.push(head)
