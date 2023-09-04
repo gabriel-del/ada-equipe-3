@@ -57,7 +57,6 @@ document.addEventListener('keydown', event => {
    
 
 
-    setInterval(function () {
-      snake.move()
-  }, 200);
+   let interval = setInterval(() => snake.alive ? snake.move() : clearInterval(interval)
+  , 200);
   
