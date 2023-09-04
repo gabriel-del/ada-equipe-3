@@ -42,6 +42,7 @@ class Snake {
   }
 
   direction = {x: 10, y: 0}
+  speed = 200
   alive = true
   move() {
     let head = {x: this.snake.slice(-1)[0].x+snake.direction.x, y: this.snake.slice(-1)[0].y+snake.direction.y}
@@ -58,4 +59,4 @@ class Snake {
 
 let board = new Board(400, 400, 1),
     snake = new Snake([{x: 160, y: 200}, {x: 240, y: 200}]),
-    interval = setInterval(() => snake.alive ? snake.move() : clearInterval(interval), 200)
+    interval = setInterval(() => snake.alive ? snake.move() : clearInterval(interval), snake.speed)
