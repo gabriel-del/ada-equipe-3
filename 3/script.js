@@ -9,20 +9,16 @@ class Board {
     ctx.fillStyle = 'white'
     ctx.strokeStyle = 'darkblue'
     ctx.fillRect(0, 0, width*squareSize, height*squareSize)
-    ctx.strokeRect(0, 0, width*squareSize, height*squareSize)
-  }
-
+    ctx.strokeRect(0, 0, width*squareSize, height*squareSize)}
   clear() {
     ctx.fillStyle = 'white'
     ctx.strokeStyle = 'black'
     ctx.fillRect(0, 0, canvas.width, canvas.height)
-    ctx.strokeRect(0, 0, canvas.width, canvas.height)
-  }
+    ctx.strokeRect(0, 0, canvas.width, canvas.height) }
 }
-
 class Snake {
   constructor(board, snakeInterval, speed) {
-    this.speed = speed
+    this.speed = Math.floor(1000 / speed)
     this.snake = snakeInterval
     this.board = board
     this.squareSize = this.board.squareSize
@@ -32,20 +28,16 @@ class Snake {
       while (this.snake[1].x - 1 !== this.snake[0].x) this.snake.splice(1, 0, {x: this.snake[1].x - 1, y: snakeInterval[0].y})
     else if (snakeInterval[0].x === snakeInterval[1].x)
       while (this.snake[1].y - 1 !== this.snake[0].y) this.snake.splice(1, 0, {x: snakeInterval[0].x, y: this.snake[1].y - 1})
-    else console.log('X ou Y devem ser iguais')
-  }
-
+    else console.log('X ou Y devem ser iguais')  }
+  alive = true
+  direction = {x: 1, y: 0}
   print() {
     this.snake.forEach(({x, y}) => {
       ctx.fillStyle = 'lightblue'
       ctx.strokeStyle = 'darkblue'
       ctx.fillRect(x*this.squareSize, y*this.squareSize, this.squareSize, this.squareSize)
       ctx.strokeRect(x*this.squareSize, y*this.squareSize, this.squareSize, this.squareSize)
-    })
-  }
-
-  direction = {x: 1, y: 0}
-  alive = true
+    })}
   move() {
     const head = {x: this.snake.slice(-1)[0].x+snake.direction.x, y: this.snake.slice(-1)[0].y+snake.direction.y}
     if (this.snake.filter(square => JSON.stringify(square) === JSON.stringify(head)).length !== 0) snake.alive = false
@@ -58,12 +50,10 @@ class Snake {
       this.snake.shift()
       board.clear()
       snake.print()
-    } else {console.log('Morreu')}
-  }
+    } else {console.log('Morreu')}}
 }
-
 let board = new Board(10, 40, 40),
-  snake = new Snake(board, [{x: 16, y: 20}, {x: 24, y: 20}], 200)
+    snake = new Snake(board, [{x: 16, y: 20}, {x: 24, y: 20}], 5)
 const interval = setInterval(() => snake.alive ? snake.move() : clearInterval(interval), snake.speed)
 
 document.addEventListener('keydown', event => {
