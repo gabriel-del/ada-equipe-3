@@ -45,13 +45,13 @@ class Snake {
   alive = true
   move() {
     let head = {x: this.snake.slice(-1)[0].x+snake.direction.x, y: this.snake.slice(-1)[0].y+snake.direction.y}
-    if (0 - 10 < head.x && head.x <= 400 -10 && 0 - 10 < head.y && head.y <= 400 -10){
+    if (400 - 10 < head.x || head.x <= 0 -10 || 400 - 10 < head.y || head.y <= 0 -10) snake.alive = false
+    if (snake.alive) {
     this.snake.push(head)
     this.snake.shift()
     board.clear()
     snake.print()
-    } else {snake.alive = false} 
-    console.log(head.x)   
+    } 
   }
 } 
 
