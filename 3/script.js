@@ -49,33 +49,33 @@ function main() {
   }, 100) 
 }
 
-  // main() 
 
 class Board {
   constructor(width, height, squareSize){
-  ctx.fillStyle = 'white';
+    ctx.fillStyle = 'white';
   ctx.strokeStyle = 'darkblue';
   ctx.fillRect(0, 0, width, height);
   ctx.strokeRect(0, 0, width, height);
- }}
-
-  let board = new Board(400, 400, 1);
-
-  class Snake {
-    constructor(snake){
-      this.snake = snake
-    }
-    print(){
-      snake.forEach(({x, y}) => {
-        ctx.fillStyle = 'lightblue'
-        ctx.strokeStyle = 'darkblue'
-        ctx.fillRect(x, y, 10, 10)
-        ctx.strokeRect(x, y, 10, 10)
-      })
+}}
 
 
+class Snake {
+  constructor(snake){this.snake = snake}
+  print(){
+    snake.forEach(({x, y}) => {
+      ctx.fillStyle = 'lightblue'
+      ctx.strokeStyle = 'darkblue'
+      ctx.fillRect(x, y, 10, 10)
+      ctx.strokeRect(x, y, 10, 10)
+    })}
+    move(){
+      console.log(snake)
+        
     }
   }
-
-  let snake2 = new Snake(snake)
-  snake2.print()
+  
+  // let board = new Board(400, 400, 1);
+    // let snake2 = new Snake(snake)
+    // snake2.print()
+    // snake2.move() 
+    main() 
