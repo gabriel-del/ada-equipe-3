@@ -1,11 +1,4 @@
 const canvas = document.querySelector('canvas'), ctx = canvas.getContext('2d')
-
-function has_game_ended() {
-  for (let i = 4; i < snake.length; i++)
-    if (snake[i].x === snake[0].x && snake[i].y === snake[0].y) return true
-  return snake[0].x < 0 || snake[0].y < 0 || snake[0].x > canvas.width - 10 || snake[0].y > canvas.height - 10
-}
-
 class Board {
   constructor(width, height, squareSize) {
     ctx.fillStyle = 'white'
