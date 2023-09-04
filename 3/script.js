@@ -1,6 +1,10 @@
 const canvas = document.querySelector('canvas'), ctx = canvas.getContext('2d')
 class Board {
   constructor(squareSize, width, height) {
+    this.width= width
+    this.height = height
+    canvas.width = width*squareSize
+    canvas.height = height*squareSize
     this.squareSize = squareSize
     ctx.fillStyle = 'white'
     ctx.strokeStyle = 'darkblue'
@@ -25,10 +29,13 @@ document.addEventListener('keydown', event => {
 })
 
 class Snake {
-  constructor(squareSize, snakeInterval, speed) {    
+  constructor(board, snakeInterval, speed) {    
     this.speed = speed
     this.snake = snakeInterval
-    this.squareSize = squareSize
+    this.board = board
+    this.squareSize = this.board.squareSize
+    this.width = this.board.width
+    this.height = this.board.height
     if (snakeInterval[0].y == snakeInterval[1].y) {
       while (this.snake[1].x - 1 != this.snake[0].x) this.snake.splice(1, 0, {x: this.snake[1].x - 1, y: snakeInterval[0].y}) 
     } else if (snakeInterval[0].x == snakeInterval[1].x) {
@@ -49,7 +56,7 @@ class Snake {
   move() {
     let head = {x: this.snake.slice(-1)[0].x+snake.direction.x, y: this.snake.slice(-1)[0].y+snake.direction.y}
     if (this.snake.filter(square => JSON.stringify(square) == JSON.stringify(head)).length != 0) snake.alive = false
-    if (40 - 1 < head.x || head.x <= 0 -1 || 40 - 1 < head.y || head.y <= 0 -1) snake.alive = false
+    if (this.board.width - 1 < head.x || head.x <= 0 -1 || this.board.height - 1 < head.y || head.y <= 0 -1) snake.alive = false
     console.log(snake)
     snake.print()
     if (snake.alive) {
@@ -62,8 +69,6 @@ class Snake {
   }
 } 
 
-let board = new Board(10, 40, 40)
-    snake = new Snake(board.squareSize, [{x: 16, y: 20}, {x: 24, y: 20}], 200)
+let board = new Board(10, 60, 80)
+    snake = new Snake(board, [{x: 16, y: 20}, {x: 24, y: 20}], 200)
     interval = setInterval(() => snake.alive ? snake.move() : clearInterval(interval), snake.speed)
-
-// snake.print()
