@@ -24,14 +24,12 @@ document.addEventListener('keydown', event => {
 })
 
 class Snake {
-  constructor(snake) {
-    // this.snake = [{x: 160, y: 200}, {x: 170, y: 200}, {x: 180, y: 200}, {x: 190, y: 200}, {x: 200, y: 200}, {x: 210, y: 200}, {x: 220, y: 200}, {x: 230, y: 200}, {x: 240, y: 200}]
-    
-    this.snake = snake
-    if (snake[0].y == snake[1].y) {
-      while (this.snake[1].x - 10 != this.snake[0].x) this.snake.splice(1, 0, {x: this.snake[1].x - 10, y: snake[0].y}) 
-    } else if (snake[0].x == snake[1].x) {
-      while (this.snake[1].y - 10 != this.snake[0].y) this.snake.splice(1, 0, {x: snake[0].x, y: this.snake[1].y - 10})
+  constructor(snakeInterval) {    
+    this.snake = snakeInterval
+    if (snakeInterval[0].y == snakeInterval[1].y) {
+      while (this.snake[1].x - 10 != this.snake[0].x) this.snake.splice(1, 0, {x: this.snake[1].x - 10, y: snakeInterval[0].y}) 
+    } else if (snakeInterval[0].x == snakeInterval[1].x) {
+      while (this.snake[1].y - 10 != this.snake[0].y) this.snake.splice(1, 0, {x: snakeInterval[0].x, y: this.snake[1].y - 10})
     } else { console.log("X ou Y devem ser iguais")}
   }
   print() {
