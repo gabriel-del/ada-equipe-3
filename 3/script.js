@@ -50,8 +50,8 @@ class Snake {
       snake.print()
     } else {console.log('Morreu')}}
 }
-let board = new Board(10, 40, 40),
-    snake = new Snake(board, [{x: 16, y: 20}, {x: 24, y: 20}], 5)
+let board = new Board(20, 20, 20),
+    snake = new Snake(board, [{x: 2, y: 10}, {x: 10, y: 10}], 5)
 const interval = setInterval(() => snake.alive ? snake.move() : clearInterval(interval), snake.speed)
 
 document.addEventListener('keydown', event => {
