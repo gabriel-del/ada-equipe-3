@@ -23,10 +23,11 @@ clear(){
 }
   
 document.addEventListener('keydown', event => {
-  if (event.keyCode === 37 ) snake.move("L")
-  if (event.keyCode === 38 ) snake.move("U")
-  if (event.keyCode === 39 ) snake.move("R")
-  if (event.keyCode === 40 ) snake.move("D")
+  if (event.keyCode === 37 ) snake.direction = {x: -10, y: 0} //L
+  if (event.keyCode === 38 ) snake.direction = {x: 0, y: -10} //U
+  if (event.keyCode === 39 ) snake.direction = {x: +10, y: 0} //R
+  if (event.keyCode === 40 ) snake.direction = {x: 0, y: +10} //D
+  if (event.keyCode === 81 ) snake.alive = false //morreu
   })
   
   class Snake {
@@ -38,16 +39,14 @@ document.addEventListener('keydown', event => {
         ctx.fillRect(x, y, 10, 10)
         ctx.strokeRect(x, y, 10, 10)
       })}
-      move(direction){
-        switch (direction) {
-          case 'L': this.snake.push({x: this.snake.slice(-1)[0].x-10, y: this.snake.slice(-1)[0].y+0}) ;break;
-          case 'R': this.snake.push({x: this.snake.slice(-1)[0].x+10, y: this.snake.slice(-1)[0].y+0}) ;break;
-          case 'U': this.snake.push({x: this.snake.slice(-1)[0].x+0, y: this.snake.slice(-1)[0].y-10}) ;break;
-          case 'D': this.snake.push({x: this.snake.slice(-1)[0].x+0, y: this.snake.slice(-1)[0].y+10}) ;break;
-        }
+      direction = {x: 10, y: 0}
+      alive = true
+      move(){
+        this.snake.push({x: this.snake.slice(-1)[0].x+snake.direction.x, y: this.snake.slice(-1)[0].y+snake.direction.y})
         this.snake.shift()
         board.clear()
         snake.print()
+        console.log(this.direction)
         
       }
     }
@@ -56,3 +55,9 @@ document.addEventListener('keydown', event => {
     let snake = new Snake([{x: 160, y: 200}, {x: 170, y: 200}, {x: 180, y: 200}, {x: 190, y: 200}, {x: 200, y: 200}])
     snake.print()
    
+
+
+    setInterval(function () {
+      snake.move()
+  }, 200);
+  
