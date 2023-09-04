@@ -1,5 +1,4 @@
-const canvas = document.querySelector('canvas'),
-  ctx = canvas.getContext('2d')
+const canvas = document.querySelector('canvas'), ctx = canvas.getContext('2d')
   
 function has_game_ended() {
   for (let i = 4; i < snake.length; i++)
@@ -41,23 +40,12 @@ document.addEventListener('keydown', event => {
       })}
       move(direction){
         switch (direction) {
-          case 'L':
-            this.snake.push({x: this.snake.slice(-1)[0].x-10, y: this.snake.slice(-1)[0].y+0})
-            break;
-          case 'R':
-            this.snake.push({x: this.snake.slice(-1)[0].x+10, y: this.snake.slice(-1)[0].y+0})
-            break;
-          case 'U':
-            this.snake.push({x: this.snake.slice(-1)[0].x+0, y: this.snake.slice(-1)[0].y-10})
-            break;
-          case 'D':
-            this.snake.push({x: this.snake.slice(-1)[0].x+0, y: this.snake.slice(-1)[0].y+10})
-            break;
-          default:
-          console.log("não entrou")
+          case 'L': this.snake.push({x: this.snake.slice(-1)[0].x-10, y: this.snake.slice(-1)[0].y+0}) ;break;
+          case 'R': this.snake.push({x: this.snake.slice(-1)[0].x+10, y: this.snake.slice(-1)[0].y+0}) ;break;
+          case 'U': this.snake.push({x: this.snake.slice(-1)[0].x+0, y: this.snake.slice(-1)[0].y-10}) ;break;
+          case 'D': this.snake.push({x: this.snake.slice(-1)[0].x+0, y: this.snake.slice(-1)[0].y+10}) ;break;
         }
         this.snake.shift()
-        console.log(this.snake)
         board.clear()
         snake.print()
         
@@ -67,5 +55,4 @@ document.addEventListener('keydown', event => {
     let board = new Board(400, 400, 1);
     let snake = new Snake([{x: 160, y: 200}, {x: 170, y: 200}, {x: 180, y: 200}, {x: 190, y: 200}, {x: 200, y: 200}])
     snake.print()
-    snake.move()
-    board.clear(); snake.print() 
+   
