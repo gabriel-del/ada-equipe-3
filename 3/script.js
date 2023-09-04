@@ -1,7 +1,5 @@
 const canvas = document.querySelector('canvas'),
   ctx = canvas.getContext('2d')
-  let  changing_direction = false,
-  dx = 10, dy = 0
   
 function has_game_ended() {
   for (let i = 4; i < snake.length; i++)
@@ -9,54 +7,28 @@ function has_game_ended() {
   return snake[0].x < 0 || snake[0].y < 0 || snake[0].x > canvas.width - 10 || snake[0].y > canvas.height - 10
 }
 
-document.addEventListener('keydown', event => {
-  const LEFT_KEY = 37, RIGHT_KEY = 39, UP_KEY = 38, DOWN_KEY = 40
-  if (changing_direction) return
-  changing_direction = true
-  const keyPressed = event.keyCode,
-    goingUp = dy === -10,
-    goingDown = dy === 10,
-    goingRight = dx === 10,
-    goingLeft = dx === -10
-    if (keyPressed === LEFT_KEY && !goingRight) {dx = -10; dy = 0}
-    if (keyPressed === UP_KEY && !goingDown) {dx = 0; dy = -10}
-    if (keyPressed === RIGHT_KEY && !goingLeft) {dx = 10; dy = 0}
-    if (keyPressed === DOWN_KEY && !goingUp) {dx = 0; dy = 10}
-  })
-  
-  function main() {
-    if (has_game_ended()) return
-    changing_direction = false
-    setTimeout(() => {
-    ctx.fillStyle = 'white'
-    ctx.strokeStyle = 'black'
-    ctx.fillRect(0, 0, canvas.width, canvas.height)
-    ctx.strokeRect(0, 0, canvas.width, canvas.height)
-    
-    const head = {x: snake[0].x + dx, y: snake[0].y + dy}
-    snake.unshift(head)
-    snake.pop()
-    
-    snake.forEach(({x, y}) => {
-      ctx.fillStyle = 'lightblue'
-      ctx.strokeStyle = 'darkblue'
-      ctx.fillRect(x, y, 10, 10)
-      ctx.strokeRect(x, y, 10, 10)
-    })
-    
-    main()
-  }, 100) 
-}
-
-
 class Board {
   constructor(width, height, squareSize){
     ctx.fillStyle = 'white';
     ctx.strokeStyle = 'darkblue';
     ctx.fillRect(0, 0, width, height);
     ctx.strokeRect(0, 0, width, height);
-  }}
+  }
+clear(){
+  ctx.fillStyle = 'white'
+  ctx.strokeStyle = 'black'
+  ctx.fillRect(0, 0, canvas.width, canvas.height)
+  ctx.strokeRect(0, 0, canvas.width, canvas.height)
+
+}
+}
   
+document.addEventListener('keydown', event => {
+  if (event.keyCode === 37 ) snake.move("L")
+  if (event.keyCode === 38 ) snake.move("U")
+  if (event.keyCode === 39 ) snake.move("R")
+  if (event.keyCode === 40 ) snake.move("D")
+  })
   
   class Snake {
     constructor(snake){this.snake = snake}
@@ -67,8 +39,27 @@ class Board {
         ctx.fillRect(x, y, 10, 10)
         ctx.strokeRect(x, y, 10, 10)
       })}
-      move(){
-        console.log(snake)
+      move(direction){
+        switch (direction) {
+          case 'L':
+            this.snake.push({x: this.snake.slice(-1)[0].x-10, y: this.snake.slice(-1)[0].y+0})
+            break;
+          case 'R':
+            this.snake.push({x: this.snake.slice(-1)[0].x+10, y: this.snake.slice(-1)[0].y+0})
+            break;
+          case 'U':
+            this.snake.push({x: this.snake.slice(-1)[0].x+0, y: this.snake.slice(-1)[0].y-10})
+            break;
+          case 'D':
+            this.snake.push({x: this.snake.slice(-1)[0].x+0, y: this.snake.slice(-1)[0].y+10})
+            break;
+          default:
+          console.log("não entrou")
+        }
+        this.snake.shift()
+        console.log(this.snake)
+        board.clear()
+        snake.print()
         
       }
     }
@@ -76,4 +67,5 @@ class Board {
     let board = new Board(400, 400, 1);
     let snake = new Snake([{x: 160, y: 200}, {x: 170, y: 200}, {x: 180, y: 200}, {x: 190, y: 200}, {x: 200, y: 200}])
     snake.print()
-    // snake2.move()
+    snake.move()
+    board.clear(); snake.print() 
