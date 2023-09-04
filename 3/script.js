@@ -52,6 +52,14 @@ function main() {
   }, 100) 
 }
 
-// while(true){
-  main() 
-// }
+  // main() 
+
+class Board {
+  constructor(width, height, squareSize){
+  ctx.fillStyle = 'white';
+  ctx.strokeStyle = 'darkblue';
+  ctx.fillRect(0, 0, width, height);
+  ctx.strokeRect(0, 0, width, height);
+ }}
+
+  let board = new Board(400, 400, 1);
