@@ -44,13 +44,16 @@ class Snake {
   direction = {x: 10, y: 0}
   alive = true
   move() {
-    this.snake.push({x: this.snake.slice(-1)[0].x+snake.direction.x, y: this.snake.slice(-1)[0].y+snake.direction.y})
+    let head = {x: this.snake.slice(-1)[0].x+snake.direction.x, y: this.snake.slice(-1)[0].y+snake.direction.y}
+    if (0 - 10 < head.x && head.x <= 400 -10 && 0 - 10 < head.y && head.y <= 400 -10){
+    this.snake.push(head)
     this.snake.shift()
     board.clear()
     snake.print()
-    console.log(this.direction)
+    } else {snake.alive = false} 
+    console.log(head.x)   
   }
-}
+} 
 
 let board = new Board(400, 400, 1),
     snake = new Snake([{x: 160, y: 200}, {x: 170, y: 200}, {x: 180, y: 200}, {x: 190, y: 200}, {x: 200, y: 200}]),
