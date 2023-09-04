@@ -28,7 +28,7 @@ class Snake {
       while (this.snake[1].x - 1 !== this.snake[0].x) this.snake.splice(1, 0, {x: this.snake[1].x - 1, y: snakeInterval[0].y})
     else if (snakeInterval[0].x === snakeInterval[1].x)
       while (this.snake[1].y - 1 !== this.snake[0].y) this.snake.splice(1, 0, {x: snakeInterval[0].x, y: this.snake[1].y - 1})
-    else console.log('X ou Y devem ser iguais')  }
+    else throw Error('X ou Y devem ser iguais') }
   alive = true
   direction = {x: 1, y: 0}
   print() {
