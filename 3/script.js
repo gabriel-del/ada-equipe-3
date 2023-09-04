@@ -1,10 +1,11 @@
 const canvas = document.querySelector('canvas'), ctx = canvas.getContext('2d')
 class Board {
-  constructor(width, height, squareSize) {
+  constructor(squareSize, width, height) {
+    this.squareSize = squareSize
     ctx.fillStyle = 'white'
     ctx.strokeStyle = 'darkblue'
-    ctx.fillRect(0, 0, width, height)
-    ctx.strokeRect(0, 0, width, height)
+    ctx.fillRect(0, 0, width*squareSize, height*squareSize)
+    ctx.strokeRect(0, 0, width*squareSize, height*squareSize)
   }
 
   clear() {
@@ -24,8 +25,10 @@ document.addEventListener('keydown', event => {
 })
 
 class Snake {
-  constructor(snakeInterval) {    
+  constructor(squareSize, snakeInterval, speed) {    
+    this.speed = speed
     this.snake = snakeInterval
+    this.squareSize = squareSize
     if (snakeInterval[0].y == snakeInterval[1].y) {
       while (this.snake[1].x - 10 != this.snake[0].x) this.snake.splice(1, 0, {x: this.snake[1].x - 10, y: snakeInterval[0].y}) 
     } else if (snakeInterval[0].x == snakeInterval[1].x) {
@@ -36,19 +39,19 @@ class Snake {
     this.snake.forEach(({x, y}) => {
       ctx.fillStyle = 'lightblue'
       ctx.strokeStyle = 'darkblue'
-      ctx.fillRect(x, y, 10, 10)
-      ctx.strokeRect(x, y, 10, 10)
+      ctx.fillRect(x, y, this.squareSize, this.squareSize)
+      ctx.strokeRect(x, y, this.squareSize, this.squareSize)
     })
   }
 
   direction = {x: 10, y: 0}
-  speed = 200
   alive = true
   move() {
     let head = {x: this.snake.slice(-1)[0].x+snake.direction.x, y: this.snake.slice(-1)[0].y+snake.direction.y}
     if (this.snake.filter(square => JSON.stringify(square) == JSON.stringify(head)).length != 0) snake.alive = false
     if (400 - 10 < head.x || head.x <= 0 -10 || 400 - 10 < head.y || head.y <= 0 -10) snake.alive = false
     if (snake.alive) {
+      console.log(this.squareSize)
     this.snake.push(head)
     this.snake.shift()
     board.clear()
@@ -57,6 +60,6 @@ class Snake {
   }
 } 
 
-let board = new Board(400, 400, 1),
-    snake = new Snake([{x: 160, y: 200}, {x: 240, y: 200}]),
+let board = new Board(10, 40, 40)
+    snake = new Snake(board.squareSize, [{x: 160, y: 200}, {x: 240, y: 200}], 200)
     interval = setInterval(() => snake.alive ? snake.move() : clearInterval(interval), snake.speed)
