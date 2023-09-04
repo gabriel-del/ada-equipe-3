@@ -42,10 +42,8 @@ class Snake {
     const head = {x: this.snake.slice(-1)[0].x+snake.direction.x, y: this.snake.slice(-1)[0].y+snake.direction.y}
     if (this.snake.filter(square => JSON.stringify(square) === JSON.stringify(head)).length !== 0) snake.alive = false
     if (this.board.width - 1 < head.x || head.x <= 0 -1 || this.board.height - 1 < head.y || head.y <= 0 -1) snake.alive = false
-    console.log(snake)
     snake.print()
     if (snake.alive) {
-      console.log(this.squareSize)
       this.snake.push(head)
       this.snake.shift()
       board.clear()
