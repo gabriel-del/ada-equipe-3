@@ -49,7 +49,6 @@ class Snake {
     const head = {x: this.snake.slice(-1)[0].x+snake.direction.x, y: this.snake.slice(-1)[0].y+snake.direction.y}
     if (this.snake.filter(square => JSON.stringify(square) === JSON.stringify(head)).length !== 0) snake.alive = false
     if (this.board.width - 1 < head.x || head.x <= 0 -1 || this.board.height - 1 < head.y || head.y <= 0 -1) snake.alive = false
-    snake.print()
     if (snake.alive) {
       this.snake.push(head)
       this.snake.shift()
@@ -58,7 +57,7 @@ class Snake {
     } else {console.log('Morreu')}
   }
 }
-let board = new Board(20, 20, 20),
+let board = new Board(20, 20, 20)
   snake = new Snake(board, [{x: 2, y: 10}, {x: 10, y: 10}], 5)
 const interval = setInterval(() => snake.alive ? snake.move() : clearInterval(interval), snake.speed)
 
@@ -69,3 +68,5 @@ document.addEventListener('keydown', event => {
   if (event.code === 'ArrowDown')   snake.direction = {x: 0, y: +1}
   if (event.key === 'q')            snake.alive = false // morreu
 })
+
+
