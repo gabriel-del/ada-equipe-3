@@ -2,10 +2,12 @@
 
 ## TODO
 
+* Add todos on Github Projects: Gabriel
 * End game message/method: Lucas
 * Game start only on key press: Lucas
 * Reduce: this, squareSize, width, height: Lucas e Luiz
 * Def public and private vars: Lucas e Luiz
+* Class board to Game: 2 classes Board and Game: Luiz
 * Separate files: Luiz
 * Layout table color: Luiz
 * Local Storage to save points, and name: Bruno
@@ -14,7 +16,6 @@
 * Ignore change direction to opposite side: Gabi
 * Layout css: Gabi
 
-* Class board to Game: 2 classes Board and Readme
 
 ### Plus
 * Mobile arrow: Luiz
