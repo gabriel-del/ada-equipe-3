@@ -26,17 +26,22 @@ class Board {
   }
 
   static paint(squares, boolean) {
+    ctx.shadowBlur = 20;
+    ctx.shadowColor = "#eee";
     squares.forEach(({x, y}) => {
       if (boolean) {ctx.fillStyle = 'green' ; ctx.strokeStyle = '#0a0'
-      ctx.strokeRect(x*Board.squareSize, y*Board.squareSize, Board.squareSize, Board.squareSize)
-      } else {
-        switch(x % 2 + y % 2){
-          case 0: ctx.fillStyle = '#dddddd' ;break
-          case 1: ctx.fillStyle = '#eee' ;break
-          case 2: ctx.fillStyle = '#e0e0e0' ;break
-        }
+      ctx.lineWidth = 2;
+    } else {
+      switch(x % 2 + y % 2){
+        case 0: ctx.fillStyle = '#dddddd' ;break
+        case 1: ctx.fillStyle = '#eee' ;break
+        case 2: ctx.fillStyle = '#e0e0e0' ;break
       }
-      ctx.fillRect(x*Board.squareSize, y*Board.squareSize, Board.squareSize, Board.squareSize)
+      ctx.lineWidth = 0;
+      ctx.strokeStyle = "#eee"
+    }
+    ctx.fillRect(x*Board.squareSize, y*Board.squareSize, Board.squareSize, Board.squareSize)
+    ctx.strokeRect(x*Board.squareSize, y*Board.squareSize, Board.squareSize, Board.squareSize)
     })
   }
 
@@ -71,7 +76,6 @@ class Snake {
     if (Board.width - 1 < head.x || head.x <= 0 -1 || Board.height - 1 < head.y || head.y <= 0 -1) this.alive = false
     if (this.alive) {
       this.scales.push(head)
-      console.log(head)
       Board.paint([head], true)
       Board.paint([this.scales.shift()], false)
     } else {Game.end()}
