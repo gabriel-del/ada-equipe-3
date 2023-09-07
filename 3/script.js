@@ -24,7 +24,19 @@ class Board {
     ctx.fillRect(0, 0, width*squareSize, height*squareSize)
     ctx.strokeRect(0, 0, width*squareSize, height*squareSize)
   }
+  static paintOn(squares){
+    squares.forEach(({x, y}) => {
+      ctx.fillStyle = 'lightblue'
+      ctx.strokeStyle = 'darkblue'
+      ctx.fillRect(x*Board.squareSize, y*Board.squareSize, Board.squareSize, Board.squareSize)
+      ctx.strokeRect(x*Board.squareSize, y*Board.squareSize, Board.squareSize, Board.squareSize)
+    })
+    
+  }
+  static paintOff(squares){
 
+  }
+  
   static clear() {
     ctx.fillStyle = 'white'
     ctx.strokeStyle = 'black'
@@ -48,18 +60,9 @@ class Snake {
       while (this.scales[1].y - 1 !== this.scales[0].y) this.scales.splice(1, 0, {x: scalesInterval[0].x, y: this.scales[1].y - 1})
     else throw new Error('X ou Y devem ser iguais')
   }
-
   alive = true
   direction = null
-  print() {
-    this.scales.forEach(({x, y}) => {
-      ctx.fillStyle = 'lightblue'
-      ctx.strokeStyle = 'darkblue'
-      ctx.fillRect(x*Board.squareSize, y*Board.squareSize, Board.squareSize, Board.squareSize)
-      ctx.strokeRect(x*Board.squareSize, y*Board.squareSize, Board.squareSize, Board.squareSize)
-    })
-  }
-
+  print() {Board.paintOn(this.scales)}
   move() {
     const head = {x: this.scales.slice(-1)[0].x+this.direction.x, y: this.scales.slice(-1)[0].y+this.direction.y}
     if (this.scales.filter(square => JSON.stringify(square) === JSON.stringify(head)).length !== 0) this.alive = false
@@ -75,7 +78,6 @@ class Snake {
 
 const boardGame = new Board(20, 20, 20)
 const snake = new Snake([{x: 2, y: 10}, {x: 10, y: 10}], 5)
-
 
 document.addEventListener('keydown', event => {
   if (event.code === 'ArrowLeft') snake.direction = {x: -1, y: 0}
