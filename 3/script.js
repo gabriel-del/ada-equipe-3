@@ -1,4 +1,6 @@
 const canvas = document.querySelector('canvas'), ctx = canvas.getContext('2d')
+
+
 class Board {
   #squareSize
   #width
@@ -46,7 +48,7 @@ class Snake {
   }
 
   alive = true
-  direction = {x: 1, y: 0}
+  direction = null
   print() {
     this.scales.forEach(({x, y}) => {
       ctx.fillStyle = 'lightblue'
@@ -84,10 +86,13 @@ snake.height = boardGame.height
 
 const interval = setInterval(() => snake.alive ? snake.move() : clearInterval(interval), snake.speed)
 
+
+
 document.addEventListener('keydown', event => {
   if (event.code === 'ArrowLeft') snake.direction = {x: -1, y: 0}
   if (event.code === 'ArrowUp') snake.direction = {x: 0, y: -1}
   if (event.code === 'ArrowRight') snake.direction = {x: +1, y: 0}
   if (event.code === 'ArrowDown') snake.direction = {x: 0, y: +1}
+  if (event.code && !snake.direction) snake.direction = {x: -1, y: 0}
   if (event.key === 'q') snake.alive = false // morreu
 })
