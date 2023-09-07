@@ -56,7 +56,7 @@ class Board {
   static set height(height) {this.#height = height}
 }
 class Snake {
-  constructor(scalesInterval, speed) {
+  constructor(speed, scalesInterval, keys) {
     this.speed = Math.floor(1000 / speed)
     this.scales = scalesInterval
     if (scalesInterval[0].y === scalesInterval[1].y)
@@ -65,6 +65,13 @@ class Snake {
       while (this.scales[1].y - 1 !== this.scales[0].y) this.scales.splice(1, 0, {x: scalesInterval[0].x, y: this.scales[1].y - 1})
     else throw new Error('X ou Y devem ser iguais')
     Board.paint(this.scales, true)
+
+    document.addEventListener('keydown', event => {
+      if (event.code === keys[0]) snake.direction = {x: -1, y: 0}
+      if (event.code === keys[1]) snake.direction = {x: 0, y: -1}
+      if (event.code === keys[2]) snake.direction = {x: +1, y: 0}
+      if (event.code === keys[3]) snake.direction = {x: 0, y: +1}
+    })
   }
 
   alive = true
@@ -83,13 +90,9 @@ class Snake {
 }
 
 new Board(25, 20, 20)
-const snake = new Snake([{x: 2, y: 5}, {x: 12, y: 5}], 5)
+const snake = new Snake(5, [{x: 2, y: 5}, {x: 12, y: 5}], ['ArrowLeft', 'ArrowUp', 'ArrowRight', 'ArrowDown'])
 
 document.addEventListener('keydown', event => {
-  if (event.code === 'ArrowLeft') snake.direction = {x: -1, y: 0}
-  if (event.code === 'ArrowUp') snake.direction = {x: 0, y: -1}
-  if (event.code === 'ArrowRight') snake.direction = {x: +1, y: 0}
-  if (event.code === 'ArrowDown') snake.direction = {x: 0, y: +1}
   if (event.code && !Game.running) Game.start()
   if (event.key === 'q') snake.alive = false // morreu
 })
