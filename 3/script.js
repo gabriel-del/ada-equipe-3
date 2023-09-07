@@ -23,35 +23,18 @@ class Board {
     ctx.strokeRect(0, 0, canvas.width, canvas.height)
   }
 
-  get squareSize() {
-    return this.#squareSize
-  }
-
-  set squareSize(squareSize) {
-    this.#squareSize = squareSize
-  }
-
-  get width() {
-    return this.#width
-  }
-
-  set width(width) {
-    this.#width = width
-  }
-
-  get height() {
-    return this.#height
-  }
-
-  set height(height) {
-    this.#height = height
-  }
+  get squareSize() {return this.#squareSize}
+  set squareSize(squareSize) {this.#squareSize = squareSize}
+  get width() {return this.#width}
+  set width(width) {this.#width = width}
+  get height() {return this.#height}
+  set height(height) {this.#height = height}
 }
 class Snake {
   #squareSize
   #width
   #height
-  
+
   constructor(snakeInterval, speed) {
     this.speed = Math.floor(1000 / speed)
     this.scales = snakeInterval
@@ -85,32 +68,16 @@ class Snake {
     } else {console.log('Morreu')}
   }
 
-  get squareSize() {
-    return this.#squareSize
-  }
-
-  set squareSize(squareSize) {
-    this.#squareSize = squareSize
-  }
-
-  get width() {
-    return this.#width
-  }
-
-  set width(width) {
-    this.#width = width
-  }
-
-  get height() {
-    return this.#height
-  }
-
-  set height(height) {
-    this.#height = height
-  }
+  get squareSize() {return this.#squareSize}
+  set squareSize(squareSize) {this.#squareSize = squareSize}
+  get width() {return this.#width}
+  set width(width) {this.#width = width}
+  get height() {return this.#height}
+  set height(height) {this.#height = height}
 }
-let boardGame = new Board(20, 20, 20)
-let snake = new Snake([{x: 2, y: 10}, {x: 10, y: 10}], 5)
+
+const boardGame = new Board(20, 20, 20)
+const snake = new Snake([{x: 2, y: 10}, {x: 10, y: 10}], 5)
 snake.squareSize = boardGame.squareSize
 snake.width = boardGame.width
 snake.height = boardGame.height
@@ -118,11 +85,9 @@ snake.height = boardGame.height
 const interval = setInterval(() => snake.alive ? snake.move() : clearInterval(interval), snake.speed)
 
 document.addEventListener('keydown', event => {
-  if (event.code === 'ArrowLeft')   snake.direction = {x: -1, y: 0}
-  if (event.code === 'ArrowUp')     snake.direction = {x: 0, y: -1}
-  if (event.code === 'ArrowRight')  snake.direction = {x: +1, y: 0}
-  if (event.code === 'ArrowDown')   snake.direction = {x: 0, y: +1}
-  if (event.key === 'q')            snake.alive = false // morreu
+  if (event.code === 'ArrowLeft') snake.direction = {x: -1, y: 0}
+  if (event.code === 'ArrowUp') snake.direction = {x: 0, y: -1}
+  if (event.code === 'ArrowRight') snake.direction = {x: +1, y: 0}
+  if (event.code === 'ArrowDown') snake.direction = {x: 0, y: +1}
+  if (event.key === 'q') snake.alive = false // morreu
 })
-
-
