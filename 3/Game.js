@@ -6,17 +6,16 @@ export default class Game {
 
   constructor(speed){Game.speed = Math.floor(1000 / speed) }
   static start() {
-    console.log(this.speed)
     this.running = true
     this.#interval = setInterval(() => {
       if (this.snakes.some(snake => snake.alive)){
         this.snakes.forEach(snake => {if (snake.alive) snake.move() })
-      } else {clearInterval(this.#interval)}
+      } else {this.stop() ; this.end()}
     }, this.speed)
   }
 
   static stop() {clearInterval(this.#interval) ;this.running = false}
-  static end() {console.log('Morreu!')}
+  static end() {console.log('Fim de Jogo!')}
 
   static get snakes() {return this.#snakes}
   static set snakes(snakes) {this.#snakes = snakes}

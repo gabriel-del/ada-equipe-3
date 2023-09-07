@@ -15,7 +15,7 @@ export default class Snake {
       keys.forEach( (key,i) => { if (event.key === key) this.direction = Snake.directions[i]})})
     Game.snakes.push(this)
     }
-
+  died() {console.log(`Snake ${Game.snakes.indexOf(this)} died!`) }
   alive = true
   direction = {x: +1, y: 0}
   print() {Board.paint(this.scales, true)}
@@ -29,6 +29,6 @@ export default class Snake {
       this.scales.push(head)
       Board.paint([head], true)
       Board.paint([this.scales.shift()], false)
-    } else {Game.end()}
+    } else {this.died()}
   }
 }
