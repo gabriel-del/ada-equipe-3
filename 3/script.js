@@ -26,10 +26,17 @@ class Board {
   }
 
   static paint(squares, boolean) {
-    const colors = boolean ? ['lightBlue', 'darkBlue'] : ['white', 'black']
     squares.forEach(({x, y}) => {
-      ctx.fillStyle = colors[0]
-      ctx.strokeStyle = colors[1]
+      if (boolean) {
+        ctx.fillStyle = 'lightBlue' ; ctx.strokeStyle = 'darkBlue'
+      } else {
+        switch(x % 2 + y % 2){
+          case 0: ctx.fillStyle = 'yellow' ;break
+          case 1: ctx.fillStyle = 'green' ;break
+          case 2: ctx.fillStyle = 'white' ;break
+        }
+        ctx.strokeStyle = 'black'
+      }
       ctx.fillRect(x*Board.squareSize, y*Board.squareSize, Board.squareSize, Board.squareSize)
       ctx.strokeRect(x*Board.squareSize, y*Board.squareSize, Board.squareSize, Board.squareSize)
     })
