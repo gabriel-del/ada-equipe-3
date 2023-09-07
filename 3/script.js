@@ -3,11 +3,21 @@ const canvas = document.querySelector('canvas'), ctx = canvas.getContext('2d')
 class Game {
   static running = false
   static start() {
-    const interval = setInterval(() => snake.alive ? snake.move() : clearInterval(interval), snake.speed)
-    this.running = true
+    // const interval = setInterval(() => snake.alive ? snake.move() : clearInterval(interval), snake.speed)
+    const interval = setInterval(() => {
+      if (Game.snakes.some(snake => snake.alive)){
+        Game.snakes.forEach(snake => {if (snake.alive){ snake.move() } })
+      } else {
+        clearInterval(interval)
+      }
+      this.running = true
+    }, 200)
   }
 
   static end() {console.log('Morreu!')}
+  static #snakes = []
+  static get snakes() {return this.#snakes}
+  static set snakes(snakes) {this.#snakes = snakes}
 }
 class Board {
   static #squareSize
@@ -67,10 +77,12 @@ class Snake {
     else throw new Error('X ou Y devem ser iguais')
     Board.paint(this.scales, true)
     document.addEventListener('keydown', event => {
-      keys.forEach( (key,i) => { if (event.key === key) this.direction = Snake.directions[i]})})}
+      keys.forEach( (key,i) => { if (event.key === key) this.direction = Snake.directions[i]})})
+    Game.snakes.push(this)
+    }
 
   alive = true
-  direction = null
+  direction = {x: 0, y: -1}
   print() {Board.paint(this.scales, true)}
   move() {
     const head = {x: this.scales.slice(-1)[0].x+this.direction.x, y: this.scales.slice(-1)[0].y+this.direction.y}
@@ -85,8 +97,9 @@ class Snake {
 }
 
 new Board(25, 20, 20)
-const snake = new Snake(5, [{x: 2, y: 5}, {x: 12, y: 5}], ['ArrowLeft', 'ArrowUp', 'ArrowRight', 'ArrowDown'])
+const snake1 = new Snake(5, [{x: 2, y: 5}, {x: 12, y: 5}], ['ArrowLeft', 'ArrowUp', 'ArrowRight', 'ArrowDown'])
 const snake2 = new Snake(5, [{x: 2, y: 8}, {x: 12, y: 8}], ['a', 'w', 'd', 's'])
+
 
 document.addEventListener('keydown', event => {
   if (event.code && !Game.running) Game.start()
