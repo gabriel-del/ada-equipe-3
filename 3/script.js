@@ -39,17 +39,13 @@ class Board {
   static set height(height) {this.#height = height}
 }
 class Snake {
-  #squareSize
-  #width
-  #height
-
-  constructor(snakeInterval, speed) {
+  constructor(scalesInterval, speed) {
     this.speed = Math.floor(1000 / speed)
-    this.scales = snakeInterval
-    if (snakeInterval[0].y === snakeInterval[1].y)
-      while (this.scales[1].x - 1 !== this.scales[0].x) this.scales.splice(1, 0, {x: this.scales[1].x - 1, y: snakeInterval[0].y})
-    else if (snakeInterval[0].x === snakeInterval[1].x)
-      while (this.scales[1].y - 1 !== this.scales[0].y) this.scales.splice(1, 0, {x: snakeInterval[0].x, y: this.scales[1].y - 1})
+    this.scales = scalesInterval
+    if (scalesInterval[0].y === scalesInterval[1].y)
+      while (this.scales[1].x - 1 !== this.scales[0].x) this.scales.splice(1, 0, {x: this.scales[1].x - 1, y: scalesInterval[0].y})
+    else if (scalesInterval[0].x === scalesInterval[1].x)
+      while (this.scales[1].y - 1 !== this.scales[0].y) this.scales.splice(1, 0, {x: scalesInterval[0].x, y: this.scales[1].y - 1})
     else throw new Error('X ou Y devem ser iguais')
   }
 
