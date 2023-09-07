@@ -40,10 +40,7 @@ class Board {
     })
   }
 
-  static clear() {
-    Board.paint(Board.squares, false)
-  }
-
+ 
   static get squareSize() {return this.#squareSize}
   static set squareSize(squareSize) {this.#squareSize = squareSize}
   static get squares() {return this.#squares}
@@ -74,15 +71,15 @@ class Snake {
     if (Board.width - 1 < head.x || head.x <= 0 -1 || Board.height - 1 < head.y || head.y <= 0 -1) this.alive = false
     if (this.alive) {
       this.scales.push(head)
-      this.scales.shift()
-      Board.clear()
-      this.print()
+      console.log(head)
+      Board.paint([head], true)
+      Board.paint([this.scales.shift()], false)
     } else {Game.end()}
   }
 }
 
 new Board(25, 20, 20)
-const snake = new Snake([{x: 2, y: 5}, {x: 5, y: 5}], 5)
+const snake = new Snake([{x: 2, y: 5}, {x: 12, y: 5}], 5)
 
 document.addEventListener('keydown', event => {
   if (event.code === 'ArrowLeft') snake.direction = {x: -1, y: 0}
