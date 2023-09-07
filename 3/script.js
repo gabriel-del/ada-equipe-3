@@ -1,6 +1,12 @@
 const canvas = document.querySelector('canvas'), ctx = canvas.getContext('2d')
 
-
+class Game {
+  static running = false
+  static start() {
+    const interval = setInterval(() => snake.alive ? snake.move() : clearInterval(interval), snake.speed)
+  }
+  static end() { console.log("Morreu!")}
+}
 class Board {
   #squareSize
   #width
@@ -67,7 +73,7 @@ class Snake {
       this.scales.shift()
       Board.clear()
       this.print()
-    } else {console.log('Morreu')}
+    } else {Game.end()}
   }
 
   get squareSize() {return this.#squareSize}
@@ -84,8 +90,7 @@ snake.squareSize = boardGame.squareSize
 snake.width = boardGame.width
 snake.height = boardGame.height
 
-const interval = setInterval(() => snake.alive ? snake.move() : clearInterval(interval), snake.speed)
-
+Game.start()
 
 
 document.addEventListener('keydown', event => {
@@ -93,6 +98,6 @@ document.addEventListener('keydown', event => {
   if (event.code === 'ArrowUp') snake.direction = {x: 0, y: -1}
   if (event.code === 'ArrowRight') snake.direction = {x: +1, y: 0}
   if (event.code === 'ArrowDown') snake.direction = {x: 0, y: +1}
-  if (event.code && !snake.direction) snake.direction = {x: -1, y: 0}
+  if (event.code && !Game.running) Game.start() ; Game.running = true
   if (event.key === 'q') snake.alive = false // morreu
 })
