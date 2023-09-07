@@ -7,11 +7,11 @@ export default class Board {
   static #squares
 
   constructor(squareSize, width, height) {
+    canvas.width = width*squareSize
+    canvas.height = height*squareSize
     Board.width = width
     Board.height = height
     Board.squareSize = squareSize
-    canvas.width = width*squareSize
-    canvas.height = height*squareSize
     Board.squares = [].concat(...Array.from({length: Board.width}, (_, y) => Array.from({length: Board.height}, (_, x) => ({x, y}))))
     Board.paint(Board.squares, false)
   }
@@ -31,18 +31,18 @@ export default class Board {
       ctx.lineWidth = 0;
       ctx.strokeStyle = "#eee"
     }
-    ctx.fillRect(x*Board.squareSize, y*Board.squareSize, Board.squareSize, Board.squareSize)
-    ctx.strokeRect(x*Board.squareSize, y*Board.squareSize, Board.squareSize, Board.squareSize)
+    ctx.fillRect(x*this.squareSize, y*this.squareSize, this.squareSize, this.squareSize)
+    ctx.strokeRect(x*this.squareSize, y*this.squareSize, this.squareSize, this.squareSize)
     })
   }
 
  
   static get squareSize() {return this.#squareSize}
   static set squareSize(squareSize) {this.#squareSize = squareSize}
-  static get squares() {return this.#squares}
-  static set squares(squares) {this.#squares = squares}
   static get width() {return this.#width}
   static set width(width) {this.#width = width}
   static get height() {return this.#height}
   static set height(height) {this.#height = height}
+  static get squares() {return this.#squares}
+  static set squares(squares) {this.#squares = squares}
 }
