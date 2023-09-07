@@ -21,25 +21,22 @@ class Board {
     Board.squareSize = squareSize
     canvas.width = width*squareSize
     canvas.height = height*squareSize
-    ctx.fillStyle = 'white'
-    ctx.strokeStyle = 'darkblue'
-    ctx.fillRect(0, 0, width*squareSize, height*squareSize)
-    ctx.strokeRect(0, 0, width*squareSize, height*squareSize)
     Board.squares = [].concat(...Array.from({length: Board.width}, (_, y) => Array.from({length: Board.height}, (_, x) => ({x, y}))))
-    Board.paint(Board.squares, 'white', 'black')
+    Board.paint(Board.squares, false)
   }
 
-  static paint(squares, squareColor, borderColor) {
+  static paint(squares, boolean) {
+    const colors = boolean ? ['lightBlue', 'darkBlue'] : ['white', 'black']
     squares.forEach(({x, y}) => {
-      ctx.fillStyle = squareColor
-      ctx.strokeStyle = borderColor
+      ctx.fillStyle = colors[0]
+      ctx.strokeStyle = colors[1]
       ctx.fillRect(x*Board.squareSize, y*Board.squareSize, Board.squareSize, Board.squareSize)
       ctx.strokeRect(x*Board.squareSize, y*Board.squareSize, Board.squareSize, Board.squareSize)
     })
   }
 
   static clear() {
-    Board.paint(Board.squares, 'white', 'black')
+    Board.paint(Board.squares, false)
   }
 
   static get squareSize() {return this.#squareSize}
@@ -60,12 +57,12 @@ class Snake {
     else if (scalesInterval[0].x === scalesInterval[1].x)
       while (this.scales[1].y - 1 !== this.scales[0].y) this.scales.splice(1, 0, {x: scalesInterval[0].x, y: this.scales[1].y - 1})
     else throw new Error('X ou Y devem ser iguais')
-    Board.paint(this.scales, 'lightBlue', 'darkBlue')
+    Board.paint(this.scales, true)
   }
 
   alive = true
   direction = null
-  print() {Board.paint(this.scales, 'lightBlue', 'darkBlue')}
+  print() {Board.paint(this.scales, true)}
   move() {
     const head = {x: this.scales.slice(-1)[0].x+this.direction.x, y: this.scales.slice(-1)[0].y+this.direction.y}
     if (this.scales.filter(square => JSON.stringify(square) === JSON.stringify(head)).length !== 0) this.alive = false
