@@ -26,26 +26,21 @@ class Board {
     ctx.strokeRect(0, 0, width*squareSize, height*squareSize)
     Board.squares = [].concat(...
       Array.from({ length: Board.width }, (_, y) => Array.from({ length: Board.height }, (_, x) => ({ x, y }))));
-    
-  }
-  static paintOn(squares){
+    Board.paint(Board.squares, 'white', 'black')
+    }
+      
+  static paint(squares, squareColor, borderColor){
     squares.forEach(({x, y}) => {
-      ctx.fillStyle = 'lightblue'
-      ctx.strokeStyle = 'darkblue'
+      ctx.fillStyle = squareColor 
+      ctx.strokeStyle = borderColor
       ctx.fillRect(x*Board.squareSize, y*Board.squareSize, Board.squareSize, Board.squareSize)
       ctx.strokeRect(x*Board.squareSize, y*Board.squareSize, Board.squareSize, Board.squareSize)
     })
     
   }
-  static paintOff(squares){
-
-  }
   
   static clear() {
-    ctx.fillStyle = 'white'
-    ctx.strokeStyle = 'black'
-    ctx.fillRect(0, 0, canvas.width, canvas.height)
-    ctx.strokeRect(0, 0, canvas.width, canvas.height)
+    Board.paint(Board.squares, 'white', 'black')
   }
   static get squareSize() {return this.#squareSize}
   static set squareSize(squareSize) {this.#squareSize = squareSize}
@@ -65,10 +60,12 @@ class Snake {
     else if (scalesInterval[0].x === scalesInterval[1].x)
       while (this.scales[1].y - 1 !== this.scales[0].y) this.scales.splice(1, 0, {x: scalesInterval[0].x, y: this.scales[1].y - 1})
     else throw new Error('X ou Y devem ser iguais')
+  Board.paint(this.scales, 'lightBlue', 'darkBlue')
+
   }
   alive = true
   direction = null
-  print() {Board.paintOn(this.scales)}
+  print() {Board.paint(this.scales, 'lightBlue', 'darkBlue')}
   move() {
     const head = {x: this.scales.slice(-1)[0].x+this.direction.x, y: this.scales.slice(-1)[0].y+this.direction.y}
     if (this.scales.filter(square => JSON.stringify(square) === JSON.stringify(head)).length !== 0) this.alive = false
@@ -82,9 +79,8 @@ class Snake {
   }
 }
 
-const boardGame = new Board(20, 20, 20)
+new Board(20, 20, 20)
 const snake = new Snake([{x: 2, y: 10}, {x: 10, y: 10}], 5)
-Board.paintOn([{x: 1, y: 1}])
 
 
 
