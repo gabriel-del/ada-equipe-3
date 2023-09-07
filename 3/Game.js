@@ -2,15 +2,12 @@ export default class Game {
   static running = false
   static #speed 
   static #interval
-  constructor(speed){Game.speed = Math.floor(1000 / speed)}
+  constructor(speed){Game.speed = Math.floor(1000 / speed) }
   static start() {
-    // const interval = setInterval(() => snake.alive ? snake.move() : clearInterval(interval), snake.speed)
     this.#interval = setInterval(() => {
       if (Game.snakes.some(snake => snake.alive)){
-        Game.snakes.forEach(snake => {if (snake.alive){ snake.move() } })
-      } else {
-        clearInterval(this.#interval)
-      }
+        Game.snakes.forEach(snake => {if (snake.alive) snake.move() })
+      } else {clearInterval(this.#interval)}
       this.running = true
     }, Game.speed)
   }
