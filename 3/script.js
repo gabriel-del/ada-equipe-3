@@ -6,7 +6,8 @@ class Game {
     const interval = setInterval(() => snake.alive ? snake.move() : clearInterval(interval), snake.speed)
     this.running = true
   }
-  static end() { console.log("Morreu!")}
+
+  static end() {console.log('Morreu!')}
 }
 class Board {
   static #squareSize
@@ -24,24 +25,23 @@ class Board {
     ctx.strokeStyle = 'darkblue'
     ctx.fillRect(0, 0, width*squareSize, height*squareSize)
     ctx.strokeRect(0, 0, width*squareSize, height*squareSize)
-    Board.squares = [].concat(...
-      Array.from({ length: Board.width }, (_, y) => Array.from({ length: Board.height }, (_, x) => ({ x, y }))));
+    Board.squares = [].concat(...Array.from({length: Board.width}, (_, y) => Array.from({length: Board.height}, (_, x) => ({x, y}))))
     Board.paint(Board.squares, 'white', 'black')
-    }
-      
-  static paint(squares, squareColor, borderColor){
+  }
+
+  static paint(squares, squareColor, borderColor) {
     squares.forEach(({x, y}) => {
-      ctx.fillStyle = squareColor 
+      ctx.fillStyle = squareColor
       ctx.strokeStyle = borderColor
       ctx.fillRect(x*Board.squareSize, y*Board.squareSize, Board.squareSize, Board.squareSize)
       ctx.strokeRect(x*Board.squareSize, y*Board.squareSize, Board.squareSize, Board.squareSize)
     })
-    
   }
-  
+
   static clear() {
     Board.paint(Board.squares, 'white', 'black')
   }
+
   static get squareSize() {return this.#squareSize}
   static set squareSize(squareSize) {this.#squareSize = squareSize}
   static get squares() {return this.#squares}
@@ -60,9 +60,9 @@ class Snake {
     else if (scalesInterval[0].x === scalesInterval[1].x)
       while (this.scales[1].y - 1 !== this.scales[0].y) this.scales.splice(1, 0, {x: scalesInterval[0].x, y: this.scales[1].y - 1})
     else throw new Error('X ou Y devem ser iguais')
-  Board.paint(this.scales, 'lightBlue', 'darkBlue')
-
+    Board.paint(this.scales, 'lightBlue', 'darkBlue')
   }
+
   alive = true
   direction = null
   print() {Board.paint(this.scales, 'lightBlue', 'darkBlue')}
@@ -81,8 +81,6 @@ class Snake {
 
 new Board(20, 20, 20)
 const snake = new Snake([{x: 2, y: 10}, {x: 10, y: 10}], 5)
-
-
 
 document.addEventListener('keydown', event => {
   if (event.code === 'ArrowLeft') snake.direction = {x: -1, y: 0}
