@@ -12,6 +12,7 @@ class Board {
   static #squareSize
   static #width
   static #height
+  static #squares
 
   constructor(squareSize, width, height) {
     Board.width = width
@@ -23,6 +24,9 @@ class Board {
     ctx.strokeStyle = 'darkblue'
     ctx.fillRect(0, 0, width*squareSize, height*squareSize)
     ctx.strokeRect(0, 0, width*squareSize, height*squareSize)
+    Board.squares = [].concat(...
+      Array.from({ length: Board.width }, (_, y) => Array.from({ length: Board.height }, (_, x) => ({ x, y }))));
+    
   }
   static paintOn(squares){
     squares.forEach(({x, y}) => {
@@ -45,6 +49,8 @@ class Board {
   }
   static get squareSize() {return this.#squareSize}
   static set squareSize(squareSize) {this.#squareSize = squareSize}
+  static get squares() {return this.#squares}
+  static set squares(squares) {this.#squares = squares}
   static get width() {return this.#width}
   static set width(width) {this.#width = width}
   static get height() {return this.#height}
@@ -78,6 +84,9 @@ class Snake {
 
 const boardGame = new Board(20, 20, 20)
 const snake = new Snake([{x: 2, y: 10}, {x: 10, y: 10}], 5)
+Board.paintOn([{x: 1, y: 1}])
+
+
 
 document.addEventListener('keydown', event => {
   if (event.code === 'ArrowLeft') snake.direction = {x: -1, y: 0}
