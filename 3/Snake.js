@@ -18,7 +18,7 @@ export default class Snake {
     }
 
   alive = true
-  direction = {x: 0, y: -1}
+  direction = {x: +1, y: 0}
   print() {Board.paint(this.scales, true)}
   move() {
     const head = {x: this.scales.slice(-1)[0].x+this.direction.x, y: this.scales.slice(-1)[0].y+this.direction.y}
