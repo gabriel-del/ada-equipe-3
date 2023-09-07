@@ -4,6 +4,7 @@ class Game {
   static running = false
   static start() {
     const interval = setInterval(() => snake.alive ? snake.move() : clearInterval(interval), snake.speed)
+    this.running = true
   }
   static end() { console.log("Morreu!")}
 }
@@ -90,14 +91,11 @@ snake.squareSize = boardGame.squareSize
 snake.width = boardGame.width
 snake.height = boardGame.height
 
-Game.start()
-
-
 document.addEventListener('keydown', event => {
   if (event.code === 'ArrowLeft') snake.direction = {x: -1, y: 0}
   if (event.code === 'ArrowUp') snake.direction = {x: 0, y: -1}
   if (event.code === 'ArrowRight') snake.direction = {x: +1, y: 0}
   if (event.code === 'ArrowDown') snake.direction = {x: 0, y: +1}
-  if (event.code && !Game.running) Game.start() ; Game.running = true
+  if (event.code && !Game.running) Game.start()
   if (event.key === 'q') snake.alive = false // morreu
 })
