@@ -27,18 +27,16 @@ class Board {
 
   static paint(squares, boolean) {
     squares.forEach(({x, y}) => {
-      if (boolean) {
-        ctx.fillStyle = 'lightBlue' ; ctx.strokeStyle = 'darkBlue'
+      if (boolean) {ctx.fillStyle = 'green' ; ctx.strokeStyle = '#0a0'
+      ctx.strokeRect(x*Board.squareSize, y*Board.squareSize, Board.squareSize, Board.squareSize)
       } else {
         switch(x % 2 + y % 2){
-          case 0: ctx.fillStyle = 'yellow' ;break
-          case 1: ctx.fillStyle = 'green' ;break
-          case 2: ctx.fillStyle = 'white' ;break
+          case 0: ctx.fillStyle = '#dddddd' ;break
+          case 1: ctx.fillStyle = '#eee' ;break
+          case 2: ctx.fillStyle = '#e0e0e0' ;break
         }
-        ctx.strokeStyle = 'black'
       }
       ctx.fillRect(x*Board.squareSize, y*Board.squareSize, Board.squareSize, Board.squareSize)
-      ctx.strokeRect(x*Board.squareSize, y*Board.squareSize, Board.squareSize, Board.squareSize)
     })
   }
 
@@ -83,8 +81,8 @@ class Snake {
   }
 }
 
-new Board(20, 20, 20)
-const snake = new Snake([{x: 2, y: 10}, {x: 10, y: 10}], 5)
+new Board(25, 20, 20)
+const snake = new Snake([{x: 2, y: 5}, {x: 5, y: 5}], 5)
 
 document.addEventListener('keydown', event => {
   if (event.code === 'ArrowLeft') snake.direction = {x: -1, y: 0}
