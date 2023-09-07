@@ -14,8 +14,8 @@ class Board {
   static #height
 
   constructor(squareSize, width, height) {
-    Board.#width= width
-    Board.#height = height
+    Board.width = width
+    Board.height = height
     Board.squareSize = squareSize
     canvas.width = width*squareSize
     canvas.height = height*squareSize
@@ -59,15 +59,15 @@ class Snake {
     this.scales.forEach(({x, y}) => {
       ctx.fillStyle = 'lightblue'
       ctx.strokeStyle = 'darkblue'
-      ctx.fillRect(x*this.squareSize, y*this.squareSize, this.squareSize, this.squareSize)
-      ctx.strokeRect(x*this.squareSize, y*this.squareSize, this.squareSize, this.squareSize)
+      ctx.fillRect(x*Board.squareSize, y*Board.squareSize, Board.squareSize, Board.squareSize)
+      ctx.strokeRect(x*Board.squareSize, y*Board.squareSize, Board.squareSize, Board.squareSize)
     })
   }
 
   move() {
     const head = {x: this.scales.slice(-1)[0].x+this.direction.x, y: this.scales.slice(-1)[0].y+this.direction.y}
     if (this.scales.filter(square => JSON.stringify(square) === JSON.stringify(head)).length !== 0) this.alive = false
-    if (this.width - 1 < head.x || head.x <= 0 -1 || this.height - 1 < head.y || head.y <= 0 -1) this.alive = false
+    if (Board.width - 1 < head.x || head.x <= 0 -1 || Board.height - 1 < head.y || head.y <= 0 -1) this.alive = false
     if (this.alive) {
       this.scales.push(head)
       this.scales.shift()
@@ -75,20 +75,11 @@ class Snake {
       this.print()
     } else {Game.end()}
   }
-
-  get squareSize() {return this.#squareSize}
-  set squareSize(squareSize) {this.#squareSize = squareSize}
-  get width() {return this.#width}
-  set width(width) {this.#width = width}
-  get height() {return this.#height}
-  set height(height) {this.#height = height}
 }
 
 const boardGame = new Board(20, 20, 20)
 const snake = new Snake([{x: 2, y: 10}, {x: 10, y: 10}], 5)
-snake.squareSize = Board.squareSize
-snake.width = Board.width
-snake.height = Board.height
+
 
 document.addEventListener('keydown', event => {
   if (event.code === 'ArrowLeft') snake.direction = {x: -1, y: 0}
