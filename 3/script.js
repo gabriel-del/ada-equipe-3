@@ -12,9 +12,12 @@ class Board {
   #squareSize
   #width
   #height
+  static #texto = "9898"
 
-  constructor(squareSize, width, height) {
+  constructor(squareSize, width, height, texto) {
+    // this.#texto = texto
     this.#width= width
+    this.texto = texto
     this.#height = height
     canvas.width = width*squareSize
     canvas.height = height*squareSize
@@ -25,13 +28,16 @@ class Board {
     ctx.strokeRect(0, 0, width*squareSize, height*squareSize)
   }
 
+  // #texto = 2323
+
+static set texto (texto) {this.#texto = texto }
   static clear() {
     ctx.fillStyle = 'white'
     ctx.strokeStyle = 'black'
     ctx.fillRect(0, 0, canvas.width, canvas.height)
     ctx.strokeRect(0, 0, canvas.width, canvas.height)
   }
-
+  static get texto() { return this.#texto }
   get squareSize() {return this.#squareSize}
   set squareSize(squareSize) {this.#squareSize = squareSize}
   get width() {return this.#width}
@@ -85,11 +91,13 @@ class Snake {
   set height(height) {this.#height = height}
 }
 
-const boardGame = new Board(20, 20, 20)
+const boardGame = new Board(20, 20, 20, "lalalala")
 const snake = new Snake([{x: 2, y: 10}, {x: 10, y: 10}], 5)
 snake.squareSize = boardGame.squareSize
 snake.width = boardGame.width
 snake.height = boardGame.height
+Board.texto = 43437878
+console.log(Board.texto)
 
 document.addEventListener('keydown', event => {
   if (event.code === 'ArrowLeft') snake.direction = {x: -1, y: 0}
