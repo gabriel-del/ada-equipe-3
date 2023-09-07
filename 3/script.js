@@ -2,22 +2,30 @@ const canvas = document.querySelector('canvas'), ctx = canvas.getContext('2d')
 
 class Game {
   static running = false
+  static #speed 
+  interval
+  constructor(speed){
+    Game.speed = Math.floor(1000 / speed)
+  }
   static start() {
     // const interval = setInterval(() => snake.alive ? snake.move() : clearInterval(interval), snake.speed)
-    const interval = setInterval(() => {
+    this.interval = setInterval(() => {
       if (Game.snakes.some(snake => snake.alive)){
         Game.snakes.forEach(snake => {if (snake.alive){ snake.move() } })
       } else {
-        clearInterval(interval)
+        clearInterval(this.interval)
       }
       this.running = true
-    }, 200)
+    }, Game.speed)
   }
 
+  static stop() {clearInterval(this.interval)}
   static end() {console.log('Morreu!')}
   static #snakes = []
   static get snakes() {return this.#snakes}
   static set snakes(snakes) {this.#snakes = snakes}
+  static get speed() {return this.#speed}
+  static set speed(speed) {this.#speed = speed}
 }
 class Board {
   static #squareSize
@@ -67,8 +75,7 @@ class Board {
 }
 class Snake {
   static directions = [{x: -1, y: 0}, {x: 0, y: -1}, {x: +1, y: 0}, {x: 0, y: +1}]
-  constructor(speed, scalesInterval, keys) {
-    this.speed = Math.floor(1000 / speed)
+  constructor(scalesInterval, keys) {
     this.scales = scalesInterval
     if (scalesInterval[0].y === scalesInterval[1].y)
       while (this.scales[1].x - 1 !== this.scales[0].x) this.scales.splice(1, 0, {x: this.scales[1].x - 1, y: scalesInterval[0].y})
@@ -76,6 +83,7 @@ class Snake {
       while (this.scales[1].y - 1 !== this.scales[0].y) this.scales.splice(1, 0, {x: scalesInterval[0].x, y: this.scales[1].y - 1})
     else throw new Error('X ou Y devem ser iguais')
     Board.paint(this.scales, true)
+    console.log(this)
     document.addEventListener('keydown', event => {
       keys.forEach( (key,i) => { if (event.key === key) this.direction = Snake.directions[i]})})
     Game.snakes.push(this)
@@ -95,13 +103,13 @@ class Snake {
     } else {Game.end()}
   }
 }
-
-new Board(25, 20, 20)
-const snake1 = new Snake(5, [{x: 2, y: 5}, {x: 12, y: 5}], ['ArrowLeft', 'ArrowUp', 'ArrowRight', 'ArrowDown'])
-const snake2 = new Snake(5, [{x: 2, y: 8}, {x: 12, y: 8}], ['a', 'w', 'd', 's'])
+new Game(1)
+new Board(10, 50, 50)
+const snake2 = new Snake([{x: 2, y: 8}, {x: 12, y: 8}], ['a', 'w', 'd', 's'])
+const snake1 = new Snake([{x: 2, y: 5}, {x: 12, y: 5}], ['ArrowLeft', 'ArrowUp', 'ArrowRight', 'ArrowDown'])
 
 
 document.addEventListener('keydown', event => {
-  if (event.code && !Game.running) Game.start()
-  if (event.key === 'q') snake.alive = false // morreu
+  if (event.code && !Game.running) Game.start() ; Game.running=true
+  if (event.key === 'q') Game.stop() // morreu
 })
