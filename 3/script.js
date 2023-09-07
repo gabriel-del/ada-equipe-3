@@ -9,28 +9,22 @@ class Game {
   static end() { console.log("Morreu!")}
 }
 class Board {
-  static #squareSize = 123
-  #width
-  #height
-  static #texto = "9898"
+  static #squareSize
+  static #width
+  static #height
 
-  constructor(squareSize, width, height, texto) {
-    this.#width= width
-    Board.texto = texto
-    this.#height = height
+  constructor(squareSize, width, height) {
+    Board.#width= width
+    Board.#height = height
+    Board.squareSize = squareSize
     canvas.width = width*squareSize
     canvas.height = height*squareSize
-    this.squareSize = squareSize
     ctx.fillStyle = 'white'
     ctx.strokeStyle = 'darkblue'
     ctx.fillRect(0, 0, width*squareSize, height*squareSize)
     ctx.strokeRect(0, 0, width*squareSize, height*squareSize)
   }
 
-  // #texto = 2323
-
-static set texto (texto) {this.#texto = texto }
-static get texto() { return this.#texto }
   static clear() {
     ctx.fillStyle = 'white'
     ctx.strokeStyle = 'black'
@@ -39,10 +33,10 @@ static get texto() { return this.#texto }
   }
   static get squareSize() {return this.#squareSize}
   static set squareSize(squareSize) {this.#squareSize = squareSize}
-  get width() {return this.#width}
-  set width(width) {this.#width = width}
-  get height() {return this.#height}
-  set height(height) {this.#height = height}
+  static get width() {return this.#width}
+  static set width(width) {this.#width = width}
+  static get height() {return this.#height}
+  static set height(height) {this.#height = height}
 }
 class Snake {
   #squareSize
@@ -90,15 +84,11 @@ class Snake {
   set height(height) {this.#height = height}
 }
 
-const boardGame = new Board(20, 20, 20, "lalalala")
+const boardGame = new Board(20, 20, 20)
 const snake = new Snake([{x: 2, y: 10}, {x: 10, y: 10}], 5)
-snake.squareSize = boardGame.squareSize
-snake.width = boardGame.width
-snake.height = boardGame.height
-// Board.texto = 43437878
-// Board.squareSize = 43437878
-console.log(Board.texto)
-console.log(Board.squareSize)
+snake.squareSize = Board.squareSize
+snake.width = Board.width
+snake.height = Board.height
 
 document.addEventListener('keydown', event => {
   if (event.code === 'ArrowLeft') snake.direction = {x: -1, y: 0}
