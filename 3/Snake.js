@@ -12,7 +12,9 @@ export default class Snake {
     else throw new Error('X ou Y devem ser iguais')
     Board.paint(this.scales, true)
     document.addEventListener('keydown', event => {
-      keys.forEach( (key,i) => { if (event.key === key) this.direction = Snake.directions[i]})})
+      keys.forEach( (key,i) => { 
+        if (event.key === key && i % 2 != Snake.directions.indexOf(this.direction) % 2) this.direction = Snake.directions[i]
+      })})
     Game.snakes.push(this)
     }
   died() {console.log(`Snake ${Game.snakes.indexOf(this)} died!`) }
