@@ -5,8 +5,12 @@ export default class Game {
   static #running = false
   static #interval
   static #speed
+  static #borders
 
-  constructor(speed){Game.speed = Math.floor(1000 / speed)}
+  constructor(speed, borders){
+    Game.speed = Math.floor(1000 / speed)
+    Game.borders = borders
+}
   static start() {
     this.running = true
     this.#interval = setInterval(() => {
@@ -33,4 +37,6 @@ export default class Game {
   static set interval(interval){this.#interval = interval}
   static get speed() {return this.#speed}
   static set speed(speed) {this.#speed = speed}
+  static get borders() {return this.#borders}
+  static set borders(borders) {this.#borders = borders}
 }
