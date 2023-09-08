@@ -15,7 +15,7 @@ export default class Board {
     Board.squareSize = squareSize
     Board.squares = [].concat(...Array.from({length: Board.width}, (_, y) => Array.from({length: Board.height}, (_, x) => ({x, y}))))
     Board.paint(Board.squares, 'Board')
-    Board.paint([Game.apple], 'Apple')
+    Game.setApple()
   }
 
   static paint(squares, what) {

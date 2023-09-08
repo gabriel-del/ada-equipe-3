@@ -19,14 +19,10 @@ export default class Game {
   static stop() {clearInterval(this.#interval) ;this.running = false}
   static end() {console.log('Fim de Jogo!')}
   static setApple(){
-    do {
-      Game.apple = { x: Math.floor(Math.random() * Board.width), y:  Math.floor(Math.random() * Board.height) }
-      console.log(Game.apple)
+    do {Game.apple = { x: Math.floor(Math.random() * Board.width), y:  Math.floor(Math.random() * Board.height) }
     } while (Game.snakes.reduce( (acc,snake) => acc.concat(snake.scales), []).some(({x,y}) => x == Game.apple.x && y == Game.apple.y))
     Board.paint([Game.apple], 'Apple')
-
   }
-
   static get snakes() {return this.#snakes}
   static set snakes(snakes) {this.#snakes = snakes}
   static get apple() {return this.#apple}
