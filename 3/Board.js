@@ -13,15 +13,18 @@ export default class Board {
     Board.height = height
     Board.squareSize = squareSize
     Board.squares = [].concat(...Array.from({length: Board.width}, (_, y) => Array.from({length: Board.height}, (_, x) => ({x, y}))))
-    Board.paint(Board.squares, false)
+    Board.paint(Board.squares, 'Board')
   }
 
-  static paint(squares, boolean) {
+  static paint(squares, what) {
     squares.forEach(({x, y}) => {
       ctx.lineWidth = 2;
       ctx.strokeStyle = '#030a14';
-      if (boolean) {ctx.fillStyle = '#00FF00'} 
-      else {ctx.fillStyle = "#030a14"}
+      switch (what){
+        case 'Board': ctx.fillStyle = "#030a14" ;break  
+        case 'Snake': ctx.fillStyle = "#00FF00" ;break  
+        case 'Apple': ctx.fillStyle = "#FF0000" ;break  
+      }
       ctx.fillRect(x*Board.squareSize, y*Board.squareSize, Board.squareSize, Board.squareSize)
       ctx.strokeRect(x*Board.squareSize, y*Board.squareSize, Board.squareSize, Board.squareSize)
     })
