@@ -6,8 +6,9 @@ export default class Game {
   static #interval
   static #speed
   static #borders
+  static #selfDestruct
 
-  constructor(speed, borders){
+  constructor(speed, borders, selfDestruct){
     Game.speed = Math.floor(1000 / speed)
     Game.borders = borders
 }
@@ -39,4 +40,6 @@ export default class Game {
   static set speed(speed) {this.#speed = speed}
   static get borders() {return this.#borders}
   static set borders(borders) {this.#borders = borders}
+  static get selfDestruct() {return this.#selfDestruct}
+  static set selfDestruct(selfDestruct) {this.#selfDestruct = selfDestruct}
 }
