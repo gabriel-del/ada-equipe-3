@@ -2,7 +2,8 @@ export default class Game {
   static #snakes = []
   static #running = false
   static #interval
-  static #speed 
+  static #speed
+  static #apple = {x: 1, y: 1}
 
   constructor(speed){Game.speed = Math.floor(1000 / speed) }
   static start() {

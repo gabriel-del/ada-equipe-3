@@ -18,13 +18,10 @@ export default class Board {
 
   static paint(squares, boolean) {
     squares.forEach(({x, y}) => {
-      ctx.lineWidth = 0;
+      ctx.lineWidth = 2;
       ctx.strokeStyle = '#030a14';
-      if (boolean) {ctx.fillStyle = '#00FF00'; ctx.lineWidth = 2;
-      } else {
-      ctx.fillStyle = "#030a14"
-      }
-
+      if (boolean) {ctx.fillStyle = '#00FF00'} 
+      else {ctx.fillStyle = "#030a14"}
       ctx.fillRect(x*Board.squareSize, y*Board.squareSize, Board.squareSize, Board.squareSize)
       ctx.strokeRect(x*Board.squareSize, y*Board.squareSize, Board.squareSize, Board.squareSize)
     })
