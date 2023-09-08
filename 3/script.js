@@ -2,10 +2,10 @@ import Game from "./Game.js"
 import Board from "./Board.js"
 import Snake from "./Snake.js"
 
-new Game(5)
-new Board(20, 25, 25)
-const snake = new Snake([{x: 2, y: 5}, {x: 12, y: 5}], ['ArrowLeft', 'ArrowUp', 'ArrowRight', 'ArrowDown'])
-// const snake2 = new Snake([{x: 2, y: 8}, {x: 12, y: 8}], ['a', 'w', 'd', 's'])
+new Game(1)
+new Board(10, 80, 50)
+//const snake2 = new Snake([{x: 2, y: 8}, {x: 12, y: 8}], ['a', 'w', 'd', 's'])
+const snake1 = new Snake([{x: 2, y: 5}, {x: 12, y: 5}], ['ArrowLeft', 'ArrowUp', 'ArrowRight', 'ArrowDown'])
 
 
 document.addEventListener('keydown', event => {
