@@ -21,7 +21,6 @@ export default class Snake {
         if(event.code === 'ArrowRight') this.excludeKey = 'ArrowLeft'
         if(event.code === 'ArrowUp') this.excludeKey = 'ArrowDown'
         if(event.code === 'ArrowDown') this.excludeKey = 'ArrowUp'
-        console.log(this.excludeKey)
       }
     })
     Game.snakes.push(this)
