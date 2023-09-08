@@ -1,7 +1,7 @@
 import Board from "./Board.js"
 export default class Game {
   static #snakes = []
-  static #apple = {x: 1, y: 1}
+  static #apple = {x: 5, y: 0}
   static #running = false
   static #interval
   static #speed
@@ -19,8 +19,10 @@ export default class Game {
   static stop() {clearInterval(this.#interval) ;this.running = false}
   static end() {console.log('Fim de Jogo!')}
   static setApple(){
-    let apple = { x: Math.floor(Math.random() * Board.width), y:  Math.floor(Math.random() * Board.height) }
-    Game.apple = apple
+    do {
+      Game.apple = { x: Math.floor(Math.random() * Board.width), y:  Math.floor(Math.random() * Board.height) }
+      console.log(Game.apple)
+    } while (Game.snakes.reduce( (acc,snake) => acc.concat(snake.scales), []).some(({x,y}) => x == Game.apple.x && y == Game.apple.y))
     Board.paint([Game.apple], 'Apple')
 
   }
