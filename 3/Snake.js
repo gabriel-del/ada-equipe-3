@@ -24,8 +24,8 @@ export default class Snake {
   print() {Board.paint(this.scales, 'Snake')}
   move() {
     const head = {x: this.scales.slice(-1)[0].x+this.direction.x, y: this.scales.slice(-1)[0].y+this.direction.y}
-    if (Game.snakes.reduce( (acc,snake) => acc.concat(snake.scales), [])
-    .filter(square => JSON.stringify(square) === JSON.stringify(head)).length !== 0) this.alive = false
+    if (Game.snakes.reduce( (acc,snake) => acc.concat(snake.scales), []).
+      some(({x,y}) => x == head.x && y == head.y)) this.alive = false
     if (Board.width - 1 < head.x || head.x <= 0 -1 || Board.height - 1 < head.y || head.y <= 0 -1) this.alive = false
     if (this.alive) {
       this.scales.push(head)
