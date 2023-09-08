@@ -1,4 +1,5 @@
 import Board from "./Board.js"
+const table = document.querySelector('aside table')
 export default class Game {
   static #snakes = []
   static #apple = {x: 5, y: 0}
@@ -29,9 +30,10 @@ export default class Game {
     } while (Game.snakes.reduce( (acc,snake) => acc.concat(snake.scales), []).some(({x,y}) => x == Game.apple.x && y == Game.apple.y))
     Board.paint([Game.apple], 'Apple')
   }
-  static printPoints() { Game.snakes.forEach(snake => {
-    console.log(Game.snakes.indexOf(snake))
-    console.log(snake.scales.length)
+  static printPoints() { 
+    table.innerHTML = `<tr><th>Snake</th><th>Points</th></tr>`
+    Game.snakes.forEach(snake => {
+      table.innerHTML += `<tr><td>${Game.snakes.indexOf(snake)}</td><td>${snake.scales.length}</td></tr>`
   })}
   static get snakes() {return this.#snakes}
   static set snakes(snakes) {this.#snakes = snakes}
