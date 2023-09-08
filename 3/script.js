@@ -4,6 +4,9 @@ import Snake from "./Snake.js"
 
 // (speed, Die on borders, selfDestruct)
 new Game(6, false, false)
+
+
+
 // (Size of one square, width, height)
 new Board(30, 30, 30)
 // ([snake Beginning, snake End], [Left, Up, Right, Down])

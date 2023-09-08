@@ -29,6 +29,10 @@ export default class Game {
     } while (Game.snakes.reduce( (acc,snake) => acc.concat(snake.scales), []).some(({x,y}) => x == Game.apple.x && y == Game.apple.y))
     Board.paint([Game.apple], 'Apple')
   }
+  static printPoints() { Game.snakes.forEach(snake => {
+    console.log(Game.snakes.indexOf(snake))
+    console.log(snake.scales.length)
+  })}
   static get snakes() {return this.#snakes}
   static set snakes(snakes) {this.#snakes = snakes}
   static get apple() {return this.#apple}

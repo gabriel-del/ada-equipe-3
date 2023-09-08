@@ -30,6 +30,7 @@ export default class Snake {
         this.alive = false
       } else {
         Board.paint([this.scales.shift()], 'Board')
+        Game.printPoints()
       }
       } 
     if (Game.borders){
@@ -43,11 +44,13 @@ export default class Snake {
       Board.paint([head], 'Snake')
       if (JSON.stringify(head) == JSON.stringify(Game.apple)) {
         Game.setApple()
+        Game.printPoints()
       } else {
         const tail = this.scales.shift()
         if (!Game.snakes.reduce( (acc,snake) => acc.concat(snake.scales), [])
         .some(({x,y}) => x == tail.x && y == tail.y))  Board.paint([tail], 'Board')
       }
+      
     } else {this.died()}
   }
 }
