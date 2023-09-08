@@ -1,11 +1,11 @@
 export default class Game {
   static #snakes = []
+  static #apple = {x: 1, y: 1}
   static #running = false
   static #interval
   static #speed
-  static #apple = {x: 1, y: 1}
 
-  constructor(speed){Game.speed = Math.floor(1000 / speed) }
+  constructor(speed){Game.speed = Math.floor(1000 / speed)}
   static start() {
     this.running = true
     this.#interval = setInterval(() => {
@@ -20,6 +20,8 @@ export default class Game {
 
   static get snakes() {return this.#snakes}
   static set snakes(snakes) {this.#snakes = snakes}
+  static get apple() {return this.#apple}
+  static set apple(apple) {this.#apple = apple}
   static get running() { return this.#running}
   static set running(running){this.#running = running}
   static get interval() { return this.#interval}

@@ -1,4 +1,5 @@
 const canvas = document.querySelector('canvas'), ctx = canvas.getContext('2d')
+import Game from "./Game.js"
 
 export default class Board {
   static #squareSize
@@ -14,6 +15,7 @@ export default class Board {
     Board.squareSize = squareSize
     Board.squares = [].concat(...Array.from({length: Board.width}, (_, y) => Array.from({length: Board.height}, (_, x) => ({x, y}))))
     Board.paint(Board.squares, 'Board')
+    Board.paint([Game.apple], 'Apple')
   }
 
   static paint(squares, what) {
