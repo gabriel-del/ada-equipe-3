@@ -31,7 +31,11 @@ export default class Snake {
     if (this.alive) {
       this.scales.push(head)
       Board.paint([head], 'Snake')
-      Board.paint([this.scales.shift()], 'Board')
+      if (JSON.stringify(head) == JSON.stringify(Game.apple)) {
+        Game.setApple()
+      } else {
+        Board.paint([this.scales.shift()], 'Board')
+      }
     } else {this.died()}
   }
 }

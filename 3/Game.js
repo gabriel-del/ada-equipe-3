@@ -1,3 +1,4 @@
+import Board from "./Board.js"
 export default class Game {
   static #snakes = []
   static #apple = {x: 1, y: 1}
@@ -17,6 +18,12 @@ export default class Game {
 
   static stop() {clearInterval(this.#interval) ;this.running = false}
   static end() {console.log('Fim de Jogo!')}
+  static setApple(){
+    let apple = { x: Math.floor(Math.random() * Board.width), y:  Math.floor(Math.random() * Board.height) }
+    Game.apple = apple
+    Board.paint([Game.apple], 'Apple')
+
+  }
 
   static get snakes() {return this.#snakes}
   static set snakes(snakes) {this.#snakes = snakes}
