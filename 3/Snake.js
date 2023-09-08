@@ -14,15 +14,8 @@ export default class Snake {
     Board.paint(this.scales, true)
     document.addEventListener('keydown', event => {
       keys.forEach( (key,i) => { 
-        if (event.key === key && event.key !== this.excludeKey) this.direction = Snake.directions[i]
-      })
-      if(event.code !== this.excludeKey) {
-        if(event.code === 'ArrowLeft')  this.excludeKey = 'ArrowRight'
-        if(event.code === 'ArrowRight') this.excludeKey = 'ArrowLeft'
-        if(event.code === 'ArrowUp') this.excludeKey = 'ArrowDown'
-        if(event.code === 'ArrowDown') this.excludeKey = 'ArrowUp'
-      }
-    })
+        if (event.key === key && i % 2 != Snake.directions.indexOf(this.direction) % 2) this.direction = Snake.directions[i]
+      })})
     Game.snakes.push(this)
     }
   died() {console.log(`Snake ${Game.snakes.indexOf(this)} died!`) }
