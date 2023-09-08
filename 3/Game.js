@@ -11,6 +11,7 @@ export default class Game {
   constructor(speed, borders, selfDestruct){
     Game.speed = Math.floor(1000 / speed)
     Game.borders = borders
+    Game.selfDestruct = selfDestruct
 }
   static start() {
     this.running = true
