@@ -8,11 +8,13 @@ export default class Snake {
   static scoreView= document.querySelector("h2");
   constructor(scalesInterval, keys) {
     this.scales = scalesInterval  
-    if (scalesInterval[0].y === scalesInterval[1].y)
+    if (scalesInterval[0].y === scalesInterval[1].y){
+      this.initialLength = scalesInterval[1].x - scalesInterval[0].x +1
       while (this.scales[1].x - 1 !== this.scales[0].x) this.scales.splice(1, 0, {x: this.scales[1].x - 1, y: scalesInterval[0].y})
-    else if (scalesInterval[0].x === scalesInterval[1].x)
+    } else if (scalesInterval[0].x === scalesInterval[1].x){
+      this.initialLength = scalesInterval[1].y - scalesInterval[0].y +1
       while (this.scales[1].y - 1 !== this.scales[0].y) this.scales.splice(1, 0, {x: scalesInterval[0].x, y: this.scales[1].y - 1})
-    else throw new Error('X ou Y devem ser iguais')
+    } else throw new Error('X ou Y devem ser iguais')
   Game.snakes.push(this)  
     Board.paint(this.scales, 'Snake', Game.snakes.indexOf(this))
     document.addEventListener('keydown', event => {
@@ -41,7 +43,7 @@ export default class Snake {
         if( this.scales.length == 0)  this.alive = false
         Game.printPoints()
       }
-      } 
+    } 
     if (Game.borders){
       if (Board.width - 1 < head.x || head.x <= -1 || Board.height - 1 < head.y || head.y <= -1) this.alive = false
     } else {
@@ -62,7 +64,7 @@ export default class Snake {
         .some(({x,y}) => x == tail.x && y == tail.y))  Board.paint([tail], 'Board')
       }
       
-    } else {this.died()}
+    } else {this.died()}   
   }
 
 }
