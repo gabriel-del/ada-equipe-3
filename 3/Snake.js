@@ -28,11 +28,6 @@ export default class Snake {
   direction = {x: +1, y: 0}
   print() {Board.paint(this.scales, 'Snake')}
 
-  updatePoints() {
-      Snake.score++
-      Snake.scoreView.textContent=Snake.score;
-  }
-
   move() {
     const head = {x: this.scales.slice(-1)[0].x+this.direction.x, y: this.scales.slice(-1)[0].y+this.direction.y}
     if (Game.snakes.reduce( (acc,snake) => acc.concat(snake.scales), [])
@@ -58,7 +53,6 @@ export default class Snake {
         Game.setApple()
         Game.printPoints()
         if (this.scales.length >= Game.goalPoints) Game.end()
-        this.updatePoints()
       } else {
         const tail = this.scales.shift()
         if (!Game.snakes.reduce( (acc,snake) => acc.concat(snake.scales), [])
