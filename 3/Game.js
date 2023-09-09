@@ -3,7 +3,8 @@ const table = document.querySelector('aside table')
 export default class Game {
   static #snakes = []
   static #apple = {x: 5, y: 0}
-  static #running = false
+  static #running = true
+  static #paused = true
   static #interval
   static #speed
   static #borders
@@ -17,9 +18,9 @@ export default class Game {
     Game.goalPoints = goalPoints
 }
   static start() {
-    this.running = true
+    this.paused = false
     let main = async () => {
-      while (this.snakes.some(snake => snake.alive) && this.running) {
+      while (this.snakes.some(snake => snake.alive) && this.running && !this.paused) {
         this.snakes.forEach(snake => {if (snake.alive) snake.move() })
         let speed = Game.speed[0]+Math.floor(Game.snakes.reduce((acc,snake) => acc+snake.scales.length - snake.initialLength, 0)/Game.speed[1])*Game.speed[2]
         await new Promise(_ => setTimeout(_, Math.floor(1000 / (speed > 0 ? speed : 1))))
@@ -28,11 +29,10 @@ export default class Game {
     main();
   }
 
-  static stop() {clearInterval(this.#interval) ;this.running = false}
-  static end() {this.stop() ;console.log('Fim de Jogo!')
+  static stop() {this.paused = true}
+  static end() {this.running=false ;console.log('Fim de Jogo!')
   Game.snakes.forEach(snake => {
     localStorage.setItem(`Points Snake ${Game.snakes.indexOf(snake)}`,snake.scales.length-snake.lengthStart)
-    console.log(snake)
   });
 }
   static setApple(){
@@ -55,6 +55,8 @@ export default class Game {
   static set apple(apple) {this.#apple = apple}
   static get running() { return this.#running}
   static set running(running){this.#running = running}
+  static get paused() { return this.#paused}
+  static set paused(paused){this.#paused = paused}
   static get interval() { return this.#interval}
   static set interval(interval){this.#interval = interval}
   static get speed() {return this.#speed}
