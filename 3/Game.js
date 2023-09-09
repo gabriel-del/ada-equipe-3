@@ -18,22 +18,20 @@ export default class Game {
 }
   static start() {
     this.running = true
-    this.#interval = setInterval(() => {
-      if (this.snakes.some(snake => snake.alive)){
+    let main = async () => {
+      while (this.snakes.some(snake => snake.alive) && this.running) {
         this.snakes.forEach(snake => {if (snake.alive) snake.move() })
-      } else {this.stop() ; this.end()}
-    }, Math.floor(1000 / this.speed[0]))
-    Game.snakes.forEach(snake => {
-      snake.lengthStart = snake.scales.length
-      snake.score=0
-    });
+        let speed = Game.speed[0]+Math.floor(Game.snakes.reduce((acc,snake) => acc+snake.scales.length - snake.initialLength, 0)/Game.speed[1])*Game.speed[2]
+        await new Promise(_ => setTimeout(_, Math.floor(1000 / (speed > 0 ? speed : 1))))
+      }   
+    }
+    main();
   }
 
   static stop() {clearInterval(this.#interval) ;this.running = false}
   static end() {this.stop() ;console.log('Fim de Jogo!')
   Game.snakes.forEach(snake => {
-    // localStorage.setItem(`Points Snake ${Game.snakes.indexOf(snake)}`,snake.scales.length-snake.lengthStart)
-    localStorage.setItem(`Points Snake ${Game.snakes.indexOf(snake)}`,snake.score)
+    localStorage.setItem(`Points Snake ${Game.snakes.indexOf(snake)}`,snake.scales.length-snake.lengthStart)
     console.log(snake)
   });
 }
