@@ -11,12 +11,12 @@ export default class Snake {
     else if (scalesInterval[0].x === scalesInterval[1].x)
       while (this.scales[1].y - 1 !== this.scales[0].y) this.scales.splice(1, 0, {x: scalesInterval[0].x, y: this.scales[1].y - 1})
     else throw new Error('X ou Y devem ser iguais')
-    Board.paint(this.scales, 'Snake')
+  Game.snakes.push(this)  
+    Board.paint(this.scales, 'Snake', Game.snakes.indexOf(this))
     document.addEventListener('keydown', event => {
       keys.forEach( (key,i) => { 
         if (event.key === key && i % 2 != Snake.directions.indexOf(this.direction) % 2) this.direction = Snake.directions[i]
       })})
-    Game.snakes.push(this)
     }
   died() {console.log(`Snake ${Game.snakes.indexOf(this)} died!`) }
   alive = true
@@ -41,7 +41,7 @@ export default class Snake {
     }
     if (this.alive) {
       this.scales.push(head)
-      Board.paint([head], 'Snake')
+      Board.paint([head], 'Snake', Game.snakes.indexOf(this))
       if (JSON.stringify(head) == JSON.stringify(Game.apple)) {
         Game.setApple()
         Game.printPoints()
