@@ -27,6 +27,8 @@ export default class Snake {
   alive = true
   direction = {x: +1, y: 0}
   print() {Board.paint(this.scales, 'Snake')}
+  points() {return this.scales.length-this.initialLength}
+  index() {return Game.snakes.indexOf(this)}
 
   move() {
     const head = {x: this.scales.slice(-1)[0].x+this.direction.x, y: this.scales.slice(-1)[0].y+this.direction.y}
@@ -60,6 +62,7 @@ export default class Snake {
       }
       
     } else {this.died()}   
+
   }
 
 }

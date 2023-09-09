@@ -1,5 +1,6 @@
 import Board from "./Board.js"
 const table = document.querySelector('aside table')
+const status = document.querySelector('aside > #status > div')
 export default class Game {
   static #snakes = []
   static #apple = {x: 5, y: 0}
@@ -23,14 +24,21 @@ export default class Game {
       while (this.snakes.some(snake => snake.alive) && this.running && !this.paused) {
         this.snakes.forEach(snake => {if (snake.alive) snake.move() })
         let speed = Game.speed[0]+Math.floor(Game.snakes.reduce((acc,snake) => acc+snake.scales.length - snake.initialLength, 0)/Game.speed[1])*Game.speed[2]
-        await new Promise(_ => setTimeout(_, Math.floor(1000 / (speed > 0 ? speed : 1))))
+        await new Promise(_ => setTimeout(_, Math.floor(1000 / (speed > 0 ? speed : 1))))    
       }   
     }
     main();
   }
-
+  static printWinner() {
+    let maxPoints=this.snakes.reduce((acc,snake) => snake.points() > acc ? snake.points() : acc,0)
+    let winners = this.snakes.filter(snake => snake.points() >= maxPoints).map(snake => snake.index())
+    status.innerHTML = '<h4>Winner:</h4>'
+    winners.forEach(winner => status.innerHTML += `<p>Snake ${winner} with ${maxPoints} points.</p>`)
+  }
   static stop() {this.paused = true}
-  static end() {this.running=false ;console.log('Fim de Jogo!')
+  static end() {
+    this.running=false
+    this.printWinner()
   Game.snakes.forEach(snake => {
     localStorage.setItem(`Points Snake ${Game.snakes.indexOf(snake)}`,snake.scales.length-snake.lengthStart)
   });
