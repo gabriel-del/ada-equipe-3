@@ -1,11 +1,15 @@
 import Board from "./Board.js"
 import Game from "./Game.js"
 
+
 export default class Snake {
   static directions = [{x: -1, y: 0}, {x: 0, y: -1}, {x: +1, y: 0}, {x: 0, y: +1}]
+  static score= 0 
+  static scoreView= document.querySelector("h2");
   constructor(scalesInterval, keys) {
     this.scales = scalesInterval
     this.excludeKey = 'ArrowLeft'
+    
     if (scalesInterval[0].y === scalesInterval[1].y)
       while (this.scales[1].x - 1 !== this.scales[0].x) this.scales.splice(1, 0, {x: this.scales[1].x - 1, y: scalesInterval[0].y})
     else if (scalesInterval[0].x === scalesInterval[1].x)
@@ -21,6 +25,13 @@ export default class Snake {
   died() {console.log(`Snake ${Game.snakes.indexOf(this)} died!`) }
   alive = true
   direction = {x: +1, y: 0}
+  print() {Board.paint(this.scales, 'Snake')}
+
+  updatePoints() {
+      Snake.score++
+      Snake.scoreView.textContent=Snake.score;
+  }
+
   move() {
     const head = {x: this.scales.slice(-1)[0].x+this.direction.x, y: this.scales.slice(-1)[0].y+this.direction.y}
     if (Game.snakes.reduce( (acc,snake) => acc.concat(snake.scales), [])
@@ -46,6 +57,7 @@ export default class Snake {
         Game.setApple()
         Game.printPoints()
         if (this.scales.length >= Game.goalPoints) Game.end()
+        this.updatePoints()
       } else {
         const tail = this.scales.shift()
         if (!Game.snakes.reduce( (acc,snake) => acc.concat(snake.scales), [])
@@ -54,4 +66,5 @@ export default class Snake {
       
     } else {this.died()}
   }
+
 }
