@@ -6,6 +6,8 @@ export default class Snake {
   static directions = [{x: -1, y: 0}, {x: 0, y: -1}, {x: +1, y: 0}, {x: 0, y: +1}]
   static score= 0 
   static scoreView= document.querySelector("h2");
+  static lengthStart
+
   constructor(scalesInterval, keys) {
     this.scales = scalesInterval  
     if (scalesInterval[0].y === scalesInterval[1].y){
@@ -22,7 +24,8 @@ export default class Snake {
         if (event.key === key && i % 2 != Snake.directions.indexOf(this.direction) % 2) this.direction = Snake.directions[i]
       })})
     }
-  died() {console.log(`Snake ${Game.snakes.indexOf(this)} died!`) }
+  died() {console.log(`Snake ${Game.snakes.indexOf(this)} died!`) 
+}
   alive = true
   direction = {x: +1, y: 0}
   print() {Board.paint(this.scales, 'Snake')}

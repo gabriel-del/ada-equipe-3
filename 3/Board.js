@@ -6,7 +6,9 @@ export default class Board {
   static #width
   static #height
   static #squares
+  
 
+  
   constructor(squareSize, width, height) {
     canvas.width = width*squareSize
     canvas.height = height*squareSize
