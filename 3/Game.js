@@ -19,14 +19,19 @@ export default class Game {
   static start() {
     this.running = true
     let speed = Game.speed[0]+Math.floor(Game.snakes.reduce((acc,snake) => acc+snake.scales.length - snake.initialLength, 0)/Game.speed[1])*Game.speed[2]
-    this.#interval = setInterval(() => {
-      if (this.snakes.some(snake => snake.alive)){
+    let delay = ms => new Promise((resolve) => setTimeout(resolve, ms))
+    let main = async () => {
+      while (this.snakes.some(snake => snake.alive) && this.running) {
         this.snakes.forEach(snake => {if (snake.alive) snake.move() })
-      } else {this.stop() ; this.end()}
-    }, Math.floor(1000 / this.speed[0]))
+        console.log('Starting the delayed function...');    
+        await delay(Math.floor(1000 / this.speed[0]));
+        console.log('3 seconds have passed, continuing the function...')
+      }   
+    }
+    main();
   }
 
-  static stop() {clearInterval(this.#interval) ;this.running = false}
+  static stop() {this.running = false}
   static end() {this.stop() ;console.log('Fim de Jogo!')}
   static setApple(){
     do {Game.apple = { x: Math.floor(Math.random() * Board.width), y:  Math.floor(Math.random() * Board.height) }
