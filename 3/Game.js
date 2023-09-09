@@ -8,11 +8,13 @@ export default class Game {
   static #speed
   static #borders
   static #selfDestruct
+  static #goalPoints
 
-  constructor(speed, borders, selfDestruct){
+  constructor(speed, borders, selfDestruct, goalPoints){
     Game.speed = speed
     Game.borders = borders
     Game.selfDestruct = selfDestruct
+    Game.goalPoints = goalPoints
 }
   static start() {
     this.running = true
@@ -24,7 +26,7 @@ export default class Game {
   }
 
   static stop() {clearInterval(this.#interval) ;this.running = false}
-  static end() {console.log('Fim de Jogo!')}
+  static end() {this.stop() ;console.log('Fim de Jogo!')}
   static setApple(){
     do {Game.apple = { x: Math.floor(Math.random() * Board.width), y:  Math.floor(Math.random() * Board.height) }
     } while (Game.snakes.reduce( (acc,snake) => acc.concat(snake.scales), []).some(({x,y}) => x == Game.apple.x && y == Game.apple.y))
@@ -49,4 +51,6 @@ export default class Game {
   static set borders(borders) {this.#borders = borders}
   static get selfDestruct() {return this.#selfDestruct}
   static set selfDestruct(selfDestruct) {this.#selfDestruct = selfDestruct}
+  static get goalPoints() {return this.#goalPoints}
+  static set goalPoints(goalPoints) {this.#goalPoints = goalPoints}
 }
