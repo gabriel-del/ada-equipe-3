@@ -30,6 +30,7 @@ export default class Snake {
         this.alive = false
       } else {
         Board.paint([this.scales.shift()], 'Board')
+        if( this.scales.length == 0)  this.alive = false
         Game.printPoints()
       }
       } 
