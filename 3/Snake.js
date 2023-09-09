@@ -7,9 +7,7 @@ export default class Snake {
   static score= 0 
   static scoreView= document.querySelector("h2");
   constructor(scalesInterval, keys) {
-    this.scales = scalesInterval
-    this.excludeKey = 'ArrowLeft'
-    
+    this.scales = scalesInterval  
     if (scalesInterval[0].y === scalesInterval[1].y)
       while (this.scales[1].x - 1 !== this.scales[0].x) this.scales.splice(1, 0, {x: this.scales[1].x - 1, y: scalesInterval[0].y})
     else if (scalesInterval[0].x === scalesInterval[1].x)
