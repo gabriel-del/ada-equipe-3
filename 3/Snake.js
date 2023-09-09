@@ -4,8 +4,6 @@ import Game from "./Game.js"
 
 export default class Snake {
   static directions = [{x: -1, y: 0}, {x: 0, y: -1}, {x: +1, y: 0}, {x: 0, y: +1}]
-  static score= 0 
-  static scoreView= document.querySelector("h2");
   static lengthStart
 
   constructor(scalesInterval, keys) {
