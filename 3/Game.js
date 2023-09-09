@@ -18,14 +18,11 @@ export default class Game {
 }
   static start() {
     this.running = true
-    let speed = Game.speed[0]+Math.floor(Game.snakes.reduce((acc,snake) => acc+snake.scales.length - snake.initialLength, 0)/Game.speed[1])*Game.speed[2]
-    let delay = ms => new Promise((resolve) => setTimeout(resolve, ms))
     let main = async () => {
       while (this.snakes.some(snake => snake.alive) && this.running) {
         this.snakes.forEach(snake => {if (snake.alive) snake.move() })
-        console.log('Starting the delayed function...');    
-        await delay(Math.floor(1000 / this.speed[0]));
-        console.log('3 seconds have passed, continuing the function...')
+        let speed = Game.speed[0]+Math.floor(Game.snakes.reduce((acc,snake) => acc+snake.scales.length - snake.initialLength, 0)/Game.speed[1])*Game.speed[2]
+        await new Promise(_ => setTimeout(_, Math.floor(1000 / (speed > 0 ? speed : 1))))
       }   
     }
     main();
