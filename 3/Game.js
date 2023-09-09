@@ -18,6 +18,7 @@ export default class Game {
 }
   static start() {
     this.running = true
+    let speed = Game.speed[0]+Math.floor(Game.snakes.reduce((acc,snake) => acc+snake.scales.length - snake.initialLength, 0)/Game.speed[1])*Game.speed[2]
     this.#interval = setInterval(() => {
       if (this.snakes.some(snake => snake.alive)){
         this.snakes.forEach(snake => {if (snake.alive) snake.move() })
