@@ -10,7 +10,7 @@ export default class Game {
   static #selfDestruct
 
   constructor(speed, borders, selfDestruct){
-    Game.speed = Math.floor(1000 / speed)
+    Game.speed = speed
     Game.borders = borders
     Game.selfDestruct = selfDestruct
 }
@@ -20,7 +20,7 @@ export default class Game {
       if (this.snakes.some(snake => snake.alive)){
         this.snakes.forEach(snake => {if (snake.alive) snake.move() })
       } else {this.stop() ; this.end()}
-    }, this.speed)
+    }, Math.floor(1000 / this.speed[0]))
   }
 
   static stop() {clearInterval(this.#interval) ;this.running = false}
