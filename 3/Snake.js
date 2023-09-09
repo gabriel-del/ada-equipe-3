@@ -21,7 +21,6 @@ export default class Snake {
   died() {console.log(`Snake ${Game.snakes.indexOf(this)} died!`) }
   alive = true
   direction = {x: +1, y: 0}
-  print() {Board.paint(this.scales, 'Snake')}
   move() {
     const head = {x: this.scales.slice(-1)[0].x+this.direction.x, y: this.scales.slice(-1)[0].y+this.direction.y}
     if (Game.snakes.reduce( (acc,snake) => acc.concat(snake.scales), [])
