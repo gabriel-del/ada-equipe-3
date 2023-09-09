@@ -52,7 +52,7 @@ export default class Snake {
       if (JSON.stringify(head) == JSON.stringify(Game.apple)) {
         Game.setApple()
         Game.printPoints()
-        if (this.scales.length >= Game.goalPoints) Game.end()
+        if (this.scales.length - this.initialLength >= Game.goalPoints) Game.end()
       } else {
         const tail = this.scales.shift()
         if (!Game.snakes.reduce( (acc,snake) => acc.concat(snake.scales), [])

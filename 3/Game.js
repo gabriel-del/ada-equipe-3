@@ -47,7 +47,7 @@ export default class Game {
   static printPoints() { 
     table.innerHTML = `<tr><th>Snake</th><th>Points</th></tr>`
     Game.snakes.forEach(snake => {
-      table.innerHTML += `<tr><td>${Game.snakes.indexOf(snake)}</td><td>${snake.scales.length}</td></tr>`
+      table.innerHTML += `<tr><td>${Game.snakes.indexOf(snake)}</td><td>${snake.scales.length-snake.initialLength}</td></tr>`
   })}
   static get snakes() {return this.#snakes}
   static set snakes(snakes) {this.#snakes = snakes}
