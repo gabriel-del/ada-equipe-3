@@ -34,7 +34,7 @@ export default class Snake {
       }
       } 
     if (Game.borders){
-      if (Board.width - 1 < head.x || head.x <= 0 -1 || Board.height - 1 < head.y || head.y <= 0 -1) this.alive = false
+      if (Board.width - 1 < head.x || head.x <= -1 || Board.height - 1 < head.y || head.y <= -1) this.alive = false
     } else {
       head.x = (head.x + Board.width) % Board.width
       head.y = (head.y + Board.height) % Board.height
