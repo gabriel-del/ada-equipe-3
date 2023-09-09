@@ -1,5 +1,7 @@
 import Board from "./Board.js"
-const table = document.querySelector('aside table')
+const table = document.getElementById("score")
+const status = document.getElementById("status")
+console.log(status)
 export default class Game {
   static #snakes = []
   static #apple = {x: 5, y: 0}
@@ -23,17 +25,21 @@ export default class Game {
         this.snakes.forEach(snake => {if (snake.alive) snake.move() })
         let speed = Game.speed[0]+Math.floor(Game.snakes.reduce((acc,snake) => acc+snake.scales.length - snake.initialLength, 0)/Game.speed[1])*Game.speed[2]
         await new Promise(_ => setTimeout(_, Math.floor(1000 / (speed > 0 ? speed : 1))))
+        status.innerHTML="Jogo em andamento"
       }   
     }
     main();
   }
 
-  static stop() {clearInterval(this.#interval) ;this.running = false}
+  static stop() {clearInterval(this.#interval) ;this.running = false
+    status.innerHTML="Jogo Pausado"
+  }
   static end() {this.stop() ;console.log('Fim de Jogo!')
   Game.snakes.forEach(snake => {
     localStorage.setItem(`Points Snake ${Game.snakes.indexOf(snake)}`,snake.scales.length-snake.lengthStart)
     console.log(snake)
   });
+  status.innerHTML="Jogo acabou"
 }
   static setApple(){
     do {Game.apple = { x: Math.floor(Math.random() * Board.width), y:  Math.floor(Math.random() * Board.height)}
@@ -47,7 +53,7 @@ export default class Game {
   static printPoints() { 
     table.innerHTML = `<tr><th>Snake</th><th>Points</th></tr>`
     Game.snakes.forEach(snake => {
-      table.innerHTML += `<tr><td>${Game.snakes.indexOf(snake)}</td><td>${snake.scales.length}</td></tr>`
+      table.innerHTML += `<tr><td>${Game.snakes.indexOf(snake)+1}</td><td>${snake.scales.length-4}</td></tr>`
   })}
   static get snakes() {return this.#snakes}
   static set snakes(snakes) {this.#snakes = snakes}
