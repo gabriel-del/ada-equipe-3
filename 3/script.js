@@ -13,5 +13,10 @@ const snake1 = new Snake([{x: 2, y: 5}, {x: 20, y: 5}], ['ArrowLeft', 'ArrowUp',
 
 document.addEventListener('keydown', event => {
   if (event.code && !Game.running) Game.start()
+  
+
+
   if (event.key === 'q') Game.stop()
 })
+
+
