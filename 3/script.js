@@ -3,7 +3,7 @@ import Board from "./Board.js"
 import Snake from "./Snake.js"
 
 // (speed, Die on borders, selfDestruct, goalPoints)
-new Game([7, 1, 1], false, true, 2)
+new Game([7, 1, 1], false, true, 1)
 // (Size of one square, width, height)
 new Board(30, 20, 20)
 // ([snake Beginning, snake End], [Left, Up, Right, Down])

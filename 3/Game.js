@@ -63,8 +63,8 @@ export default class Game {
     if(!!points) {
     this.localStorage.highScores.push(points)
     localStorage.setItem('snakeGame', JSON.stringify(this.localStorage))
-  } 
-
+  }
+  Board.borderBlink() 
   }
   static snakesInclude(square) { return this.snakes.reduce( (acc,snake) => acc.concat(snake.scales), [])
     .some(({x,y}) => x == square.x && y == square.y)}

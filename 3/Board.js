@@ -36,7 +36,16 @@ export default class Board {
       ctx.strokeRect(x*this.squareSize, y*this.squareSize, this.squareSize, this.squareSize)
     })
   }
- 
+  static borderBlink() {
+      (async () => {
+      for (let i = 0 ; i<= 5; i++){
+        canvas.style.borderWidth = '20px'
+        await new Promise(_ => setTimeout(_, 50))
+        canvas.style.borderWidth = '1px'
+        await new Promise(_ => setTimeout(_, 80))
+      }
+    })()
+  }
   static get squareSize() {return this.#squareSize}
   static set squareSize(squareSize) {this.#squareSize = squareSize}
   static get width() {return this.#width}
