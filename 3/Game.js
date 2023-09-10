@@ -27,6 +27,7 @@ export default class Game {
         if(this.isMultiplayer()) 
         {       if (this.snakesAlive() <= 1) this.end()} 
         else {  if (this.snakesAlive() == 0) this.end() }
+        console.log(this.snakes.reduce((acc,snake) => snake.scales.length +acc,0))
         let speed = this.speed[0]+Math.floor(this.snakes.reduce((acc,snake) => acc+snake.points(), 0)/this.speed[1])*this.speed[2]
         await new Promise(_ => setTimeout(_, Math.floor(1000 / (speed > 0 ? speed : 1))))
       }   
@@ -35,6 +36,7 @@ export default class Game {
   }
   static isMultiplayer(){return this.snakes.length > 1}
   static snakesAlive() { return this.snakes.filter(snake => snake.alive).length}
+  static freeSpaces() { return Board.squares.length - this.snakes.reduce((acc,snake) => snake.scales.length +acc,0)}
   static printWinner() {
     if (this.isMultiplayer()){
       if (this.snakesAlive() == 0){ status.innerHTML = '<h3>Draw!</h3>'} 

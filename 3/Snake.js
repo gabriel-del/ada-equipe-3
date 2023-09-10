@@ -48,8 +48,8 @@ export default class Snake {
       this.scales.push(head)
       Board.paint([head], 'Snake', this.index())
       if (JSON.stringify(head) == JSON.stringify(Game.apple)) {
-        Game.setApple()
         Game.printPoints()
+        Game.freeSpaces() > 0 ? Game.setApple() : Game.end()
         if (this.points() >= Game.goalPoints) Game.end()
       } else {
         const tail = this.scales.shift()
