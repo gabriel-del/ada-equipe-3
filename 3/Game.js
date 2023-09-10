@@ -1,6 +1,10 @@
 import Board from "./Board.js"
 const table = document.querySelector('aside table')
 const status = document.querySelector('#status > div')
+
+const localKey = 'snakeGame'
+const local = JSON.parse(localStorage.getItem(localKey) || '{"config": {}, "highScores": [] }')
+
 export default class Game {
   static #snakes = []
   static #apple
@@ -29,6 +33,7 @@ export default class Game {
         {       if (this.snakesAlive() <= 1) this.end()} 
         else {  if (this.snakesAlive() == 0) this.end() }
         let speed = this.speed[0]+Math.floor(this.snakes.reduce((acc,snake) => acc+snake.points(), 0)/this.speed[1])*this.speed[2]
+        console.log(local)
         await new Promise(_ => setTimeout(_, Math.floor(1000 / (speed > 0 ? speed : 1))))
       }   
     }
@@ -57,10 +62,12 @@ export default class Game {
     status.innerHTML="Jogo Pausado"}
   static end() {
     this.running=false
-    let winner = this.printWinner() // when winner not undefined => localstorage
-  this.snakes.forEach(snake => {
-    localStorage.setItem(`Points Snake ${snake.index()}`,snake.scales.length-snake.lengthStart)
-  });
+    let points = this.printWinner() // when winner not undefined => localstorage
+    if(!!points) {console.log("single")
+    local.highScores.push(points)
+    localStorage.setItem(localKey, JSON.stringify(local))
+  } 
+
   }
   static snakesInclude(square) { return this.snakes.reduce( (acc,snake) => acc.concat(snake.scales), [])
     .some(({x,y}) => x == square.x && y == square.y)}
