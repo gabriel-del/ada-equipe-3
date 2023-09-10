@@ -1,14 +1,11 @@
 const canvas = document.querySelector('canvas'), ctx = canvas.getContext('2d')
-import Game from "./Game.js"
 
 export default class Board {
   static #squareSize
   static #width
   static #height
   static #squares
-  
 
-  
   constructor(squareSize, width, height) {
     canvas.width = width*squareSize
     canvas.height = height*squareSize
@@ -21,24 +18,26 @@ export default class Board {
 
   static paint(squares, what, id) {
     squares.forEach(({x, y}) => {
-      ctx.lineWidth = 2;
-      ctx.strokeStyle = '#030a14';
-      switch (what){
-        case 'Board': ctx.fillStyle = "#030a14" ;break  
-        case 'Apple': ctx.fillStyle = "#FF0000" ;break  
+      ctx.lineWidth = 2
+      ctx.strokeStyle = '#030a14'
+      switch (what) {
+        case 'Board': ctx.fillStyle = '#030a14'; break
+        case 'Apple': ctx.fillStyle = '#FF0000'; break
         case 'Snake': switch (id) {
-          case 0: ctx.fillStyle = "#0F0" ;break  
-          case 1: ctx.fillStyle = "#040" ;break  
-          case 2: ctx.fillStyle = "#FF0" ;break  
-          case 3: ctx.fillStyle = "#408" ;break  
-        } break; }
+          case 0: ctx.fillStyle = '#0F0'; break
+          case 1: ctx.fillStyle = '#040'; break
+          case 2: ctx.fillStyle = '#FF0'; break
+          case 3: ctx.fillStyle = '#408'; break
+        } break
+      }
       ctx.fillRect(x*this.squareSize, y*this.squareSize, this.squareSize, this.squareSize)
       ctx.strokeRect(x*this.squareSize, y*this.squareSize, this.squareSize, this.squareSize)
     })
   }
+
   static borderBlink() {
-      (async () => {
-      for (let i = 0 ; i<= 5; i++){
+    (async () => {
+      for (let i = 0; i<= 5; i++) {
         canvas.style.borderWidth = '20px'
         await new Promise(_ => setTimeout(_, 50))
         canvas.style.borderWidth = '1px'
@@ -46,6 +45,7 @@ export default class Board {
       }
     })()
   }
+
   static get squareSize() {return this.#squareSize}
   static set squareSize(squareSize) {this.#squareSize = squareSize}
   static get width() {return this.#width}
