@@ -59,7 +59,7 @@ export default class Game {
     status.innerHTML="Jogo Pausado"}
   static end() {
     this.running=false
-    let points = this.printWinner() // when winner not undefined => localstorage
+    let points = this.printWinner() 
     if(!!points) {
     this.localStorage.highScores.push(points)
     localStorage.setItem('snakeGame', JSON.stringify(this.localStorage))
