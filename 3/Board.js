@@ -1,13 +1,12 @@
-const canvas = document.querySelector('canvas'), ctx = canvas.getContext('2d')
 import Game from './Game.js'
 
+const canvas = document.querySelector('canvas'), ctx = canvas.getContext('2d')
 
 export default class Board {
   static #squareSize
   static #width
   static #height
   static #squares
-
   constructor(squareSize, width, height) {
     canvas.width = width*squareSize
     canvas.height = height*squareSize
@@ -18,7 +17,6 @@ export default class Board {
     Board.paint(Board.squares, 'Board')
     Game.setApple()
   }
-
   static paint(squares, what, id) {
     squares.forEach(({x, y}) => {
       ctx.lineWidth = 2
@@ -37,7 +35,6 @@ export default class Board {
       ctx.strokeRect(x*this.squareSize, y*this.squareSize, this.squareSize, this.squareSize)
     })
   }
-
   static borderBlink() {
     (async () => {
       for (let i = 0; i<= 5; i++) {
@@ -48,7 +45,6 @@ export default class Board {
       }
     })()
   }
-
   static get squareSize() {return this.#squareSize}
   static set squareSize(squareSize) {this.#squareSize = squareSize}
   static get width() {return this.#width}

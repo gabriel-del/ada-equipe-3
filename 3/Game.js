@@ -14,14 +14,12 @@ export default class Game {
   static #selfDestruct
   static #goalPoints
   static #localStorage = JSON.parse(localStorage.getItem('snakeGame') || '{"config": {}, "highScores": [] }')
-
   constructor(speed, borders, selfDestruct, goalPoints) {
     Game.speed = speed
     Game.borders = borders
     Game.selfDestruct = selfDestruct
     Game.goalPoints = goalPoints
   }
-
   static start() {
     this.paused = false
     status.innerHTML='Jogo em andamento'
@@ -35,7 +33,6 @@ export default class Game {
     }
     main()
   }
-
   static isMultiplayer() {return this.snakes.length > 1}
   static snakesAlive() {return this.snakes.filter(snake => snake.alive).length}
   static freeSpaces() {return Board.squares.length - this.snakes.reduce((acc, snake) => snake.scales.length +acc, 0)}
@@ -54,12 +51,10 @@ export default class Game {
       return this.snakes[0].points()
     }
   }
-
   static stop() {
     this.paused = true
     status.innerHTML='Jogo Pausado'
   }
-
   static end() {
     this.running=false
     const points = this.printWinner()
@@ -69,25 +64,21 @@ export default class Game {
     }
     Board.borderBlink()
   }
-
   static snakesInclude(square) {
     return this.snakes.reduce((acc, snake) => acc.concat(snake.scales), [])
       .some(({x, y}) => x === square.x && y === square.y)
   }
-
   static setApple() {
     do this.apple = {x: Math.floor(Math.random() * Board.width), y: Math.floor(Math.random() * Board.height)}
     while (this.snakesInclude(this.apple))
     Board.paint([this.apple], 'Apple')
   }
-
   static printPoints() {
     table.innerHTML = '<tr><th>Snake</th><th>Points</th></tr>'
     this.snakes.forEach(snake => {
       table.innerHTML += `<tr><td>${snake.index()}</td><td>${snake.points()}</td></tr>`
     })
   }
-
   static get snakes() {return this.#snakes}
   static set snakes(snakes) {this.#snakes = snakes}
   static get localStorage() {return this.#localStorage}

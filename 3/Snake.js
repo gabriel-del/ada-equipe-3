@@ -2,7 +2,6 @@ import Board from './Board.js'
 import Game from './Game.js'
 
 const status = document.querySelector('#status > div')
-
 export default class Snake {
   static directions = [{x: -1, y: 0}, {x: 0, y: -1}, {x: +1, y: 0}, {x: 0, y: +1}]
   constructor(scalesInterval, keys) {
@@ -22,12 +21,10 @@ export default class Snake {
       })
     })
   }
-
   alive = true
   direction = {x: +1, y: 0}
   points() {return this.scales.length-this.initialLength}
   index() {return Game.snakes.indexOf(this)}
-
   move() {
     const head = {x: this.scales.slice(-1)[0].x+this.direction.x, y: this.scales.slice(-1)[0].y+this.direction.y}
     if (Game.snakesInclude(head)) {
