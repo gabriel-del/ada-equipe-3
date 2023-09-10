@@ -59,14 +59,15 @@ export default class Game {
   Game.snakes.forEach(snake => {
     localStorage.setItem(`Points Snake ${snake.index()}`,snake.scales.length-snake.lengthStart)
   });
-}
+  }
+  static snakesInclude(square) { return this.snakes.reduce( (acc,snake) => acc.concat(snake.scales), [])
+    .some(({x,y}) => x == square.x && y == square.y)}
   static setApple(){
     do {Game.apple = { x: Math.floor(Math.random() * Board.width), y:  Math.floor(Math.random() * Board.height)}
       Game.snakes.forEach(snake => {
         snake.score++
       })
-    
-    } while (Game.snakes.reduce( (acc,snake) => acc.concat(snake.scales), []).some(({x,y}) => x == Game.apple.x && y == Game.apple.y))
+    } while (this.snakesInclude(this.apple))
     Board.paint([Game.apple], 'Apple')
   }
   static printPoints() { 

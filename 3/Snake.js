@@ -29,8 +29,7 @@ export default class Snake {
 
   move() {
     const head = {x: this.scales.slice(-1)[0].x+this.direction.x, y: this.scales.slice(-1)[0].y+this.direction.y}
-    if (Game.snakes.reduce( (acc,snake) => acc.concat(snake.scales), [])
-    .some(({x,y}) => x == head.x && y == head.y)){
+    if (Game.snakesInclude(head)){
       if (Game.selfDestruct){
         this.alive = false
       } else {
@@ -54,8 +53,7 @@ export default class Snake {
         if (this.points() >= Game.goalPoints) Game.end()
       } else {
         const tail = this.scales.shift()
-        if (!Game.snakes.reduce( (acc,snake) => acc.concat(snake.scales), [])
-        .some(({x,y}) => x == tail.x && y == tail.y))  Board.paint([tail], 'Board')
+        if (!Game.snakesInclude(tail))  Board.paint([tail], 'Board')
       }
       
     } else {status.innerHTML += `<p>Snake <b>${this.index()}</b> died!<p>`}   
