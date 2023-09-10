@@ -26,7 +26,6 @@ export default class Game {
     this.paused = false
     status.innerHTML='Jogo em andamento'
     const main = async () => {
-      this.setApple()
       while (this.snakesAlive() > 0 && this.running && !this.paused) {
         this.snakes.forEach(snake => {if (snake.alive) snake.move()})
         if (this.isMultiplayer()) {if (this.snakesAlive() <= 1) this.end()} else {if (this.snakesAlive() === 0) this.end()}
