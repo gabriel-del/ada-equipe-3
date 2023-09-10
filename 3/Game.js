@@ -24,7 +24,7 @@ export default class Game {
     let main = async () => {
       while (this.snakes.some(snake => snake.alive) && this.running && !this.paused) {
         this.snakes.forEach(snake => {if (snake.alive) snake.move() })
-        let speed = Game.speed[0]+Math.floor(Game.snakes.reduce((acc,snake) => acc+snake.scales.length - snake.initialLength, 0)/Game.speed[1])*Game.speed[2]
+        let speed = Game.speed[0]+Math.floor(Game.snakes.reduce((acc,snake) => acc+snake.points(), 0)/Game.speed[1])*Game.speed[2]
         await new Promise(_ => setTimeout(_, Math.floor(1000 / (speed > 0 ? speed : 1))))
       }   
     }
@@ -42,7 +42,7 @@ export default class Game {
     this.running=false
     this.printWinner()
   Game.snakes.forEach(snake => {
-    localStorage.setItem(`Points Snake ${Game.snakes.indexOf(snake)}`,snake.scales.length-snake.lengthStart)
+    localStorage.setItem(`Points Snake ${snake.index()}`,snake.scales.length-snake.lengthStart)
   });
 }
   static setApple(){
@@ -57,7 +57,7 @@ export default class Game {
   static printPoints() { 
     table.innerHTML = `<tr><th>Snake</th><th>Points</th></tr>`
     Game.snakes.forEach(snake => {
-      table.innerHTML += `<tr><td>${Game.snakes.indexOf(snake)}</td><td>${snake.scales.length-snake.initialLength}</td></tr>`
+      table.innerHTML += `<tr><td>${snake.index()}</td><td>${snake.points()}</td></tr>`
   })}
   static get snakes() {return this.#snakes}
   static set snakes(snakes) {this.#snakes = snakes}
