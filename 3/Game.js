@@ -3,7 +3,7 @@ const table = document.querySelector('aside table')
 const status = document.querySelector('#status > div')
 export default class Game {
   static #snakes = []
-  static #apple = {x: 5, y: 0}
+  static #apple
   static #running = true
   static #paused = true
   static #interval
@@ -22,12 +22,12 @@ export default class Game {
     this.paused = false
     status.innerHTML="Jogo em andamento"
     let main = async () => {
+      this.setApple()
       while (this.snakesAlive() > 0 && this.running && !this.paused) {
         this.snakes.forEach(snake => {if (snake.alive) snake.move() })
         if(this.isMultiplayer()) 
         {       if (this.snakesAlive() <= 1) this.end()} 
         else {  if (this.snakesAlive() == 0) this.end() }
-        console.log(this.snakes.reduce((acc,snake) => snake.scales.length +acc,0))
         let speed = this.speed[0]+Math.floor(this.snakes.reduce((acc,snake) => acc+snake.points(), 0)/this.speed[1])*this.speed[2]
         await new Promise(_ => setTimeout(_, Math.floor(1000 / (speed > 0 ? speed : 1))))
       }   
@@ -48,7 +48,7 @@ export default class Game {
         winners.forEach(winner => status.innerHTML += `<p>Snake ${winner} with <b>${maxPoints}</b> points.</p>`)
       }
     } else {
-      status.innerHTML = `<h3>You did</h3>`
+      status.innerHTML = (Game.freeSpaces() > 0) ? `<h3>You did</h3>` : `<h3>You Won!</h3>` 
       status.innerHTML += `<p><b>${this.snakes[0].points()} points!</p>`
       return this.snakes[0].points()
     }
