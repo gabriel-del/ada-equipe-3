@@ -1,6 +1,6 @@
 import Board from "./Board.js"
 const table = document.querySelector('aside table')
-const status = document.querySelector('aside > #status > div')
+const status = document.querySelector('#status > div')
 export default class Game {
   static #snakes = []
   static #apple = {x: 5, y: 0}
