@@ -22,14 +22,17 @@ export default class Game {
     this.paused = false
     status.innerHTML="Jogo em andamento"
     let main = async () => {
-      while (this.snakes.some(snake => snake.alive) && this.running && !this.paused) {
+      while (this.snakesAlive() > 0 && this.running && !this.paused) {
         this.snakes.forEach(snake => {if (snake.alive) snake.move() })
+        if (this.snakesAlive() == 0 && this.snakes.length == 1) Game.end()
+        if (this.snakesAlive() == 1 && this.snakes.length > 1) Game.end()
         let speed = Game.speed[0]+Math.floor(Game.snakes.reduce((acc,snake) => acc+snake.points(), 0)/Game.speed[1])*Game.speed[2]
         await new Promise(_ => setTimeout(_, Math.floor(1000 / (speed > 0 ? speed : 1))))
       }   
     }
     main();
   }
+  static snakesAlive() { return this.snakes.filter(snake => snake.alive).length}
   static printWinner() {
     let maxPoints=this.snakes.reduce((acc,snake) => snake.points() > acc ? snake.points() : acc,0)
     let winners = this.snakes.filter(snake => snake.points() >= maxPoints).map(snake => snake.index())
