@@ -26,7 +26,6 @@ export default class Snake {
 }
   alive = true
   direction = {x: +1, y: 0}
-  print() {Board.paint(this.scales, 'Snake')}
   points() {return this.scales.length-this.initialLength}
   index() {return Game.snakes.indexOf(this)}
 
