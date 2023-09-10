@@ -1,7 +1,8 @@
 import Board from './Board.js'
 
 const table = document.querySelector('aside table'),
-  status = document.querySelector('#status > div')
+  status = document.querySelector('#status > div'),
+  highScores = document.querySelector('#highScores > table')
 
 export default class Game {
   static #snakes = []
@@ -19,6 +20,7 @@ export default class Game {
     Game.borders = borders
     Game.selfDestruct = selfDestruct
     Game.goalPoints = goalPoints
+    Game.printHighScores()
   }
   static start() {
     this.paused = false
@@ -59,14 +61,22 @@ export default class Game {
     this.running=false
     const points = this.printWinner()
     if (points) {
-      this.localStorage.highScores.push(points)
+      this.localStorage.highScores = this.localStorage.highScores.concat(points).sort((a,b) => b-a).slice(0,15)
       localStorage.setItem('snakeGame', JSON.stringify(this.localStorage))
+      this.printHighScores()
     }
     Board.borderBlink()
   }
   static snakesInclude(square) {
     return this.snakes.reduce((acc, snake) => acc.concat(snake.scales), [])
       .some(({x, y}) => x === square.x && y === square.y)
+  }
+  static printHighScores(){
+    highScores.innerHTML = '<tr><th></th></tr>'
+    this.localStorage.highScores.forEach(n => {
+      highScores.innerHTML += `<tr><td>${n}</tr>`
+    })
+
   }
   static setApple() {
     do this.apple = {x: Math.floor(Math.random() * Board.width), y: Math.floor(Math.random() * Board.height)}
