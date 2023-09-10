@@ -1,5 +1,7 @@
 import Board from "./Board.js"
 import Game from "./Game.js"
+const status = document.querySelector('#status > div')
+
 
 
 export default class Snake {
@@ -22,8 +24,6 @@ export default class Snake {
         if (event.key === key && i % 2 != Snake.directions.indexOf(this.direction) % 2) this.direction = Snake.directions[i]
       })})
     }
-  died() {console.log(`Snake ${Game.snakes.indexOf(this)} died!`) 
-}
   alive = true
   direction = {x: +1, y: 0}
   points() {return this.scales.length-this.initialLength}
@@ -60,7 +60,7 @@ export default class Snake {
         .some(({x,y}) => x == tail.x && y == tail.y))  Board.paint([tail], 'Board')
       }
       
-    } else {this.died()}   
+    } else {status.innerHTML += `<p>Snake <b>${this.index()}</b> died!<p>`}   
 
   }
 
