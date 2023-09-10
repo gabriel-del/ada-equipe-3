@@ -66,9 +66,6 @@ export default class Game {
     .some(({x,y}) => x == square.x && y == square.y)}
   static setApple(){
     do {this.apple = { x: Math.floor(Math.random() * Board.width), y:  Math.floor(Math.random() * Board.height)}
-      this.snakes.forEach(snake => {
-        snake.score++
-      })
     } while (this.snakesInclude(this.apple))
     Board.paint([this.apple], 'Apple')
   }
