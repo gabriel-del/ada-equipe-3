@@ -33,8 +33,8 @@ export default class Board {
           case 2: ctx.fillStyle = "#FF0" ;break  
           case 3: ctx.fillStyle = "#408" ;break  
         } break; }
-      ctx.fillRect(x*Board.squareSize, y*Board.squareSize, Board.squareSize, Board.squareSize)
-      ctx.strokeRect(x*Board.squareSize, y*Board.squareSize, Board.squareSize, Board.squareSize)
+      ctx.fillRect(x*this.squareSize, y*this.squareSize, this.squareSize, this.squareSize)
+      ctx.strokeRect(x*this.squareSize, y*this.squareSize, this.squareSize, this.squareSize)
     })
   }
  

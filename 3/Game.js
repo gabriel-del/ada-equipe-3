@@ -25,9 +25,9 @@ export default class Game {
       while (this.snakesAlive() > 0 && this.running && !this.paused) {
         this.snakes.forEach(snake => {if (snake.alive) snake.move() })
         if(this.isMultiplayer()) 
-        {       if (this.snakesAlive() <= 1) Game.end()} 
-        else {  if (this.snakesAlive() == 0) Game.end() }
-        let speed = Game.speed[0]+Math.floor(Game.snakes.reduce((acc,snake) => acc+snake.points(), 0)/Game.speed[1])*Game.speed[2]
+        {       if (this.snakesAlive() <= 1) this.end()} 
+        else {  if (this.snakesAlive() == 0) this.end() }
+        let speed = this.speed[0]+Math.floor(this.snakes.reduce((acc,snake) => acc+snake.points(), 0)/this.speed[1])*this.speed[2]
         await new Promise(_ => setTimeout(_, Math.floor(1000 / (speed > 0 ? speed : 1))))
       }   
     }
@@ -56,23 +56,23 @@ export default class Game {
   static end() {
     this.running=false
     let winner = this.printWinner() // when winner not undefined => localstorage
-  Game.snakes.forEach(snake => {
+  this.snakes.forEach(snake => {
     localStorage.setItem(`Points Snake ${snake.index()}`,snake.scales.length-snake.lengthStart)
   });
   }
   static snakesInclude(square) { return this.snakes.reduce( (acc,snake) => acc.concat(snake.scales), [])
     .some(({x,y}) => x == square.x && y == square.y)}
   static setApple(){
-    do {Game.apple = { x: Math.floor(Math.random() * Board.width), y:  Math.floor(Math.random() * Board.height)}
-      Game.snakes.forEach(snake => {
+    do {this.apple = { x: Math.floor(Math.random() * Board.width), y:  Math.floor(Math.random() * Board.height)}
+      this.snakes.forEach(snake => {
         snake.score++
       })
     } while (this.snakesInclude(this.apple))
-    Board.paint([Game.apple], 'Apple')
+    Board.paint([this.apple], 'Apple')
   }
   static printPoints() { 
     table.innerHTML = `<tr><th>Snake</th><th>Points</th></tr>`
-    Game.snakes.forEach(snake => {
+    this.snakes.forEach(snake => {
       table.innerHTML += `<tr><td>${snake.index()}</td><td>${snake.points()}</td></tr>`
   })}
   static get snakes() {return this.#snakes}
