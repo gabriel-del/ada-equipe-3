@@ -6,8 +6,6 @@ const status = document.querySelector('#status > div')
 
 export default class Snake {
   static directions = [{x: -1, y: 0}, {x: 0, y: -1}, {x: +1, y: 0}, {x: 0, y: +1}]
-  static lengthStart
-
   constructor(scalesInterval, keys) {
     this.scales = scalesInterval  
     if (scalesInterval[0].y === scalesInterval[1].y){
