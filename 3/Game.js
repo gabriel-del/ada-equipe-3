@@ -29,7 +29,7 @@ export default class Game {
       this.setApple()
       while (this.snakesAlive() > 0 && this.running && !this.paused) {
         this.snakes.forEach(snake => {if (snake.alive) snake.move()})
-        if (this.isMultiplayer()) {if (this.snakesAlive() <= 1) this.end()} else {if (this.snakesAlive() == 0) this.end()}
+        if (this.isMultiplayer()) {if (this.snakesAlive() <= 1) this.end()} else {if (this.snakesAlive() === 0) this.end()}
         const speed = this.speed[0]+Math.floor(this.snakes.reduce((acc, snake) => acc+snake.points(), 0)/this.speed[1])*this.speed[2]
         await new Promise(_ => setTimeout(_, Math.floor(1000 / (speed > 0 ? speed : 1))))
       }
@@ -42,7 +42,7 @@ export default class Game {
   static freeSpaces() {return Board.squares.length - this.snakes.reduce((acc, snake) => snake.scales.length +acc, 0)}
   static printWinner() {
     if (this.isMultiplayer()) {
-      if (this.snakesAlive() == 0) {status.innerHTML = '<h3>Draw!</h3>'} else {
+      if (this.snakesAlive() === 0) {status.innerHTML = '<h3>Draw!</h3>'} else {
         const snakesAlive = this.snakes.filter(snake => snake.alive),
           maxPoints=snakesAlive.reduce((acc, snake) => snake.points() > acc ? snake.points() : acc, 0),
           winners = snakesAlive.filter(snake => snake.points() >= maxPoints).map(snake => snake.index())
@@ -73,7 +73,7 @@ export default class Game {
 
   static snakesInclude(square) {
     return this.snakes.reduce((acc, snake) => acc.concat(snake.scales), [])
-      .some(({x, y}) => x == square.x && y == square.y)
+      .some(({x, y}) => x === square.x && y === square.y)
   }
 
   static setApple() {

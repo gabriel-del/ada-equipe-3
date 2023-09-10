@@ -18,6 +18,8 @@
     "@typescript-eslint/brace-style": ["error", "1tbs", { "allowSingleLine": true }],
     "arrow-parens": ["error", "as-needed"],
     "antfu/if-newline": 0,
-    "block-spacing": ["error", "never"]
+    "block-spacing": ["error", "never"],
+    "promise/param-names": "off",
+    "no-new": 0
   }
 }

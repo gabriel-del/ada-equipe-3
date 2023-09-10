@@ -18,7 +18,7 @@ export default class Snake {
     Board.paint(this.scales, 'Snake', this.index())
     document.addEventListener('keydown', event => {
       keys.forEach((key, i) => {
-        if (event.key === key && i % 2 != Snake.directions.indexOf(this.direction) % 2) this.direction = Snake.directions[i]
+        if (event.key === key && i % 2 !== Snake.directions.indexOf(this.direction) % 2) this.direction = Snake.directions[i]
       })
     })
   }
@@ -35,7 +35,7 @@ export default class Snake {
         this.alive = false
       } else {
         Board.paint([this.scales.shift()], 'Board')
-        if (this.scales.length == 0) this.alive = false
+        if (this.scales.length === 0) this.alive = false
         Game.printPoints()
       }
     }
@@ -48,7 +48,7 @@ export default class Snake {
     if (this.alive) {
       this.scales.push(head)
       Board.paint([head], 'Snake', this.index())
-      if (JSON.stringify(head) == JSON.stringify(Game.apple)) {
+      if (JSON.stringify(head) === JSON.stringify(Game.apple)) {
         Game.printPoints()
         Game.freeSpaces() > 0 ? Game.setApple() : Game.end()
         if (this.points() >= Game.goalPoints) Game.end()
