@@ -5,7 +5,7 @@ import Snake from './Snake.js'
 // (speed, Die on borders, selfDestruct, goalPoints)
 new Game([7, 1, 1], false, true, 4)
 // (Size of one square, width, height)
-new Board(50, 30, 20)
+new Board(40, 20, 20)
 // ([snake Beginning, snake End], [Left, Up, Right, Down])
 new Snake([{x: 1, y: 10}, {x: 5, y: 10}], ['ArrowLeft', 'ArrowUp', 'ArrowRight', 'ArrowDown'])
 // new Snake([{x: 2, y: 4}, {x: 5, y: 4}], ['a', 'w', 'd', 's'])

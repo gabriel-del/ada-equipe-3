@@ -19,7 +19,7 @@ export default class Board {
   }
   static paint(squares, what, id) {
     squares.forEach(({x, y}) => {
-      ctx.lineWidth = 2
+      ctx.lineWidth = 8
       ctx.strokeStyle = '#030a14'
       switch (what) {
         case 'Board': ctx.fillStyle = '#030a14'; break

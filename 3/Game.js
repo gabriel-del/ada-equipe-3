@@ -24,7 +24,7 @@ export default class Game {
   }
   static start() {
     this.paused = false
-    status.innerHTML='Jogo em andamento'
+    status.innerHTML='Game on'
     const main = async () => {
       while (this.snakesAlive() > 0 && this.running && !this.paused) {
         this.snakes.forEach(snake => {if (snake.alive) snake.move()})
@@ -48,14 +48,14 @@ export default class Game {
         winners.forEach(winner => status.innerHTML += `<p>Snake ${winner} with <b>${maxPoints}</b> points.</p>`)
       }
     } else {
-      status.innerHTML = (Game.freeSpaces() > 0) ? '<h3>You did</h3>' : '<h3>You Won!</h3>'
+      status.innerHTML = (Game.freeSpaces() > 0) ? '<p>You did</p>' : '<p>You Won!</p>'
       status.innerHTML += `<p><b>${this.snakes[0].points()} points!</p>`
       return this.snakes[0].points()
     }
   }
   static stop() {
     this.paused = true
-    status.innerHTML='Jogo Pausado'
+    status.innerHTML='Game Paused'
   }
   static end() {
     this.running=false
