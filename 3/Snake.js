@@ -17,12 +17,13 @@ export default class Snake {
     Board.paint(this.scales, 'Snake', this.index())
     document.addEventListener('keydown', event => {
       keys.forEach((key, i) => {
-        if (event.key === key && i % 2 !== Snake.directions.indexOf(this.direction) % 2) this.direction = Snake.directions[i]
+        if (event.key === key && i % 2 !== Snake.directions.indexOf(this.lastDirection) % 2) this.direction = Snake.directions[i]
       })
     })
   }
   alive = true
   direction = {x: +1, y: 0}
+  lastDirection = {x: +1, y: 0}
   points() {return this.scales.length-this.initialLength}
   index() {return Game.snakes.indexOf(this)}
   move() {
@@ -54,5 +55,6 @@ export default class Snake {
         if (!Game.snakesInclude(tail)) Board.paint([tail], 'Board')
       }
     } else {status.innerHTML += `<p>Snake <b>${this.index()}</b> died!<p>`}
+    this.lastDirection = this.direction
   }
 }
