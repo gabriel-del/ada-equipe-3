@@ -19,7 +19,7 @@ main {
   height: 80vh;
 }
 
-main p, table {
+main p, table,h2{
   font-family: 'Klee One', cursive;
   color: #fff;
 }
@@ -31,6 +31,16 @@ aside {
   border: 1px solid #313131;
   border-radius: 8px;
 }
+
+#startGame{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 12px;
+  padding: 5px;
+  border-radius: 10px;
+}
+
 
 canvas {max-width: 75%;}
 table {margin: 0 auto;}

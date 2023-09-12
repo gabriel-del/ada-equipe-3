@@ -17,9 +17,28 @@
   <main>
     <aside>
       <section id="status">
-        <h3>Status</h3>
+        <!-- <h3>Status</h3> -->
         <div>
-          <p>Press any key to start</p>
+          <!-- <p>Press any key to start</p> -->
+          
+          <h3>Escolha as opções do jogo</h3>
+
+          <p>Velocidade da cobra</p>
+          <input type="number" name="speed" id="speed">
+
+          <p>Tamanho do tabuleiro</p>
+          Largura <input type="number" name="widthTab" id="widthTab"> 
+          Altura <input type="number" name="heightTab" id="heightTab"> 
+
+          <p>Quantidade máxima de pontos</p>
+          <input type="number" name="maxPoints" id="maxPoints"> 
+
+          <p>Dificuldade do jogo</p>
+
+          <input type="radio" name="gameMode" id="easyMode" value="easy">Easy
+          <input type="radio" name="gameMode" id="hardMode" value="hard">Hard
+
+          <button id="startGame">Começar Jogo </button>
         </div>
       </section>
       <section id="score">
