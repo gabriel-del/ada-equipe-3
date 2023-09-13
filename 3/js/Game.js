@@ -21,11 +21,9 @@ export default class Game {
     Game.selfDestruct = selfDestruct
     Game.goalPoints = goalPoints
     Game.printHighScores()
-    console.log(`spped do game = ${Game.speed}`)
   }
   static start() {
     this.paused = false
-    status.innerHTML='Game on'
     const main = async () => {
       while (this.snakesAlive() > 0 && this.running && !this.paused) {
         this.snakes.forEach(snake => {if (snake.alive) snake.move()})
