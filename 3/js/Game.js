@@ -24,6 +24,7 @@ export default class Game {
   }
   static start() {
     this.paused = false
+    status.innerHTML='Game on'
     const main = async () => {
       while (this.snakesAlive() > 0 && this.running && !this.paused) {
         this.snakes.forEach(snake => {if (snake.alive) snake.move()})
