@@ -18,13 +18,22 @@ new Snake([{x: 1, y: 10}, {x: 5, y: 10}], ['ArrowLeft', 'ArrowUp', 'ArrowRight',
 // })
 let buttonStart = document.getElementById("startGame");
 
-const speed = document.getElementById("speed");
-const widthTab = document.getElementById("widthTab");
-const heightTab = document.getElementById("heightTab");
-const goalPoints = document.getElementById("maxPoints");
-const option = document.getElementsByName("gameMode");
 
-let optionGame = "";
+
+
+let form = document.getElementById("form")
+
+
+form.addEventListener("submit", function(event){
+
+  event.preventDefault()
+  let speed = document.getElementById("speed");
+  const widthTab = document.getElementById("widthTab");
+  const heightTab = document.getElementById("heightTab");
+  const goalPoints = document.getElementById("maxPoints");
+  const option = document.getElementsByName("gameMode");
+  
+  let optionGame = "";
 
 for (let opcao of option) {
   if (opcao.checked) {
@@ -33,15 +42,9 @@ for (let opcao of option) {
   }
 }
 
-let form = document.getElementById("form")
-console.log(form)
-
-form.addEventListener("submit", function(event){
-
-  event.preventDefault()
-
+  new Game([speed.value, 1, 1], false, true, 999)
   // if(speed & widthTab & heightTab & goalPoints & optionGame){
-    new Game([speed.value, 1, 1], true, true, goalPoints.value)
+    // new Game([speed.value, 1, 1], true, true, goalPoints.value)
   //   new Board(40,widthTab.value , heightTab.value)
   //   new Snake([{x: 1, y: 10}, {x: 5, y: 10}], ['ArrowLeft', 'ArrowUp', 'ArrowRight', 'ArrowDown'])
   // }

@@ -1,3 +1,9 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
   background-color: #030a14;
   min-height: 95vh;
@@ -31,6 +37,19 @@ aside {
   border: 1px solid #313131;
   border-radius: 8px;
 }
+
+p{
+  margin-bottom: 10px;
+}
+
+input{
+  padding: 5px;
+  margin-bottom: 10px;
+  border-radius: 13px;
+  background-color: #313131;
+  color: white;
+}
+
 
 #startGame{
   display: block;

@@ -21,6 +21,7 @@ export default class Game {
     Game.selfDestruct = selfDestruct
     Game.goalPoints = goalPoints
     Game.printHighScores()
+    console.log(`spped do game = ${Game.speed}`)
   }
   static start() {
     this.paused = false
